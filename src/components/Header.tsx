@@ -103,17 +103,17 @@ export function Header() {
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="outline" size="sm">
-              <Phone className="w-4 h-4 mr-2" />
-              Call Now
+          <div className="hidden lg:flex items-center space-x-2">
+            <Button variant="outline" size="sm" className="px-3 py-1.5 text-xs">
+              <Phone className="w-3 h-3 mr-1" />
+              Call
             </Button>
-            <Button size="sm">
-              <MessageCircle className="w-4 h-4 mr-2" />
+            <Button size="sm" className="px-3 py-1.5 text-xs">
+              <MessageCircle className="w-3 h-3 mr-1" />
               WhatsApp
             </Button>
-            <Button variant="gold" size="sm">
-              Request Quote
+            <Button variant="gold" size="sm" className="px-3 py-1.5 text-xs">
+              Quote
             </Button>
           </div>
 
