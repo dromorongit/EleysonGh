@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Star, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, CheckCircle, Star, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone, MapPin, Layers } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
 
 const fadeInUp = {
@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-20 md:pt-0">
         {/* Layered Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-energy-50" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary-900/5 to-energy-500/5" />
@@ -47,6 +47,9 @@ export default function Home() {
           }}
         />
 
+        {/* Engineering Atmosphere Overlay */}
+        <div className="absolute inset-0 bg-radial-gradient from-energy-100/30 via-transparent to-transparent opacity-40" />
+
         <Container className="relative z-10">
           <motion.div
             className="max-w-5xl mx-auto text-center"
@@ -55,12 +58,12 @@ export default function Home() {
             variants={stagger}
           >
              <motion.h1
-               className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-primary-900 mb-8 leading-[0.9] tracking-tight"
+               className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-primary-900 mb-8 leading-[0.85] tracking-tight"
                variants={fadeInUp}
              >
                Engineering the Future<br />
-               of <span className="text-energy-600">Energy</span> &<br />
-               <span className="text-primary-600">Water</span>
+               of <span className="bg-gradient-to-r from-energy-600 to-energy-800 bg-clip-text text-transparent">Energy</span> &<br />
+               <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Water</span>
              </motion.h1>
             <motion.p
               className="text-xl md:text-2xl text-secondary-700 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
@@ -94,7 +97,7 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-6 justify-center"
               variants={fadeInUp}
             >
-              <Button size="lg" variant="gold" className="text-lg px-10 py-5 shadow-2xl hover:shadow-gold/25">
+              <Button size="lg" variant="gold" className="text-lg px-10 py-5 bg-gradient-to-r from-gold to-gold/90 shadow-2xl hover:shadow-gold/30 hover:from-gold/90 hover:to-gold/80 transition-all duration-300">
                 <MessageCircle className="w-5 h-5 mr-3" />
                 Request a Quote
               </Button>
@@ -108,59 +111,74 @@ export default function Home() {
       </section>
 
       {/* Credibility Strip */}
-      <section className="bg-primary-900 text-white py-8">
+      <section className="bg-primary-900 text-white py-12">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
+            <div className="flex flex-col items-center space-y-2">
+              <Zap className="w-8 h-8 text-accent-400" />
               <div className="text-3xl font-bold text-accent-400">13+</div>
-              <div className="text-primary-200">Years Experience</div>
+              <div className="text-primary-200 font-medium">Years Experience</div>
             </div>
-            <div>
+            <div className="flex flex-col items-center space-y-2">
+              <CheckCircle className="w-8 h-8 text-accent-400" />
               <div className="text-3xl font-bold text-accent-400">500+</div>
-              <div className="text-primary-200">Projects Completed</div>
+              <div className="text-primary-200 font-medium">Projects Completed</div>
             </div>
-            <div>
+            <div className="flex flex-col items-center space-y-2">
+              <MapPin className="w-8 h-8 text-accent-400" />
               <div className="text-3xl font-bold text-accent-400">Nationwide</div>
-              <div className="text-primary-200">Coverage</div>
+              <div className="text-primary-200 font-medium">Coverage</div>
             </div>
-            <div>
+            <div className="flex flex-col items-center space-y-2">
+              <Layers className="w-8 h-8 text-accent-400" />
               <div className="text-3xl font-bold text-accent-400">Dual</div>
-              <div className="text-primary-200">Expertise Areas</div>
+              <div className="text-primary-200 font-medium">Expertise Areas</div>
             </div>
           </div>
         </Container>
       </section>
 
       {/* About Section */}
-      <Section>
+      <Section className="bg-gradient-to-br from-secondary-50 via-white to-primary-50/30">
         <Container>
-          <motion.div
-            className="max-w-3xl mx-auto text-center"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            <motion.h2
-              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-8 leading-tight"
-              variants={fadeInUp}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              className="order-2 lg:order-1"
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              variants={stagger}
             >
-              Ghana's Premier<br />Engineering Partner
-            </motion.h2>
-            <motion.p
-              className="text-xl text-secondary-700 mb-12 leading-relaxed font-light"
-              variants={fadeInUp}
-            >
-              Eleyson Ghana Limited stands as Ghana's leading engineering firm specializing in renewable energy
-              and hydrogeological solutions. With over 13 years of proven expertise, we deliver comprehensive
-              engineering services across residential, commercial, industrial, and government sectors.
-            </motion.p>
-            <motion.div variants={fadeInUp}>
-              <Link href="/about">
-                <Button variant="outline">Learn More About Us</Button>
-              </Link>
+              <motion.h2
+                className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-8 leading-tight"
+                variants={fadeInUp}
+              >
+                Ghana's Premier<br />Engineering Partner
+              </motion.h2>
+              <motion.p
+                className="text-xl text-secondary-700 mb-12 leading-relaxed font-light"
+                variants={fadeInUp}
+              >
+                Eleyson Ghana Limited stands as Ghana's leading engineering firm specializing in renewable energy
+                and hydrogeological solutions. With over 13 years of proven expertise, we deliver comprehensive
+                engineering services across residential, commercial, industrial, and government sectors.
+              </motion.p>
+              <motion.div variants={fadeInUp}>
+                <Link href="/about">
+                  <Button variant="outline">Learn More About Us</Button>
+                </Link>
+              </motion.div>
             </motion.div>
-          </motion.div>
+            <motion.div
+              className="order-1 lg:order-2 aspect-square bg-gradient-to-br from-primary-100 to-energy-100 rounded-2xl shadow-lg"
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+            >
+              {/* Placeholder for brand visual */}
+            </motion.div>
+          </div>
         </Container>
       </Section>
 
