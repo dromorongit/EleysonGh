@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["nodejs", "npm"]
+
+[phases.install]
+cmds = ["cd eleysongh && npm install"]
+
+[phases.build]
+cmds = ["cd eleysongh && npm run build"]
+
+[start]
+cmd = "cd eleysongh && npm run start"
