@@ -54,14 +54,22 @@ export default function Home() {
             animate="animate"
             variants={stagger}
           >
-            <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-primary-900 mb-8 leading-[0.9] tracking-tight"
-              variants={fadeInUp}
-            >
-              Engineering the Future<br />
-              of <span className="text-energy-600">Energy</span> &<br />
-              <span className="text-primary-600">Water</span>
-            </motion.h1>
+             <motion.div
+               className="mb-4"
+               variants={fadeInUp}
+             >
+               <span className="inline-block bg-navy text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                 NEW BUILD ACTIVE
+               </span>
+             </motion.div>
+             <motion.h1
+               className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-primary-900 mb-8 leading-[0.9] tracking-tight"
+               variants={fadeInUp}
+             >
+               Engineering the Future<br />
+               of <span className="text-energy-600">Energy</span> &<br />
+               <span className="text-primary-600">Water</span>
+             </motion.h1>
             <motion.p
               className="text-xl md:text-2xl text-secondary-700 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
               variants={fadeInUp}
