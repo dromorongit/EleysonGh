@@ -194,7 +194,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-gold/20">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-white/70 text-sm">
-              © 2024 Eleyson Ghana Limited. All rights reserved.
+              © 2026 Eleyson Ghana Limited. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <Link href="/privacy" className="text-white/70 hover:text-gold transition-colors">
