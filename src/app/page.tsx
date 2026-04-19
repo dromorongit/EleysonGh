@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Star, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
@@ -21,10 +20,6 @@ const stagger = {
 };
 
 export default function Home() {
-  useEffect(() => {
-    console.log("Premium Navy/Gold UI Loaded");
-  }, []);
-
   return (
     <>
       {/* Hero Section */}
@@ -67,7 +62,6 @@ export default function Home() {
               of <span className="text-energy-600">Energy</span> &<br />
               <span className="text-primary-600">Water</span>
             </motion.h1>
-            <div style={{backgroundColor: '#0B1F3A', color: 'white', padding: '10px', marginBottom: '20px'}}>Test Navy Background</div>
             <motion.p
               className="text-xl md:text-2xl text-secondary-700 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
               variants={fadeInUp}
