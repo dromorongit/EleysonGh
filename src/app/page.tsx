@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Star, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
@@ -20,6 +21,10 @@ const stagger = {
 };
 
 export default function Home() {
+  useEffect(() => {
+    console.log("Premium Navy/Gold UI Loaded");
+  }, []);
+
   return (
     <>
       {/* Hero Section */}
