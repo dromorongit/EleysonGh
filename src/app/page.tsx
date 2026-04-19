@@ -6,9 +6,9 @@ import { ArrowRight, CheckCircle, Star, Zap, Droplets, Users, Award, TrendingUp,
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
 };
 
 const stagger = {
@@ -23,40 +23,84 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-primary-50 via-white to-energy-50 overflow-hidden">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Layered Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-energy-50" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary-900/5 to-energy-500/5" />
+        <div className="absolute inset-0 bg-radial-gradient from-gold/10 via-transparent to-transparent opacity-60" />
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[800px] h-[800px] bg-gradient-radial from-gold/5 to-transparent rounded-full blur-3xl" />
+
+        {/* Subtle Ambient Motion */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-br from-primary-100/20 to-energy-100/20"
+          animate={{
+            backgroundPosition: ["0% 0%", "100% 100%"],
+          }}
+          transition={{
+            duration: 20,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          style={{
+            backgroundSize: "200% 200%",
+          }}
+        />
+
         <Container className="relative z-10">
           <motion.div
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-5xl mx-auto text-center"
             initial="initial"
             animate="animate"
             variants={stagger}
           >
             <motion.h1
-              className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-900 mb-6 leading-tight"
+              className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-primary-900 mb-8 leading-[0.9] tracking-tight"
               variants={fadeInUp}
             >
-              Engineering the Future of
-              <span className="text-energy-600"> Energy</span> & <span className="text-primary-600">Water</span>
+              Engineering the Future<br />
+              of <span className="text-energy-600">Energy</span> &<br />
+              <span className="text-primary-600">Water</span>
             </motion.h1>
             <motion.p
-              className="text-lg md:text-xl text-secondary-600 mb-8 max-w-2xl mx-auto leading-relaxed"
+              className="text-xl md:text-2xl text-secondary-700 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
               variants={fadeInUp}
             >
               Premium solar energy and hydrogeological engineering solutions for Ghana and West Africa.
+              <br className="hidden md:block" />
               Technical excellence, proven execution, and sustainable innovation since 2011.
             </motion.p>
+
+            {/* Trust Indicators */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-wrap justify-center gap-8 mb-12 text-sm md:text-base"
               variants={fadeInUp}
             >
-              <Button size="lg" variant="gold" className="text-lg px-8 py-4">
-                <MessageCircle className="w-5 h-5 mr-2" />
+              <div className="flex items-center space-x-2 text-secondary-600">
+                <div className="w-2 h-2 bg-gold rounded-full" />
+                <span>13+ Years Experience</span>
+              </div>
+              <div className="flex items-center space-x-2 text-secondary-600">
+                <div className="w-2 h-2 bg-gold rounded-full" />
+                <span>500+ Projects Completed</span>
+              </div>
+              <div className="flex items-center space-x-2 text-secondary-600">
+                <div className="w-2 h-2 bg-gold rounded-full" />
+                <span>Nationwide Coverage</span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+              variants={fadeInUp}
+            >
+              <Button size="lg" variant="gold" className="text-lg px-10 py-5 shadow-2xl hover:shadow-gold/25">
+                <MessageCircle className="w-5 h-5 mr-3" />
                 Request a Quote
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+              <Button variant="outline" size="lg" className="text-lg px-10 py-5 border-2 hover:bg-primary-50">
                 Explore Projects
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-5 h-5 ml-3" />
               </Button>
             </motion.div>
           </motion.div>
@@ -91,20 +135,20 @@ export default function Home() {
       <Section>
         <Container>
           <motion.div
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-3xl mx-auto text-center"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={stagger}
           >
             <motion.h2
-              className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-8 leading-tight"
               variants={fadeInUp}
             >
-              Ghana's Premier Engineering Partner
+              Ghana's Premier<br />Engineering Partner
             </motion.h2>
             <motion.p
-              className="text-lg text-secondary-600 mb-8 leading-relaxed"
+              className="text-xl text-secondary-700 mb-12 leading-relaxed font-light"
               variants={fadeInUp}
             >
               Eleyson Ghana Limited stands as Ghana's leading engineering firm specializing in renewable energy
@@ -124,20 +168,20 @@ export default function Home() {
       <Section className="bg-secondary-50">
         <Container>
           <motion.div
-            className="text-center mb-12"
+            className="text-center mb-16"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={stagger}
           >
             <motion.h2
-              className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-4"
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6 leading-tight"
               variants={fadeInUp}
             >
-              Our Engineering Solutions
+              Our Engineering<br />Solutions
             </motion.h2>
             <motion.p
-              className="text-lg text-secondary-600 max-w-2xl mx-auto"
+              className="text-xl text-secondary-700 max-w-2xl mx-auto font-light"
               variants={fadeInUp}
             >
               Comprehensive engineering services backed by technical expertise and proven execution
@@ -215,23 +259,23 @@ export default function Home() {
       </Section>
 
       {/* Featured Projects Preview */}
-      <Section>
+      <Section className="bg-gradient-to-br from-navy via-primary-900 to-navy text-white">
         <Container>
           <motion.div
-            className="text-center mb-12"
+            className="text-center mb-16"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={stagger}
           >
             <motion.h2
-              className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-4"
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight"
               variants={fadeInUp}
             >
               Featured Projects
             </motion.h2>
             <motion.p
-              className="text-lg text-secondary-600 max-w-2xl mx-auto"
+              className="text-xl text-white/80 max-w-2xl mx-auto font-light"
               variants={fadeInUp}
             >
               Real-world engineering solutions delivering results across Ghana
@@ -266,21 +310,21 @@ export default function Home() {
               }
             ].map((project, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="h-full hover:shadow-lg transition-all duration-200">
-                  <div className="aspect-video bg-gradient-to-br from-primary-100 to-energy-100 rounded-t-lg" />
+                <Card className="h-full hover:shadow-xl transition-all duration-300 bg-white text-primary-900">
+                  <div className="aspect-video bg-gradient-to-br from-primary-200 to-energy-200 rounded-t-lg" />
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded">
+                      <span className="text-sm font-medium text-gold bg-gold/10 px-2 py-1 rounded">
                         {project.type}
                       </span>
-                      <span className="text-sm text-secondary-500">{project.location}</span>
+                      <span className="text-sm text-secondary-600">{project.location}</span>
                     </div>
                     <h3 className="text-lg font-semibold text-primary-900">
                       {project.title}
                     </h3>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-secondary-600 text-sm">{project.description}</p>
+                    <p className="text-secondary-700 text-sm">{project.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -295,7 +339,7 @@ export default function Home() {
             variants={fadeInUp}
           >
             <Link href="/projects">
-              <Button size="lg">
+              <Button size="lg" variant="gold">
                 View All Projects
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
