@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import \{ Menu, X, ChevronDown, Phone \} from "lucide-react";`nimport \{ FaWhatsapp \} from "react-icons/fa";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "./Button";
 import { cn } from "@/lib/utils";
 
@@ -172,7 +173,7 @@ export function Header() {
                 Call Now
               </Button>
               <Button className="w-full justify-center">
-                <MessageCircle className="w-4 h-4 mr-2" />
+                <FaWhatsapp className="w-4 h-4 mr-2" />
                 WhatsApp
               </Button>
               <Button variant="gold" className="w-full justify-center">
