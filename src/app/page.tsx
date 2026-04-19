@@ -1,4 +1,5 @@
 "use client";
+// Micro refinements applied
 
 import Link from "next/link";
 import { motion } from "framer-motion";
