@@ -94,19 +94,23 @@ export default function Home() {
               </div>
             </motion.div>
 
-            <motion.div
-              className="flex flex-col sm:flex-row gap-6 justify-center"
-              variants={fadeInUp}
-            >
-              <Button size="lg" variant="gold" className="text-lg px-10 py-5 bg-gradient-to-r from-gold to-gold/90 shadow-2xl hover:shadow-gold/30 hover:from-gold/90 hover:to-gold/80 transition-all duration-300">
-                <MessageCircle className="w-5 h-5 mr-3" />
-                Request a Quote
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-10 py-5 border-2 hover:bg-primary-50">
-                Explore Projects
-                <ArrowRight className="w-5 h-5 ml-3" />
-              </Button>
-            </motion.div>
+             <motion.div
+               className="flex flex-col sm:flex-row gap-6 justify-center"
+               variants={fadeInUp}
+             >
+               <Link href="/request-a-quote">
+                 <Button size="lg" variant="gold" className="text-lg px-10 py-5 bg-gradient-to-r from-gold to-gold/90 shadow-2xl hover:shadow-gold/30 hover:from-gold/90 hover:to-gold/80 transition-all duration-300">
+                   <MessageCircle className="w-5 h-5 mr-3" />
+                   Request a Quote
+                 </Button>
+               </Link>
+               <Link href="/projects">
+                 <Button variant="outline" size="lg" className="text-lg px-10 py-5 border-2 hover:bg-primary-50">
+                   Explore Projects
+                   <ArrowRight className="w-5 h-5 ml-3" />
+                 </Button>
+               </Link>
+             </motion.div>
           </motion.div>
         </Container>
       </section>
@@ -391,18 +395,20 @@ export default function Home() {
               Our experts are ready to discuss your project requirements.
             </motion.p>
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              variants={fadeInUp}
-            >
-              <Button size="lg" variant="gold" className="text-lg px-8 py-4">
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Request a Quote
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary-900">
-                <Phone className="w-5 h-5 mr-2" />
-                Call Now
-              </Button>
-            </motion.div>
+               className="flex flex-col sm:flex-row gap-4 justify-center"
+               variants={fadeInUp}
+             >
+               <Link href="/request-a-quote">
+                 <Button size="lg" variant="gold" className="text-lg px-8 py-4">
+                   <MessageCircle className="w-5 h-5 mr-2" />
+                   Request a Quote
+                 </Button>
+               </Link>
+               <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary-900">
+                 <Phone className="w-5 h-5 mr-2" />
+                 Call Now
+               </Button>
+             </motion.div>
           </motion.div>
         </Container>
       </section>

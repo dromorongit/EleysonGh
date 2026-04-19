@@ -160,15 +160,17 @@ export function Footer() {
                 </p>
               </div>
             </div>
-            <div className="pt-4 space-y-2">
-              <Button variant="gold" className="w-full">
-                Request a Quote
-              </Button>
-              <Button variant="outline" className="w-full border-white/20 text-white/70 hover:bg-white/10">
-                <MessageCircle className="w-4 h-4 mr-2" />
-                WhatsApp Us
-              </Button>
-            </div>
+             <div className="pt-4 space-y-2">
+               <Link href="/request-a-quote">
+                 <Button variant="gold" className="w-full">
+                   Request a Quote
+                 </Button>
+               </Link>
+               <Button variant="outline" className="w-full border-white/20 text-white/70 hover:bg-white/10">
+                 <MessageCircle className="w-4 h-4 mr-2" />
+                 WhatsApp Us
+               </Button>
+             </div>
           </div>
 
           {/* Newsletter */}

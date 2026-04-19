@@ -113,9 +113,11 @@ export function Header() {
               <FaWhatsapp className="w-3 h-3 mr-1" />
               WhatsApp
             </Button>
-            <Button variant="gold" size="sm" className="px-3 py-1.5 text-xs">
-              Quote
-            </Button>
+            <Link href="/request-a-quote">
+              <Button variant="gold" size="sm" className="px-3 py-1.5 text-xs">
+                Quote
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -167,19 +169,21 @@ export function Header() {
                 )}
               </div>
             ))}
-            <div className="pt-4 border-t border-gold/20 space-y-3">
-              <Button variant="outline" className="w-full justify-center">
-                <Phone className="w-4 h-4 mr-2" />
-                Call Now
-              </Button>
-              <Button className="w-full justify-center">
-                <FaWhatsapp className="w-4 h-4 mr-2" />
-                WhatsApp
-              </Button>
-              <Button variant="gold" className="w-full justify-center">
-                Request Quote
-              </Button>
-            </div>
+             <div className="pt-4 border-t border-gold/20 space-y-3">
+               <Button variant="outline" className="w-full justify-center">
+                 <Phone className="w-4 h-4 mr-2" />
+                 Call Now
+               </Button>
+               <Button className="w-full justify-center">
+                 <FaWhatsapp className="w-4 h-4 mr-2" />
+                 WhatsApp
+               </Button>
+               <Link href="/request-a-quote">
+                 <Button variant="gold" className="w-full justify-center">
+                   Request Quote
+                 </Button>
+               </Link>
+             </div>
           </div>
         </div>
       )}
