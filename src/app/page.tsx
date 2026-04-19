@@ -50,7 +50,7 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
               variants={fadeInUp}
             >
-              <Button size="lg" className="text-lg px-8 py-4">
+              <Button size="lg" variant="gold" className="text-lg px-8 py-4">
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Request a Quote
               </Button>
@@ -331,7 +331,7 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
               variants={fadeInUp}
             >
-              <Button size="lg" variant="accent" className="text-lg px-8 py-4">
+              <Button size="lg" variant="gold" className="text-lg px-8 py-4">
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Request a Quote
               </Button>

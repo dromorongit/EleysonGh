@@ -181,11 +181,11 @@ export default function ProductsPage() {
               }
             ].map((product, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="h-full">
+                <Card className="h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
                   <div className="aspect-video bg-gradient-to-br from-primary-100 to-energy-100 rounded-t-lg" />
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded">
+                      <span className="text-sm font-medium text-gold bg-gold/10 px-2 py-1 rounded">
                         {product.category}
                       </span>
                     </div>
@@ -193,11 +193,11 @@ export default function ProductsPage() {
                       {product.name}
                     </h3>
                     <p className="text-secondary-600 text-sm mb-4">{product.specs}</p>
-                    <p className="text-primary-600 font-medium">{product.price}</p>
+                    <p className="text-gold font-medium">{product.price}</p>
                   </CardHeader>
                   <CardContent>
-                    <Button className="w-full">
-                      Inquire Now
+                    <Button variant="gold" className="w-full group-hover:scale-105 transition-transform">
+                      Make Inquiry
                     </Button>
                   </CardContent>
                 </Card>
@@ -296,7 +296,7 @@ export default function ProductsPage() {
               energy or water system requirements. Get personalized recommendations based on your needs.
             </motion.p>
             <motion.div variants={fadeInUp}>
-              <Button size="lg">
+              <Button size="lg" variant="gold">
                 Get Expert Consultation
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
@@ -329,7 +329,7 @@ export default function ProductsPage() {
               and competitive pricing.
             </motion.p>
             <motion.div variants={fadeInUp}>
-              <Button size="lg" variant="accent" className="text-lg px-8 py-4">
+              <Button size="lg" variant="gold" className="text-lg px-8 py-4">
                 Browse All Products
               </Button>
             </motion.div>

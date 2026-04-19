@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X, ChevronDown, Phone, MessageCircle } from "lucide-react";
 import { Button } from "./Button";
@@ -30,9 +31,20 @@ const navigation = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-primary-100">
+    <header className={cn("sticky top-0 z-50 transition-all duration-300 border-b", isScrolled || !isHome ? "bg-white shadow-lg backdrop-blur-md border-primary-100" : "bg-transparent backdrop-blur-sm border-transparent")}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -100,7 +112,7 @@ export function Header() {
               <MessageCircle className="w-4 h-4 mr-2" />
               WhatsApp
             </Button>
-            <Button variant="accent" size="sm">
+            <Button variant="gold" size="sm">
               Request Quote
             </Button>
           </div>
@@ -121,13 +133,13 @@ export function Header() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-primary-100">
+        <div className="lg:hidden bg-navy border-t border-gold/20">
           <div className="px-4 py-6 space-y-4">
             {navigation.map((item) => (
               <div key={item.name}>
                 {item.children ? (
                   <div>
-                    <div className="font-medium text-secondary-900 mb-2">
+                    <div className="font-medium text-white mb-2">
                       {item.name}
                     </div>
                     <div className="ml-4 space-y-2">
@@ -135,7 +147,7 @@ export function Header() {
                         <Link
                           key={child.name}
                           href={child.href}
-                          className="block text-secondary-700 hover:text-primary-800"
+                          className="block text-white/90 hover:text-gold"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {child.name}
@@ -146,7 +158,7 @@ export function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="block text-secondary-700 hover:text-primary-800"
+                    className="block text-white/90 hover:text-gold"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
@@ -154,7 +166,7 @@ export function Header() {
                 )}
               </div>
             ))}
-            <div className="pt-4 border-t border-primary-100 space-y-3">
+            <div className="pt-4 border-t border-gold/20 space-y-3">
               <Button variant="outline" className="w-full justify-center">
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now
@@ -163,7 +175,7 @@ export function Header() {
                 <MessageCircle className="w-4 h-4 mr-2" />
                 WhatsApp
               </Button>
-              <Button variant="accent" className="w-full justify-center">
+              <Button variant="gold" className="w-full justify-center">
                 Request Quote
               </Button>
             </div>

@@ -61,6 +61,9 @@ const config: Config = {
           900: "#164e63",
           950: "#0c4a6e",
         },
+        navy: "#0B1F3A",
+        gold: "#C9A14A",
+        whatsapp: "#25D366",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],

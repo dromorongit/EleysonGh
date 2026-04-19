@@ -112,28 +112,28 @@ export default function ProjectsPage() {
               }
             ].map((project, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="h-full hover:shadow-lg transition-all duration-200">
-                  <div className="aspect-video bg-gradient-to-br from-primary-100 to-energy-100 rounded-t-lg" />
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded">
-                        {project.type}
-                      </span>
-                      <span className="text-sm text-secondary-500">{project.location}</span>
+                <Card className="h-full hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                  <div className="aspect-video bg-gradient-to-br from-secondary-400 to-secondary-600 bg-cover bg-center rounded-t-lg overflow-hidden group-hover:scale-105 transition-transform duration-300 relative">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent group-hover:from-black/90 transition-all duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm font-medium bg-gold text-navy px-2 py-1 rounded">
+                          {project.type}
+                        </span>
+                        <span className="text-sm text-white/80">{project.location}</span>
+                      </div>
+                      <h3 className="text-lg font-semibold mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-white/70 text-sm mb-4">{project.summary}</p>
+                      <Link href={`/projects/${project.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <Button variant="gold" size="sm">
+                          View Case Study
+                          <ArrowRight className="w-4 h-4 ml-1" />
+                        </Button>
+                      </Link>
                     </div>
-                    <h3 className="text-lg font-semibold text-primary-900 mb-2">
-                      {project.title}
-                    </h3>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-secondary-600 text-sm mb-4">{project.summary}</p>
-                    <Link href={`/projects/${project.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                      <Button variant="outline" size="sm">
-                        View Case Study
-                        <ArrowRight className="w-4 h-4 ml-1" />
-                      </Button>
-                    </Link>
-                  </CardContent>
+                  </div>
                 </Card>
               </motion.div>
             ))}
@@ -164,7 +164,7 @@ export default function ProjectsPage() {
               See how our engineering expertise can transform your energy and water challenges into successful solutions.
             </motion.p>
             <motion.div variants={fadeInUp}>
-              <Button size="lg" variant="accent" className="text-lg px-8 py-4">
+              <Button size="lg" variant="gold" className="text-lg px-8 py-4">
                 Start Your Project
               </Button>
             </motion.div>
