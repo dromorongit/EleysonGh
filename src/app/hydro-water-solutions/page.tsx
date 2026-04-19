@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Droplets, MapPin, FileText, Cog, Wrench, TestTube, CheckCircle, ArrowRight, Activity, Truck } from "lucide-react";

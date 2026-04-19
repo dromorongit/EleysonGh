@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { Section, Container, Card, CardHeader, CardContent } from "@/components";

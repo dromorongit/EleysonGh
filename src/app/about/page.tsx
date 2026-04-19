@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { CheckCircle, Users, Award, TrendingUp, Target, Heart } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";

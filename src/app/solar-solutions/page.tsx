@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Zap, Home, Building, Factory, Battery, TrendingUp, Users, Award, CheckCircle, ArrowRight, Sun, Power } from "lucide-react";

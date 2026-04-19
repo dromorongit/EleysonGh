@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";

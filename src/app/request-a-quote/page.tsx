@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Calculator, Send, CheckCircle } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";

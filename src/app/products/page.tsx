@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Package, Filter, Star, Shield, Truck, Headphones, ArrowRight, Sun, Zap, Battery, Settings } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
