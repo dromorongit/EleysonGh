@@ -23,8 +23,9 @@ export default function SolarSolutionsPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-energy-50 to-primary-50 min-h-[60vh] flex items-center">
-        <Container>
+      <Section className="bg-gradient-to-br from-energy-50 to-primary-50 min-h-[60vh] flex items-center relative">
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: 'url(/assets/images/solarsolutions.jpg)'}} />
+        <Container className="relative z-10">
           <motion.div
             className="max-w-4xl mx-auto text-center"
             initial="initial"

@@ -51,6 +51,9 @@ export default function Home() {
         {/* Engineering Atmosphere Overlay */}
         <div className="absolute inset-0 bg-radial-gradient from-energy-100/30 via-transparent to-transparent opacity-40" />
 
+        {/* Background Image */}
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: 'url(/assets/images/homepage.jpg)'}} />
+
         <Container className="relative z-10">
           <motion.div
             className="max-w-5xl mx-auto text-center"
