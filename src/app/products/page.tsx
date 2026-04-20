@@ -1,4 +1,5 @@
-"use client";`n// Trigger redeploy
+"use client";
+// Trigger redeploy
 
 import { motion } from "framer-motion";
 import { Package, Filter, Star, Shield, Truck, Headphones, ArrowRight, Sun, Zap, Battery, Settings } from "lucide-react";
