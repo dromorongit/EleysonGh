@@ -23,7 +23,7 @@ export default function ProjectsPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[50vh] flex items-center">
+      <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[50vh] flex items-center relative">`n        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: 'url(/images/projects.jpg)'}} />
         <Container>
           <motion.div
             className="max-w-4xl mx-auto text-center"
