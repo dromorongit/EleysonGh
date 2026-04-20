@@ -24,7 +24,7 @@ export default function HydroWaterSolutionsPage() {
     <>
       {/* Hero Section */}
       <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[60vh] flex items-center relative">
-        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: 'url(/assets/images/hydrosolutions.jpg)'}} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: 'url(/images/hydrosolutions.jpg)'}} />
         <Container className="relative z-10">
           <motion.div
             className="max-w-4xl mx-auto text-center"
