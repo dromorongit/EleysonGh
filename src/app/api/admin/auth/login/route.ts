@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
 import dbConnect from '@/lib/db';
 import { AdminUser } from '@/models/AdminUser';
 import bcrypt from 'bcryptjs';
@@ -50,8 +49,10 @@ export async function POST(req: NextRequest) {
     });
 
     // Set cookie using Next.js cookies API
-    const cookieStore = cookies();
-    cookieStore.set('admin_token', token, {
+    const cookieStore = await cookies();
+    cookieStore.set({
+      name: 'admin_token',
+      value: token,
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
