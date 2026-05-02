@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { cookies } from 'next/headers';
 import dbConnect from '@/lib/db';
 import { AdminUser } from '@/models/AdminUser';
 import bcrypt from 'bcryptjs';
@@ -48,7 +49,17 @@ export async function POST(req: NextRequest) {
       role: user.role,
     });
 
-    const response = NextResponse.json({
+    // Set cookie using Next.js cookies API
+    const cookieStore = cookies();
+    cookieStore.set('admin_token', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 60 * 60 * 24 * 7, // 7 days
+      path: '/',
+    });
+
+    return NextResponse.json({
       success: true,
       user: {
         id: user._id.toString(),
@@ -57,16 +68,6 @@ export async function POST(req: NextRequest) {
         role: user.role,
       },
     });
-
-    response.cookies.set('admin_token', token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 60 * 60 * 24 * 7, // 7 days
-      path: '/',
-    });
-
-    return response;
   } catch (error) {
     console.error('Login error:', error);
     return NextResponse.json(
