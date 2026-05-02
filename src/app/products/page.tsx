@@ -1,8 +1,8 @@
 "use client";
-// Trigger redeploy
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Package, Filter, Star, Shield, Truck, Headphones, ArrowRight, Sun, Zap, Battery, Settings } from "lucide-react";
+import { Package, Sun, Zap, Battery, Settings, ArrowRight, Shield, Star, Truck, Headphones } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
 
 const fadeInUp = {
@@ -19,7 +19,66 @@ const stagger = {
   }
 };
 
+interface CMSProduct {
+  _id: string;
+  name: string;
+  slug: string;
+  category: string;
+  shortDescription: string;
+  longDescription: string;
+  specifications: { key: string; value: string }[];
+  priceOptional: string;
+  images: string[];
+  isFeatured: boolean;
+}
+
+const defaultProducts = [
+  {
+    name: "High-Efficiency Solar Panel 400W",
+    category: "Solar Panels",
+    specs: "400W, 21.2% Efficiency, 25-year warranty",
+    price: "Contact for pricing"
+  },
+  {
+    name: "Hybrid Solar Inverter 5kW",
+    category: "Inverters",
+    specs: "5000W, MPPT Controller, Battery Compatible",
+    price: "Contact for pricing"
+  },
+  {
+    name: "Lithium Battery 10kWh",
+    category: "Batteries",
+    specs: "10000Wh, 10-year warranty, Fast charging",
+    price: "Contact for pricing"
+  },
+  {
+    name: "Solar Pump Controller 3HP",
+    category: "Backup Systems",
+    specs: "3HP, DC Operation, MPPT Technology",
+    price: "Contact for pricing"
+  }
+];
+
 export default function ProductsPage() {
+  const [cmsProducts, setCmsProducts] = useState<CMSProduct[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/products')
+      .then(res => res.json())
+      .then(data => {
+        if (data.products && data.products.length > 0) {
+          setCmsProducts(data.products);
+        }
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  const hasCMSProducts = cmsProducts.length > 0;
+
   return (
     <>
       {/* Hero Section */}
@@ -148,63 +207,72 @@ export default function ProductsPage() {
             </motion.h2>
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            {[
-              {
-                name: "High-Efficiency Solar Panel 400W",
-                category: "Solar Panels",
-                specs: "400W, 21.2% Efficiency, 25-year warranty",
-                price: "Contact for pricing"
-              },
-              {
-                name: "Hybrid Solar Inverter 5kW",
-                category: "Inverters",
-                specs: "5000W, MPPT Controller, Battery Compatible",
-                price: "Contact for pricing"
-              },
-              {
-                name: "Lithium Battery 10kWh",
-                category: "Batteries",
-                specs: "10000Wh, 10-year warranty, Fast charging",
-                price: "Contact for pricing"
-              },
-              {
-                name: "Solar Pump Controller 3HP",
-                category: "Backup Systems",
-                specs: "3HP, DC Operation, MPPT Technology",
-                price: "Contact for pricing"
-              }
-            ].map((product, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className="h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                  <div className="aspect-video bg-gradient-to-br from-primary-100 to-energy-100 rounded-t-lg" />
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-gold bg-gold/10 px-2 py-1 rounded">
-                        {product.category}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-primary-900 mb-2">
-                      {product.name}
-                    </h3>
-                    <p className="text-secondary-600 text-sm mb-4">{product.specs}</p>
-                    <p className="text-gold font-medium">{product.price}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <Button variant="gold" className="w-full group-hover:scale-105 transition-transform">
-                      Make Inquiry
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
+          {loading ? (
+            <div className="text-center py-12 text-gray-500">Loading products...</div>
+          ) : (
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              variants={stagger}
+            >
+              {hasCMSProducts ? (
+                cmsProducts.map((product, index) => (
+                  <motion.div key={product._id || index} variants={fadeInUp}>
+                    <Card className="h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                      <div
+                        className="aspect-video bg-gradient-to-br from-primary-100 to-energy-100 rounded-t-lg bg-cover bg-center"
+                        style={{ backgroundImage: product.images[0] ? `url(${product.images[0]})` : undefined }}
+                      />
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm font-medium text-gold bg-gold/10 px-2 py-1 rounded">
+                            {product.category}
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-semibold text-primary-900 mb-2">
+                          {product.name}
+                        </h3>
+                        <p className="text-secondary-600 text-sm mb-4">{product.shortDescription}</p>
+                        <p className="text-gold font-medium">{product.priceOptional || "Contact for pricing"}</p>
+                      </CardHeader>
+                      <CardContent>
+                        <Button variant="gold" className="w-full group-hover:scale-105 transition-transform">
+                          Make Inquiry
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))
+              ) : (
+                defaultProducts.map((product, index) => (
+                  <motion.div key={index} variants={fadeInUp}>
+                    <Card className="h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                      <div className="aspect-video bg-gradient-to-br from-primary-100 to-energy-100 rounded-t-lg" />
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm font-medium text-gold bg-gold/10 px-2 py-1 rounded">
+                            {product.category}
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-semibold text-primary-900 mb-2">
+                          {product.name}
+                        </h3>
+                        <p className="text-secondary-600 text-sm mb-4">{product.specs}</p>
+                        <p className="text-gold font-medium">{product.price}</p>
+                      </CardHeader>
+                      <CardContent>
+                        <Button variant="gold" className="w-full group-hover:scale-105 transition-transform">
+                          Make Inquiry
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))
+              )}
+            </motion.div>
+          )}
         </Container>
       </Section>
 

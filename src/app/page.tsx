@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Star, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone, MapPin, Layers } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
+import { useState, useEffect } from "react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -21,6 +22,92 @@ const stagger = {
 };
 
 export default function Home() {
+  const [featuredProjects, setFeaturedProjects] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFeaturedProjects = async () => {
+      try {
+        const res = await fetch('/api/projects?featured=true');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.projects && data.projects.length > 0) {
+            setFeaturedProjects(data.projects);
+          } else {
+            // Fallback to static data if CMS returns empty
+            setFeaturedProjects([
+              {
+                title: "Commercial Solar Installation",
+                location: "Accra, Ghana",
+                type: "Solar",
+                description: "500kW hybrid solar system for major commercial facility"
+              },
+              {
+                title: "Industrial Borehole Project",
+                location: "Tema, Ghana",
+                type: "Hydro",
+                description: "Complete drilling and mechanization for manufacturing plant"
+              },
+              {
+                title: "Government Energy Solution",
+                location: "Eastern Region",
+                type: "Solar",
+                description: "Off-grid solar power for remote government facility"
+              }
+            ]);
+          }
+        } else {
+          setFeaturedProjects([
+            {
+              title: "Commercial Solar Installation",
+              location: "Accra, Ghana",
+              type: "Solar",
+              description: "500kW hybrid solar system for major commercial facility"
+            },
+            {
+              title: "Industrial Borehole Project",
+              location: "Tema, Ghana",
+              type: "Hydro",
+              description: "Complete drilling and mechanization for manufacturing plant"
+            },
+            {
+              title: "Government Energy Solution",
+              location: "Eastern Region",
+              type: "Solar",
+              description: "Off-grid solar power for remote government facility"
+            }
+          ]);
+        }
+      } catch (error) {
+        console.error('Error fetching featured projects:', error);
+        setFeaturedProjects([
+          {
+            title: "Commercial Solar Installation",
+            location: "Accra, Ghana",
+            type: "Solar",
+            description: "500kW hybrid solar system for major commercial facility"
+          },
+          {
+            title: "Industrial Borehole Project",
+            location: "Tema, Ghana",
+            type: "Hydro",
+            description: "Complete drilling and mechanization for manufacturing plant"
+          },
+          {
+            title: "Government Energy Solution",
+            location: "Eastern Region",
+            type: "Solar",
+            description: "Off-grid solar power for remote government facility"
+          }
+        ]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFeaturedProjects();
+  }, []);
+
   return (
     <>
       {/* Hero Section */}
@@ -315,46 +402,42 @@ export default function Home() {
             viewport={{ once: true }}
             variants={stagger}
           >
-            {[
-              {
-                title: "Commercial Solar Installation",
-                location: "Accra, Ghana",
-                type: "Solar",
-                description: "500kW hybrid solar system for major commercial facility"
-              },
-              {
-                title: "Industrial Borehole Project",
-                location: "Tema, Ghana",
-                type: "Hydro",
-                description: "Complete drilling and mechanization for manufacturing plant"
-              },
-              {
-                title: "Government Energy Solution",
-                location: "Eastern Region",
-                type: "Solar",
-                description: "Off-grid solar power for remote government facility"
-              }
-            ].map((project, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className="h-full hover:shadow-xl transition-all duration-300 bg-white text-primary-900">
-                  <div className="aspect-video bg-gradient-to-br from-primary-200 to-energy-200 rounded-t-lg" />
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-gold bg-gold/10 px-2 py-1 rounded">
-                        {project.type}
-                      </span>
-                      <span className="text-sm text-secondary-600">{project.location}</span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-primary-900">
-                      {project.title}
-                    </h3>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-secondary-700 text-sm">{project.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            {loading ? (
+              <div className="col-span-1 md:col-span-3 text-center py-12 text-white">
+                Loading featured projects...
+              </div>
+            ) : featuredProjects.length > 0 ? (
+              featuredProjects.map((project: any, index: number) => (
+                <motion.div key={project._id || index} variants={fadeInUp}>
+                  <Card className="h-full hover:shadow-xl transition-all duration-300 bg-white text-primary-900">
+                    <div
+                      className="aspect-video bg-gradient-to-br from-primary-200 to-energy-200 rounded-t-lg bg-cover bg-center"
+                      style={{
+                        backgroundImage: project.featuredImage
+                          ? `url(${project.featuredImage})`
+                          : undefined
+                      }}
+                    />
+                    <CardHeader>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm font-medium text-gold bg-gold/10 px-2 py-1 rounded">
+                          {project.category || project.type}
+                        </span>
+                        <span className="text-sm text-secondary-600">{project.location}</span>
+                      </div>
+                      <h3 className="text-lg font-semibold text-primary-900">
+                        {project.title}
+                      </h3>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-secondary-700 text-sm">
+                        {project.shortDescription || project.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))
+            ) : null}
           </motion.div>
 
           <motion.div
