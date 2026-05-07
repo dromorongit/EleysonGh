@@ -27,7 +27,7 @@ export default function ProjectsPage() {
   const filters = ["All", "Solar", "Hydro", "Energy", "Other"];
   const filteredProjects = activeFilter === "All"
     ? projects
-    : projects.filter(p => p.category === activeFilter);
+    : projects.filter(p => p.category.toLowerCase().trim() === activeFilter.toLowerCase().trim());
 
   return (
     <>
@@ -90,7 +90,10 @@ export default function ProjectsPage() {
             {filteredProjects.map((project, index) => (
               <motion.div key={project.slug} variants={fadeInUp}>
                 <Card className="h-full hover:shadow-xl transition-all duration-300 group overflow-hidden">
-                  <div className="aspect-video bg-gradient-to-br from-secondary-400 to-secondary-600 bg-cover bg-center rounded-t-lg overflow-hidden group-hover:scale-105 transition-transform duration-300 relative">
+                  <div 
+                    className="aspect-video bg-cover bg-center rounded-t-lg overflow-hidden group-hover:scale-105 transition-transform duration-300 relative"
+                    style={{ backgroundImage: `url(${project.featuredImage})` }}
+                  >
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent group-hover:from-black/90 transition-all duration-300" />
                     <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                       <div className="flex items-center justify-between mb-2">
