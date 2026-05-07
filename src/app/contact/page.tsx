@@ -69,9 +69,10 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6 text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-primary-900 mb-2">Phone</h3>
-                    <p className="text-secondary-600">+233 XX XXX XXXX</p>
-                    <p className="text-secondary-600">+233 XX XXX XXXX</p>
+                     <h3 className="font-semibold text-primary-900 mb-2">Phone</h3>
+                     <p className="text-secondary-600">+233 244 973 788</p>
+                     <p className="text-secondary-600">+233 302 507 889</p>
+                     <p className="text-secondary-600">+233 204 981 687</p>
                   </div>
                 </div>
 
@@ -86,18 +87,18 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-primary-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary-900 mb-2">Office Location</h3>
-                    <p className="text-secondary-600">
-                      Accra, Ghana<br />
-                      West Africa
-                    </p>
-                  </div>
-                </div>
+                 <div className="flex items-start space-x-4">
+                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                     <MapPin className="w-6 h-6 text-primary-600" />
+                   </div>
+                   <div>
+                     <h3 className="font-semibold text-primary-900 mb-2">Office Location</h3>
+                     <p className="text-secondary-600">
+                       Abokobi, Ghana<br />
+                       Coordinates: 5.7426399, -0.1957862
+                     </p>
+                   </div>
+                 </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
