@@ -94,8 +94,7 @@ export default function ContactPage() {
                    <div>
                      <h3 className="font-semibold text-primary-900 mb-2">Office Location</h3>
                      <p className="text-secondary-600">
-                       Abokobi, Ghana<br />
-                       Coordinates: 5.7426399, -0.1957862
+                       Abokobi, Ghana
                      </p>
                    </div>
                  </div>
@@ -214,29 +213,34 @@ export default function ContactPage() {
         </Container>
       </Section>
 
-      {/* Map Placeholder */}
-      <Section className="bg-secondary-50">
-        <Container>
-          <motion.div
-            className="text-center"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-8">
-              Visit Our Office
-            </h2>
-            <div className="aspect-video bg-gradient-to-br from-primary-100 to-energy-100 rounded-lg max-w-4xl mx-auto flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-16 h-16 text-primary-400 mx-auto mb-4" />
-                <p className="text-primary-600 font-medium">Interactive Map Coming Soon</p>
-                <p className="text-secondary-600">Accra, Ghana</p>
-              </div>
-            </div>
-          </motion.div>
-        </Container>
-      </Section>
+       {/* Map Section */}
+       <Section className="bg-secondary-50">
+         <Container>
+           <motion.div
+             className="text-center"
+             initial="initial"
+             whileInView="animate"
+             viewport={{ once: true }}
+             variants={fadeInUp}
+           >
+             <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-8">
+               Visit Our Office
+             </h2>
+             <div className="aspect-video bg-gradient-to-br from-primary-100 to-energy-100 rounded-lg max-w-4xl mx-auto">
+               {/* Google Maps Embed */}
+               <iframe
+                 width="100%"
+                 height="100%"
+                 frameborder="0" style="border:0"
+                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDsh-Z6hRhVh3Te8kZo0oZuwe1C4Ez5YaI&q=5.7426399,-0.1957862&zoom=15"
+                 allowfullscreen
+                 loading="lazy"
+                 referrerpolicy="no-referrer-when-downgrade"
+               ></iframe>
+             </div>
+           </motion.div>
+         </Container>
+       </Section>
     </>
   );
 }
