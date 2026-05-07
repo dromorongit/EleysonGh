@@ -4,6 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Zap, Home, Building, Factory, Battery, TrendingUp, Users, Award, CheckCircle, ArrowRight, Sun, Power } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
+import Image from "next/image";
+import { projects } from "@/data/projects";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -469,53 +471,48 @@ export default function SolarSolutionsPage() {
             </motion.h2>
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            {[
-              {
-                title: "Commercial Complex Solar Installation",
-                location: "Accra, Ghana",
-                capacity: "250kW",
-                description: "Complete rooftop solar system for major commercial facility"
-              },
-              {
-                title: "Industrial Solar Farm",
-                location: "Tema, Ghana",
-                capacity: "1MW",
-                description: "Ground-mounted solar installation for manufacturing plant"
-              },
-              {
-                title: "Residential Community System",
-                location: "East Legon, Ghana",
-                capacity: "150kW",
-                description: "Shared solar system serving residential community"
-              }
-            ].map((project, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className="h-full">
-                  <div className="aspect-video bg-gradient-to-br from-energy-100 to-primary-100 rounded-t-lg" />
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-energy-600 bg-energy-50 px-2 py-1 rounded">
-                        {project.capacity}
-                      </span>
-                      <span className="text-sm text-secondary-500">{project.location}</span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-primary-900">
-                      {project.title}
-                    </h3>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-secondary-600 text-sm">{project.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+           <motion.div
+             className="grid grid-cols-1 md:grid-cols-3 gap-8"
+             initial="initial"
+             whileInView="animate"
+             viewport={{ once: true }}
+             variants={stagger}
+           >
+             {projects
+               .filter(project => project.category === 'Solar')
+               .map((project, index) => (
+                 <motion.div key={project.slug} variants={fadeInUp}>
+                   <Card className="h-full hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                     <div className="aspect-video rounded-t-lg overflow-hidden relative">
+                       <Image
+                         src={project.featuredImage}
+                         alt={project.title}
+                         fill
+                         className="object-cover group-hover:scale-105 transition-transform duration-300"
+                       />
+                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent group-hover:from-black/90 transition-all duration-300" />
+                       <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                         <div className="flex items-center justify-between mb-2">
+                           <span className="text-sm font-medium bg-gold text-navy px-2 py-1 rounded">
+                             {project.category}
+                           </span>
+                           <span className="text-sm text-white/80">{project.location}</span>
+                         </div>
+                         <h3 className="text-lg font-semibold mb-2">
+                           {project.title}
+                         </h3>
+                         <p className="text-white/70 text-sm mb-4">{project.shortDescription}</p>
+                         <Link href={`/projects/${project.slug}`}>
+                           <Button variant="gold" size="sm">
+                             View Case Study
+                             <ArrowRight className="w-4 h-4 ml-1" />
+                           </Button>
+                         </Link>
+                       </div>
+                     </div>
+                   </Card>
+                 </motion.div>
+               ))}
           </motion.div>
 
           <motion.div
