@@ -227,16 +227,17 @@ export default function ContactPage() {
                Visit Our Office
              </h2>
              <div className="aspect-video bg-gradient-to-br from-primary-100 to-energy-100 rounded-lg max-w-4xl mx-auto">
-               {/* Google Maps Embed */}
-               <iframe
-                 width="100%"
-                 height="100%"
-                 frameborder="0" style="border:0"
-                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDsh-Z6hRhVh3Te8kZo0oZuwe1C4Ez5YaI&q=5.7426399,-0.1957862&zoom=15"
-                 allowfullscreen
-                 loading="lazy"
-                 referrerpolicy="no-referrer-when-downgrade"
-               ></iframe>
+                {/* Google Maps Embed */}
+                <iframe
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  style={{ border: '0' }}
+                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDsh-Z6hRhVh3Te8kZo0oZuwe1C4Ez5YaI&q=5.7426399,-0.1957862&zoom=15"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
              </div>
            </motion.div>
          </Container>
