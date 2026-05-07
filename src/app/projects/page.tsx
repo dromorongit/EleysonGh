@@ -41,13 +41,13 @@ const defaultProjects = [
     type: "Solar",
     summary: "500kW hybrid solar system for major commercial facility with battery backup"
   },
-  {
-    title: "Rural Borehole Development",
-    slug: "rural-borehole-development",
-    location: "Eastern Region, Ghana",
-    type: "Hydro",
-    summary: "Complete borehole drilling and mechanization serving 300+ households"
-  },
+   {
+     title: "Solar Residential Installation at Kpong",
+     slug: "solar-residential-installation-at-kpong",
+     location: "Kpong, Ghana",
+     type: "Solar",
+     summary: "Complete solar power system installation for residential property with battery backup"
+   },
   {
     title: "Industrial Energy Solution",
     slug: "industrial-energy-solution",
