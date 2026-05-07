@@ -6,30 +6,29 @@ import { Container } from "./Container";
 
 export function Footer() {
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-navy text-white" role="contentinfo">
       <Container className="py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Company Info */}
           <div className="space-y-4 pr-8 border-r border-gold/10 last:border-r-0">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gold rounded-lg flex items-center justify-center">
-                <span className="text-navy font-serif font-bold text-lg">E</span>
-              </div>
-              <span className="text-xl font-serif font-bold">Eleyson Ghana</span>
+              <Link href="/" className="flex items-center space-x-2" aria-label="Eleyson Ghana Limited - Home">
+                <div className="w-8 h-8 bg-gold rounded-lg flex items-center justify-center" aria-hidden="true">
+                  <span className="text-navy font-serif font-bold text-lg">E</span>
+                </div>
+                <span className="text-xl font-serif font-bold">Eleyson Ghana</span>
+              </Link>
             </div>
             <p className="text-white/80 text-sm leading-relaxed">
               Engineering the Future of Energy & Water. Premium solar and hydrogeological solutions
               serving Ghana and West Africa with technical excellence and reliability.
             </p>
-            <div className="flex space-x-4">
-              <Link href="#" className="text-white/70 hover:text-gold transition-colors">
-                <FaFacebookF className="w-5 h-5" />
+            <div className="flex space-x-4" aria-label="Social media links">
+              <Link href="https://www.facebook.com/eleysonghana" className="text-white/70 hover:text-gold transition-colors" aria-label="Facebook">
+                <FaFacebookF className="w-5 h-5" aria-hidden="true" />
               </Link>
-              <Link href="#" className="text-white/70 hover:text-gold transition-colors">
-                <FaTwitter className="w-5 h-5" />
-              </Link>
-              <Link href="#" className="text-white/70 hover:text-gold transition-colors">
-                <FaLinkedinIn className="w-5 h-5" />
+              <Link href="https://www.linkedin.com/company/eleyson-ghana-limited" className="text-white/70 hover:text-gold transition-colors" aria-label="LinkedIn">
+                <FaLinkedinIn className="w-5 h-5" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -137,25 +136,25 @@ export function Footer() {
           {/* Contact & CTA */}
           <div className="space-y-4 pr-8 border-r border-gold/10 last:border-r-0">
             <h3 className="font-semibold text-white mb-4 flex items-center">
-              <Phone className="w-5 h-5 mr-2 text-gold" />
+              <Phone className="w-5 h-5 mr-2 text-gold" aria-hidden="true" />
               Contact Info
             </h3>
             <div className="space-y-3 text-sm">
               <div className="flex items-start space-x-3">
-                <Phone className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <div>
-                  <p className="text-white/70">+233 XX XXX XXXX</p>
-                  <p className="text-white/70">+233 XX XXX XXXX</p>
+                  <p className="text-white/70">+233 244 973 788</p>
+                  <p className="text-white/70">+233 302 507 889</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <Mail className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                <Mail className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <p className="text-white/70">info@eleysonghana.com</p>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <p className="text-white/70">
-                  Accra, Ghana<br />
+                  Abokobi, Ghana<br />
                   West Africa
                 </p>
               </div>
@@ -176,7 +175,7 @@ export function Footer() {
           {/* Newsletter */}
           <div className="space-y-4">
             <h3 className="font-semibold text-white mb-4 flex items-center">
-              <Mail className="w-5 h-5 mr-2 text-gold" />
+              <Mail className="w-5 h-5 mr-2 text-gold" aria-hidden="true" />
               Newsletter
             </h3>
             <p className="text-white/70 text-sm">Stay updated with our latest insights and solutions.</p>
@@ -185,6 +184,8 @@ export function Footer() {
                 type="email"
                 placeholder="Enter your email"
                 className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/50 focus:outline-none focus:border-gold"
+                aria-label="Email address for newsletter subscription"
+                required
               />
               <Button variant="gold" size="sm" className="w-full">
                 Subscribe

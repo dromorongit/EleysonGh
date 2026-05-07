@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { BookOpen, Calendar, ArrowRight, Tag } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
+import Image from "next/image";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -208,47 +209,60 @@ export default function InsightsPage() {
                 excerpt: "Essential planning considerations and technical requirements for successful borehole development in Ghana.",
                 category: "Hydrogeology",
                 date: "December 10, 2024",
-                readTime: "5 min read"
+                readTime: "5 min read",
+                image: "/images/insights.jpg"
               },
               {
                 title: "The Importance of Preventive Maintenance for Energy Systems",
                 excerpt: "How regular maintenance extends system life and ensures optimal performance of solar installations.",
                 category: "Solar Maintenance",
                 date: "December 5, 2024",
-                readTime: "4 min read"
+                readTime: "4 min read",
+                image: "/images/insights.jpg"
               },
               {
                 title: "Solar Power Trends in West Africa for 2025",
                 excerpt: "Market analysis and technological developments shaping the solar industry across West Africa.",
                 category: "Industry News",
                 date: "November 28, 2024",
-                readTime: "6 min read"
+                readTime: "6 min read",
+                image: "/images/insights.jpg"
               },
               {
                 title: "Water Quality Testing: Why It Matters",
                 excerpt: "Understanding water quality parameters and their impact on borehole system design and operation.",
                 category: "Water Quality",
                 date: "November 20, 2024",
-                readTime: "4 min read"
+                readTime: "4 min read",
+                image: "/images/insights.jpg"
               },
               {
                 title: "Off-Grid Solar Solutions for Rural Communities",
                 excerpt: "Case studies and best practices for implementing sustainable energy solutions in remote areas.",
                 category: "Solar Technology",
                 date: "November 15, 2024",
-                readTime: "5 min read"
+                readTime: "5 min read",
+                image: "/images/insights.jpg"
               },
               {
                 title: "Energy Audit Best Practices",
                 excerpt: "Comprehensive guide to conducting effective energy audits for businesses and institutions.",
                 category: "Energy Efficiency",
                 date: "November 8, 2024",
-                readTime: "7 min read"
+                readTime: "7 min read",
+                image: "/images/insights.jpg"
               }
             ].map((article, index) => (
               <motion.div key={index} variants={fadeInUp}>
                 <Card className="h-full hover:shadow-lg transition-all duration-200">
-                  <div className="aspect-video bg-gradient-to-br from-primary-100 to-energy-100 rounded-t-lg" />
+                  <div className="aspect-video rounded-t-lg relative overflow-hidden">
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded">

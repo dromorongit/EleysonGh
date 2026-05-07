@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://eleysonghana.com/sitemap.xml
+
+# Disallow admin and API routes
+Disallow: /api/
+Disallow: /admin/
+
+# Allow all other content
+Allow: /
+
+# Crawl delay for polite crawling
+Crawl-delay: 1

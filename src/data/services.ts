@@ -18,7 +18,7 @@ export const services: Service[] = [
     title: 'Solar Energy Installation',
     slug: 'solar-energy-installation',
     category: 'Solar',
-    shortDescription: 'Complete solar photovoltaic systems for homes, businesses, and industrial facilities.',
+    shortDescription: 'Engineered solar photovoltaic systems for homes, businesses, and industrial facilities.',
     longDescription: 'End-to-end solar energy solutions from initial consultation and site assessment to design, procurement, installation, and commissioning. We deliver high-performance solar systems tailored to your specific energy needs, ensuring maximum ROI and long-term reliability.',
     features: [
       'Custom system design based on energy audit',
@@ -43,7 +43,7 @@ export const services: Service[] = [
     title: 'Solar Battery Backup Systems',
     slug: 'solar-battery-backup-systems',
     category: 'Solar',
-    shortDescription: 'Reliable energy storage solutions for uninterrupted power during outages.',
+    shortDescription: 'Engineered energy storage solutions for uninterrupted power during outages.',
     longDescription: 'Advanced battery storage systems that provide backup power during grid failures and enable energy independence. Our solutions use lithium and lead-acid technologies optimized for solar integration, ensuring you never lose power.',
     features: [
       'Seamless automatic transfer',
@@ -90,7 +90,7 @@ export const services: Service[] = [
     title: 'Borehole Drilling & Water Wells',
     slug: 'borehole-drilling-water-wells',
     category: 'Hydro',
-    shortDescription: 'Professional borehole drilling services for reliable water access.',
+    shortDescription: 'Professional borehole drilling services for reliable, engineered water access.',
     longDescription: 'Complete borehole drilling services from geophysical surveying to final completion. We use modern drilling equipment and techniques to ensure successful water discovery and sustainable yield for residential, commercial, and community projects.',
     features: [
       'Advanced geophysical surveying',

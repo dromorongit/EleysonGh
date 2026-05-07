@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Package, Sun, Zap, Battery, Settings, ArrowRight, Shield, Star, Truck, Headphones } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
 import { products } from "@/data/products";
+import Image from "next/image";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -160,10 +161,14 @@ export default function ProductsPage() {
             {featuredProducts.map((product, index) => (
               <motion.div key={product.slug} variants={fadeInUp}>
                 <Card className="h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                  <div
-                    className="aspect-video bg-gradient-to-br from-primary-100 to-energy-100 rounded-t-lg bg-cover bg-center"
-                    style={{ backgroundImage: product.images[0] ? `url(${product.images[0]})` : undefined }}
-                  />
+                  <div className="aspect-video rounded-t-lg relative overflow-hidden">
+                    <Image
+                      src={product.images[0] || '/images/products.jpg'}
+                      alt={product.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm font-medium text-gold bg-gold/10 px-2 py-1 rounded">

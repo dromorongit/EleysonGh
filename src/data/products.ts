@@ -20,7 +20,7 @@ export const products: Product[] = [
     name: 'High-Efficiency Solar Panel 400W',
     slug: 'solar-panel-400w',
     category: 'Solar Panels',
-    shortDescription: 'High-efficiency monocrystalline solar panel for commercial and residential use.',
+    shortDescription: 'High-efficiency monocrystalline solar panel engineered for commercial and residential applications.',
     longDescription: 'Premium 400W monocrystalline solar panel with industry-leading efficiency and durability. Engineered for optimal performance in Ghana\'s tropical climate with excellent temperature coefficient and resistance to humidity.',
     specifications: [
       { key: 'Power Output', value: '400W' },
@@ -45,7 +45,7 @@ export const products: Product[] = [
     name: 'Hybrid Solar Inverter 5kW',
     slug: 'hybrid-solar-inverter-5kw',
     category: 'Inverters',
-    shortDescription: 'Advanced hybrid inverter with MPPT controller and battery compatibility.',
+    shortDescription: 'Advanced hybrid inverter with integrated MPPT controller and battery compatibility for seamless energy management.',
     longDescription: 'High-performance hybrid inverter that seamlessly integrates solar power, battery storage, and grid electricity. Features intelligent energy management and automatic switching for uninterrupted power supply.',
     specifications: [
       { key: 'Power Rating', value: '5kW' },

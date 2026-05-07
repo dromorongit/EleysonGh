@@ -39,18 +39,18 @@ export default function HydroWaterSolutionsPage() {
               <Droplets className="w-10 h-10 text-primary-600" />
             </motion.div>
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6"
-              variants={fadeInUp}
-            >
-              Hydro & Water Solutions
-            </motion.h1>
-            <motion.p
-              className="text-lg md:text-xl text-secondary-600 max-w-2xl mx-auto leading-relaxed"
-              variants={fadeInUp}
-            >
-              Professional hydrogeological engineering services from geophysical surveying to complete
-              borehole systems and water infrastructure development across Ghana and West Africa.
-            </motion.p>
+               className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6"
+               variants={fadeInUp}
+             >
+               Hydro & Water Engineering
+             </motion.h1>
+             <motion.p
+               className="text-lg md:text-xl text-secondary-600 max-w-2xl mx-auto leading-relaxed"
+               variants={fadeInUp}
+             >
+               Professional hydrogeological engineering services from geophysical surveying to complete
+               borehole systems and water infrastructure development.
+             </motion.p>
           </motion.div>
         </Container>
       </Section>

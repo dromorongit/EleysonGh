@@ -31,18 +31,18 @@ export default function AboutPage() {
             variants={stagger}
           >
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6"
-              variants={fadeInUp}
-            >
-              About Eleyson Ghana Limited
-            </motion.h1>
-            <motion.p
-              className="text-lg md:text-xl text-secondary-600 max-w-2xl mx-auto leading-relaxed"
-              variants={fadeInUp}
-            >
-              Ghana's trusted engineering partner for renewable energy and hydrogeological solutions,
-              delivering excellence since 2011.
-            </motion.p>
+               className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6"
+               variants={fadeInUp}
+              >
+                Engineering Excellence Since 2011
+              </motion.h1>
+              <motion.p
+                className="text-lg md:text-xl text-secondary-600 max-w-2xl mx-auto leading-relaxed"
+                variants={fadeInUp}
+              >
+                West Africa's trusted engineering partner for solar power and hydrogeological solutions.
+                Certified expertise delivering reliable, engineered infrastructure across Ghana.
+              </motion.p>
           </motion.div>
         </Container>
       </Section>
@@ -58,29 +58,28 @@ export default function AboutPage() {
             variants={stagger}
           >
             <motion.div variants={fadeInUp}>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-6">
-                Engineering Excellence Since 2011
-              </h2>
-              <p className="text-secondary-600 mb-6 leading-relaxed">
-                Founded in 2011, Eleyson Ghana Limited has established itself as Ghana's premier
-                engineering firm specializing in renewable energy and hydrogeological services.
-                Our dual expertise in solar energy systems and borehole engineering sets us apart
-                in the industry.
-              </p>
-              <p className="text-secondary-600 mb-6 leading-relaxed">
-                With over 13 years of proven track record, we serve clients across residential,
-                commercial, industrial, government, and NGO sectors nationwide and throughout
-                West Africa. Our commitment to technical excellence, quality execution, and
-                sustainable solutions drives everything we do.
-              </p>
+               <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-6">
+                 Engineering Excellence Since 2011
+                </h2>
+                <p className="text-secondary-600 mb-6 leading-relaxed">
+                  Founded in 2011, Eleyson Ghana Limited has established itself as a leading
+                  engineering firm specializing in solar power systems and hydrogeological services.
+                  Our integrated expertise provides comprehensive infrastructure solutions.
+                </p>
+                <p className="text-secondary-600 mb-6 leading-relaxed">
+                  With 13+ years of technical expertise, we deliver engineered solutions
+                  for commercial, industrial, and government infrastructure projects
+                  across Ghana and West Africa. Our engineering-first approach ensures
+                  reliable, efficient, and sustainable outcomes.
+                </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-4 bg-primary-50 rounded-lg">
                   <div className="text-2xl font-bold text-primary-900">13+</div>
-                  <div className="text-sm text-secondary-600">Years Experience</div>
+                  <div className="text-sm text-secondary-600">Years Engineering</div>
                 </div>
                 <div className="text-center p-4 bg-energy-50 rounded-lg">
                   <div className="text-2xl font-bold text-energy-700">500+</div>
-                  <div className="text-sm text-secondary-600">Projects Completed</div>
+                  <div className="text-sm text-secondary-600">Systems Installed</div>
                 </div>
               </div>
             </motion.div>
@@ -188,37 +187,37 @@ export default function AboutPage() {
             variants={stagger}
           >
             {[
-              {
-                icon: Award,
-                title: "Dual Expertise",
-                description: "Unique combination of solar energy and hydrogeological engineering capabilities"
-              },
-              {
-                icon: Users,
-                title: "Engineering-Led Approach",
-                description: "Technical excellence and engineering-first methodology in all solutions"
-              },
-              {
-                icon: CheckCircle,
-                title: "Nationwide Coverage",
-                description: "Comprehensive service coverage across Ghana and West African region"
-              },
-              {
-                icon: TrendingUp,
-                title: "Proven Track Record",
-                description: "Over 500 successful projects and 13+ years of industry experience"
-              },
-              {
-                icon: Heart,
-                title: "Client-Centric Focus",
-                description: "Dedicated to understanding and exceeding client expectations"
-              },
-              {
-                icon: Target,
-                title: "End-to-End Solutions",
-                description: "Complete project lifecycle management from consultation to commissioning"
-              }
-            ].map((item, index) => (
+               {
+                 icon: Award,
+                 title: "Integrated Engineering Expertise",
+                 description: "Specialized capabilities in both solar energy and hydrogeological engineering"
+               },
+               {
+                 icon: Users,
+                 title: "Engineering-First Methodology",
+                 description: "Technical precision and engineering excellence in every solution delivered"
+               },
+               {
+                 icon: CheckCircle,
+                 title: "Nationwide Engineering Coverage",
+                 description: "Comprehensive service delivery across Ghana and West Africa"
+               },
+               {
+                 icon: TrendingUp,
+                 title: "Proven Engineering Track Record",
+                 description: "500+ successful projects with 13+ years of technical expertise"
+               },
+               {
+                 icon: Heart,
+                 title: "Technical Partnership Focus",
+                 description: "Committed to engineering solutions that exceed performance expectations"
+               },
+               {
+                 icon: Target,
+                 title: "Complete Engineering Lifecycle",
+                 description: "Full project delivery from site assessment to commissioning and support"
+               }
+             ].map((item, index) => (
               <motion.div key={index} variants={fadeInUp}>
                 <Card className="text-center h-full">
                   <CardHeader>
@@ -375,23 +374,23 @@ export default function AboutPage() {
             variants={stagger}
           >
             <motion.h2
-              className="text-3xl md:text-4xl font-serif font-bold mb-4"
-              variants={fadeInUp}
-            >
-              Partner with Engineering Excellence
-            </motion.h2>
-            <motion.p
-              className="text-lg text-primary-100 mb-8 max-w-2xl mx-auto"
-              variants={fadeInUp}
-            >
-              Ready to experience the Eleyson difference? Let's discuss your engineering needs
-              and deliver solutions that exceed expectations.
-            </motion.p>
-            <motion.div variants={fadeInUp}>
-              <Button size="lg" variant="accent" className="text-lg px-8 py-4">
-                Start Your Project
-              </Button>
-            </motion.div>
+               className="text-3xl md:text-4xl font-serif font-bold mb-4"
+               variants={fadeInUp}
+             >
+               Discuss Your Engineering Project
+             </motion.h2>
+             <motion.p
+               className="text-lg text-primary-100 mb-8 max-w-2xl mx-auto"
+               variants={fadeInUp}
+             >
+               Connect with our engineering team to discuss your infrastructure requirements.
+               We'll provide a technical assessment and tailored solution.
+             </motion.p>
+             <motion.div variants={fadeInUp}>
+               <Button size="lg" variant="accent" className="text-lg px-8 py-4">
+                 Request a Technical Consultation
+               </Button>
+             </motion.div>
           </motion.div>
         </Container>
       </Section>

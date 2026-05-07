@@ -8,6 +8,7 @@ import { Button, Section, Container } from "@/components";
 import { useState } from "react";
 import { getProjectBySlug, projects } from "@/data/projects";
 import { Project } from "@/data/projects";
+import Image from "next/image";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -231,47 +232,48 @@ export default function ProjectDetailPage() {
                 </motion.h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {project.galleryImages.map((mediaUrl, index) => {
-                    const isVideo = mediaUrl.toLowerCase().endsWith('.mp4') ||
-                                   mediaUrl.toLowerCase().endsWith('.mov') ||
-                                   mediaUrl.toLowerCase().endsWith('.avi');
-                    return (
-                      <motion.div
-                        key={index}
-                        variants={fadeInUp}
-                        className={`relative overflow-hidden rounded-lg cursor-pointer group ${
-                          isVideo ? 'aspect-video' : 'aspect-video'
-                        }`}
-                        onClick={() => openMedia(mediaUrl)}
-                      >
-                        {isVideo ? (
-                          <>
-                            <video
-                              src={mediaUrl}
-                              className="w-full h-full object-cover"
-                              muted
-                              onMouseOver={(e) => e.currentTarget.play()}
-                              onMouseOut={(e) => {
-                                e.currentTarget.pause();
-                                e.currentTarget.currentTime = 0;
-                              }}
-                            />
-                            <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-colors">
-                              <Play className="w-16 h-16 text-white" fill="white" />
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <img
-                              src={mediaUrl}
-                              alt={`${project.title} - Image ${index + 1}`}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            />
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-                          </>
-                        )}
-                      </motion.div>
-                    );
-                  })}
+                     const isVideo = mediaUrl.toLowerCase().endsWith('.mp4') ||
+                                    mediaUrl.toLowerCase().endsWith('.mov') ||
+                                    mediaUrl.toLowerCase().endsWith('.avi');
+                     return (
+                       <motion.div
+                         key={index}
+                         variants={fadeInUp}
+                         className={`relative overflow-hidden rounded-lg cursor-pointer group ${
+                           isVideo ? 'aspect-video' : 'aspect-video'
+                         }`}
+                         onClick={() => openMedia(mediaUrl)}
+                       >
+                         {isVideo ? (
+                           <>
+                             <video
+                               src={mediaUrl}
+                               className="w-full h-full object-cover"
+                               muted
+                               onMouseOver={(e) => e.currentTarget.play()}
+                               onMouseOut={(e) => {
+                                 e.currentTarget.pause();
+                                 e.currentTarget.currentTime = 0;
+                               }}
+                             />
+                             <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-colors">
+                               <Play className="w-16 h-16 text-white" fill="white" />
+                             </div>
+                           </>
+                         ) : (
+                           <>
+                             <Image
+                               src={mediaUrl}
+                               alt={`${project.title} - Image ${index + 1}`}
+                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                               fill
+                             />
+                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                           </>
+                         )}
+                       </motion.div>
+                     );
+                   })}
                 </div>
                 <p className="text-sm text-gray-500 mt-4">
                   Click on any image or video to view fullscreen. Videos play on hover.
@@ -342,21 +344,21 @@ export default function ProjectDetailPage() {
             <X className="w-8 h-8" />
           </button>
           {mediaType === 'video' ? (
-            <video
-              src={selectedMedia}
-              className="max-w-full max-h-[90vh] rounded-lg"
-              controls
-              autoPlay
-              onClick={(e) => e.stopPropagation()}
-            />
-          ) : (
-            <img
-              src={selectedMedia}
-              alt="Full size"
-              className="max-w-full max-h-[90vh] object-contain rounded-lg"
-              onClick={(e) => e.stopPropagation()}
-            />
-          )}
+             <video
+               src={selectedMedia}
+               className="max-w-full max-h-[90vh] rounded-lg"
+               controls
+               autoPlay
+               onClick={(e) => e.stopPropagation()}
+             />
+           ) : (
+             <img
+               src={selectedMedia}
+               alt={`${project.title} - Full size view`}
+               className="max-w-full max-h-[90vh] object-contain rounded-lg"
+               onClick={(e) => e.stopPropagation()}
+             />
+           )}
         </div>
       )}
     </>

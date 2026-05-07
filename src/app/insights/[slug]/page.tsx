@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, Share2, Loader2 } from "lucide-react";
 import { Button, Section, Container, Card } from "@/components";
+import Image from "next/image";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -149,10 +150,16 @@ export default function SingleArticlePage({ params }: { params: { slug: string }
           >
             {post.featuredImage ? (
               <motion.div
-                className="aspect-video bg-gradient-to-br from-energy-100 to-primary-100 rounded-lg mb-8"
+                className="aspect-video rounded-lg mb-8 relative overflow-hidden"
                 variants={fadeInUp}
-                style={{ backgroundImage: `url(${post.featuredImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-              />
+              >
+                <Image
+                  src={post.featuredImage}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
             ) : (
               <motion.div
                 className="aspect-video bg-gradient-to-br from-energy-100 to-primary-100 rounded-lg mb-8"
@@ -190,7 +197,14 @@ export default function SingleArticlePage({ params }: { params: { slug: string }
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {relatedPosts.map((relatedPost: any, index: number) => (
                     <div key={relatedPost._id || index} className="bg-white rounded-lg shadow-sm p-6 h-full">
-                      <div className="aspect-video bg-gradient-to-br from-primary-100 to-energy-100 rounded mb-4" />
+                      <div className="aspect-video rounded mb-4 relative overflow-hidden">
+                        <Image
+                          src={relatedPost.featuredImage || '/images/insights.jpg'}
+                          alt={relatedPost.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-sm font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded">
                           {relatedPost.category || 'General'}

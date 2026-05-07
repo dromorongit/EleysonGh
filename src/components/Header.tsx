@@ -45,12 +45,12 @@ export function Header() {
   }, []);
 
   return (
-    <header className={cn("sticky top-0 z-50 transition-all duration-300 border-b", isScrolled || !isHome ? "bg-white shadow-lg backdrop-blur-md border-primary-100" : "bg-transparent backdrop-blur-sm border-transparent")}>
+    <header className={cn("sticky top-0 z-50 transition-all duration-300 border-b", isScrolled || !isHome ? "bg-white shadow-lg backdrop-blur-md border-primary-100" : "bg-transparent backdrop-blur-sm border-transparent")} role="banner">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-2" aria-label="Eleyson Ghana Limited - Home">
               <div className="w-8 h-8 bg-primary-800 rounded-lg flex items-center justify-center">
                 <span className="text-white font-serif font-bold text-lg">E</span>
               </div>
@@ -61,22 +61,26 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
             {navigation.map((item) => (
               <div key={item.name} className="relative">
                 {item.children ? (
                   <button
                     onMouseEnter={() => setSolutionsOpen(true)}
                     onMouseLeave={() => setSolutionsOpen(false)}
-                    className="flex items-center space-x-1 text-secondary-700 hover:text-primary-800 transition-colors"
+                    onFocus={() => setSolutionsOpen(true)}
+                    onBlur={() => setSolutionsOpen(false)}
+                    className="flex items-center space-x-1 text-secondary-700 hover:text-primary-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded px-2 py-1"
+                    aria-expanded={solutionsOpen}
+                    aria-haspopup="true"
                   >
                     <span>{item.name}</span>
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-4 h-4" aria-hidden="true" />
                   </button>
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-secondary-700 hover:text-primary-800 transition-colors"
+                    className="text-secondary-700 hover:text-primary-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded px-2 py-1"
                   >
                     {item.name}
                   </Link>
@@ -85,14 +89,15 @@ export function Header() {
                 {item.children && solutionsOpen && (
                   <div
                     className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-primary-100 py-2"
-                    onMouseEnter={() => setSolutionsOpen(true)}
-                    onMouseLeave={() => setSolutionsOpen(false)}
+                    role="menu"
+                    aria-label={`${item.name} submenu`}
                   >
                     {item.children.map((child) => (
                       <Link
                         key={child.name}
                         href={child.href}
-                        className="block px-4 py-2 text-sm text-secondary-700 hover:bg-primary-50 hover:text-primary-800"
+                        className="block px-4 py-2 text-sm text-secondary-700 hover:bg-primary-50 hover:text-primary-800 focus:outline-none focus:bg-primary-50"
+                        role="menuitem"
                       >
                         {child.name}
                       </Link>
@@ -106,29 +111,34 @@ export function Header() {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-2">
             <Button variant="outline" size="sm" className="px-3 py-1.5 text-xs">
-              <Phone className="w-3 h-3 mr-1" />
+              <Phone className="w-3 h-3 mr-1" aria-hidden="true" />
+              <span className="sr-only">Call us</span>
               Call
             </Button>
             <Button size="sm" className="px-3 py-1.5 text-xs">
-              <FaWhatsapp className="w-3 h-3 mr-1" />
+              <FaWhatsapp className="w-3 h-3 mr-1" aria-hidden="true" />
+              <span className="sr-only">WhatsApp us</span>
               WhatsApp
             </Button>
             <Link href="/request-a-quote">
               <Button variant="gold" size="sm" className="px-3 py-1.5 text-xs">
-                Quote
+                Request Quote
               </Button>
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="lg:hidden p-2 text-secondary-700"
+            className="lg:hidden p-2 text-secondary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6" aria-hidden="true" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6" aria-hidden="true" />
             )}
           </button>
         </div>
@@ -136,21 +146,21 @@ export function Header() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-navy border-t border-gold/20">
+        <div id="mobile-menu" className="lg:hidden bg-navy border-t border-gold/20" role="navigation" aria-label="Mobile navigation">
           <div className="px-4 py-6 space-y-4">
             {navigation.map((item) => (
               <div key={item.name}>
                 {item.children ? (
                   <div>
-                    <div className="font-medium text-white mb-2">
+                    <div className="font-medium text-white mb-2" role="presentation">
                       {item.name}
                     </div>
-                    <div className="ml-4 space-y-2">
+                    <div className="ml-4 space-y-2" role="group" aria-label={`${item.name} submenu`}>
                       {item.children.map((child) => (
                         <Link
                           key={child.name}
                           href={child.href}
-                          className="block text-white/90 hover:text-gold"
+                          className="block text-white/90 hover:text-gold focus:outline-none focus:ring-2 focus:ring-gold focus:rounded px-2 py-1"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {child.name}
@@ -161,7 +171,7 @@ export function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="block text-white/90 hover:text-gold"
+                    className="block text-white/90 hover:text-gold focus:outline-none focus:ring-2 focus:ring-gold focus:rounded px-2 py-1"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
@@ -170,20 +180,20 @@ export function Header() {
               </div>
             ))}
              <div className="pt-4 border-t border-gold/20 space-y-3">
-               <Button variant="outline" className="w-full justify-center">
-                 <Phone className="w-4 h-4 mr-2" />
-                 Call Now
-               </Button>
-               <Button className="w-full justify-center">
-                 <FaWhatsapp className="w-4 h-4 mr-2" />
-                 WhatsApp
-               </Button>
-               <Link href="/request-a-quote">
-                 <Button variant="gold" className="w-full justify-center">
-                   Request Quote
-                 </Button>
-               </Link>
-             </div>
+                <Button variant="outline" className="w-full justify-center">
+                  <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
+                  Call Now
+                </Button>
+                <Button className="w-full justify-center">
+                  <FaWhatsapp className="w-4 h-4 mr-2" aria-hidden="true" />
+                  WhatsApp
+                </Button>
+                <Link href="/request-a-quote">
+                  <Button variant="gold" className="w-full justify-center">
+                    Request Quote
+                  </Button>
+                </Link>
+              </div>
           </div>
         </div>
       )}

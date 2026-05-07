@@ -39,18 +39,18 @@ export default function SolarSolutionsPage() {
               <Sun className="w-10 h-10 text-energy-600" />
             </motion.div>
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6"
-              variants={fadeInUp}
-            >
-              Solar Energy Solutions
-            </motion.h1>
-            <motion.p
-              className="text-lg md:text-xl text-secondary-600 max-w-2xl mx-auto leading-relaxed"
-              variants={fadeInUp}
-            >
-              Comprehensive solar photovoltaic systems designed for reliability, efficiency,
-              and sustainable energy production across all sectors in Ghana and West Africa.
-            </motion.p>
+                className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6"
+                variants={fadeInUp}
+               >
+                 Solar Power Engineering
+               </motion.h1>
+               <motion.p
+                 className="text-lg md:text-xl text-secondary-600 max-w-2xl mx-auto leading-relaxed"
+                 variants={fadeInUp}
+               >
+                 Engineered photovoltaic systems for reliable, efficient energy production.
+                 Commercial and industrial solutions designed for Ghana's climate conditions.
+               </motion.p>
           </motion.div>
         </Container>
       </Section>
@@ -66,18 +66,18 @@ export default function SolarSolutionsPage() {
             variants={stagger}
           >
             <motion.h2
-              className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-6"
-              variants={fadeInUp}
-            >
-              Complete Solar Engineering Services
-            </motion.h2>
-            <motion.p
-              className="text-lg text-secondary-600 leading-relaxed"
-              variants={fadeInUp}
-            >
-              From initial consultation and system design to installation, commissioning, and ongoing support,
-              we provide end-to-end solar solutions that maximize energy production and minimize costs.
-            </motion.p>
+               className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-6"
+               variants={fadeInUp}
+              >
+                Complete Solar Engineering Services
+              </motion.h2>
+              <motion.p
+                className="text-lg text-secondary-600 leading-relaxed"
+                variants={fadeInUp}
+              >
+                From site assessment and system design to installation, commissioning, and ongoing support,
+                we deliver engineered solar solutions that optimize energy production and ensure long-term reliability.
+              </motion.p>
           </motion.div>
 
           <motion.div
@@ -148,17 +148,17 @@ export default function SolarSolutionsPage() {
             variants={stagger}
           >
             <motion.h2
-              className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-4"
-              variants={fadeInUp}
-            >
-              Tailored for Every Sector
-            </motion.h2>
-            <motion.p
-              className="text-lg text-secondary-600 max-w-2xl mx-auto"
-              variants={fadeInUp}
-            >
-              Specialized solar solutions designed to meet the unique energy needs of different industries
-            </motion.p>
+               className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-4"
+               variants={fadeInUp}
+             >
+               Engineered for Every Application
+             </motion.h2>
+             <motion.p
+               className="text-lg text-secondary-600 max-w-2xl mx-auto"
+               variants={fadeInUp}
+             >
+               Technical solar solutions engineered for the specific energy requirements of each sector
+             </motion.p>
           </motion.div>
 
           <motion.div
@@ -176,12 +176,12 @@ export default function SolarSolutionsPage() {
                     <Home className="w-8 h-8 text-primary-600" />
                   </div>
                   <h3 className="text-2xl font-serif font-bold text-primary-900 mb-4">
-                    Residential Solutions
-                  </h3>
-                  <p className="text-secondary-600 mb-6">
-                    Home solar systems designed for energy independence, reduced electricity bills,
-                    and sustainable living.
-                  </p>
+                     Residential Solutions
+                   </h3>
+                   <p className="text-secondary-600 mb-6">
+                     Engineered rooftop solar systems for residential energy independence and cost reduction.
+                     Custom-designed for optimal performance in Ghana's climate conditions.
+                   </p>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3 mb-6">
