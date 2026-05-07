@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Calculator, Send, CheckCircle } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
+import { useState } from "react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -19,6 +20,45 @@ const stagger = {
 };
 
 export default function RequestQuotePage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Create a hidden iframe for submission to avoid page navigation
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    try {
+      const response = await fetch('https://formsubmit.co/eleysonghana.com', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+        form.reset();
+        setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        console.error('Form submission error');
+      }
+    } catch (error) {
+      console.error('Form submission failed:', error);
+    } finally {
+      setIsSubmitting(false);
+      document.body.removeChild(iframe);
+    }
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -78,168 +118,223 @@ export default function RequestQuotePage() {
             <motion.div variants={fadeInUp}>
               <Card>
                 <CardContent className="p-8">
-                  <form className="space-y-6">
-                    {/* Contact Information */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {isSuccess ? (
+                    <div className="flex flex-col items-center justify-center py-12 text-center">
+                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <CheckCircle className="w-8 h-8 text-green-600" />
+                      </div>
+                      <h3 className="text-xl font-semibold text-primary-900 mb-2">Quote Request Sent!</h3>
+                      <p className="text-secondary-600">Thank you for your interest. We'll prepare a detailed quote and respond within 24-48 hours.</p>
+                    </div>
+                  ) : (
+                    <form className="space-y-6" action="https://formsubmit.co/eleysonghana.com" method="POST" onSubmit={handleSubmit}>
+                      {/* Hidden fields for FormSubmit */}
+                      <input type="hidden" name="_captcha" value="false" />
+                      <input type="hidden" name="_subject" value="New Quote Request from Eleyson Website" />
+                      <input type="hidden" name="_replyto" value="" />
+
+                      {/* Contact Information */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium text-secondary-700 mb-2">
+                            First Name *
+                          </label>
+                          <input
+                            type="text"
+                            name="first_name"
+                            required
+                            className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                            placeholder="Your first name"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-secondary-700 mb-2">
+                            Last Name *
+                          </label>
+                          <input
+                            type="text"
+                            name="last_name"
+                            required
+                            className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                            placeholder="Your last name"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium text-secondary-700 mb-2">
+                            Email *
+                          </label>
+                          <input
+                            type="email"
+                            name="email"
+                            required
+                            className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                            placeholder="your@email.com"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-secondary-700 mb-2">
+                            Phone *
+                          </label>
+                          <input
+                            type="tel"
+                            name="phone"
+                            required
+                            className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                            placeholder="+233 XX XXX XXXX"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Project Details */}
                       <div>
                         <label className="block text-sm font-medium text-secondary-700 mb-2">
-                          First Name *
+                          Service Type *
+                        </label>
+                        <select
+                          name="service_type"
+                          required
+                          className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        >
+                          <option value="">Select a service</option>
+                          <option value="Solar Energy Installation">Solar Energy Installation</option>
+                          <option value="Borehole Drilling & Mechanization">Borehole Drilling & Mechanization</option>
+                          <option value="Energy Audit & Optimization">Energy Audit & Optimization</option>
+                          <option value="Hybrid Solar System">Hybrid Solar System</option>
+                          <option value="Water Infrastructure Development">Water Infrastructure Development</option>
+                          <option value="Maintenance & Support">Maintenance & Support</option>
+                          <option value="Product Purchase">Product Purchase</option>
+                          <option value="Other Engineering Services">Other Engineering Services</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-secondary-700 mb-2">
+                          Project Type *
+                        </label>
+                        <select
+                          name="project_type"
+                          required
+                          className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        >
+                          <option value="">Select project type</option>
+                          <option value="Residential">Residential</option>
+                          <option value="Commercial">Commercial</option>
+                          <option value="Industrial">Industrial</option>
+                          <option value="Government">Government</option>
+                          <option value="NGO / Community">NGO / Community</option>
+                          <option value="Agricultural">Agricultural</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-secondary-700 mb-2">
+                          Location *
                         </label>
                         <input
                           type="text"
+                          name="location"
+                          required
                           className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                          placeholder="Your first name"
+                          placeholder="City, Region, Ghana"
                         />
                       </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium text-secondary-700 mb-2">
+                            Preferred Timeline
+                          </label>
+                          <select
+                            name="timeline"
+                            className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                          >
+                            <option value="ASAP">ASAP</option>
+                            <option value="1-3 months">1-3 months</option>
+                            <option value="3-6 months">3-6 months</option>
+                            <option value="6+ months">6+ months</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-secondary-700 mb-2">
+                            Budget Range
+                          </label>
+                          <select
+                            name="budget"
+                            className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                          >
+                            <option value="Under GHS 50,000">Under GHS 50,000</option>
+                            <option value="GHS 50,000 - 200,000">GHS 50,000 - 200,000</option>
+                            <option value="GHS 200,000 - 500,000">GHS 200,000 - 500,000</option>
+                            <option value="GHS 500,000 - 1M">GHS 500,000 - 1M</option>
+                            <option value="Over GHS 1M">Over GHS 1M</option>
+                            <option value="Discuss with expert">Discuss with expert</option>
+                          </select>
+                        </div>
+                      </div>
+
                       <div>
                         <label className="block text-sm font-medium text-secondary-700 mb-2">
-                          Last Name *
+                          Project Description *
                         </label>
-                        <input
-                          type="text"
+                        <textarea
+                          name="project_description"
+                          rows={6}
+                          required
                           className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                          placeholder="Your last name"
+                          placeholder="Describe your project requirements, current situation, goals, and any specific needs..."
                         />
                       </div>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-medium text-secondary-700 mb-2">
-                          Email *
+                          Preferred Contact Method
                         </label>
-                        <input
-                          type="email"
-                          className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                          placeholder="your@email.com"
-                        />
+                        <div className="flex gap-6">
+                          <label className="flex items-center">
+                            <input type="radio" name="preferred_contact" value="email" className="mr-2" defaultChecked />
+                            Email
+                          </label>
+                          <label className="flex items-center">
+                            <input type="radio" name="preferred_contact" value="phone" className="mr-2" />
+                            Phone
+                          </label>
+                          <label className="flex items-center">
+                            <input type="radio" name="preferred_contact" value="whatsapp" className="mr-2" />
+                            WhatsApp
+                          </label>
+                        </div>
                       </div>
-                      <div>
-                        <label className="block text-sm font-medium text-secondary-700 mb-2">
-                          Phone *
-                        </label>
-                        <input
-                          type="tel"
-                          className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                          placeholder="+233 XX XXX XXXX"
-                        />
+
+                      <div className="flex items-start space-x-3">
+                        <input type="checkbox" name="consent" required className="mt-1" />
+                        <p className="text-sm text-secondary-600">
+                          I agree to receive communications from Eleyson Ghana Limited about my quote request and project updates.
+                        </p>
                       </div>
-                    </div>
 
-                    {/* Project Details */}
-                    <div>
-                      <label className="block text-sm font-medium text-secondary-700 mb-2">
-                        Service Type *
-                      </label>
-                      <select className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
-                        <option>Select a service</option>
-                        <option>Solar Energy Installation</option>
-                        <option>Borehole Drilling & Mechanization</option>
-                        <option>Energy Audit & Optimization</option>
-                        <option>Hybrid Solar System</option>
-                        <option>Water Infrastructure Development</option>
-                        <option>Maintenance & Support</option>
-                        <option>Product Purchase</option>
-                        <option>Other Engineering Services</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-secondary-700 mb-2">
-                        Project Type *
-                      </label>
-                      <select className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
-                        <option>Select project type</option>
-                        <option>Residential</option>
-                        <option>Commercial</option>
-                        <option>Industrial</option>
-                        <option>Government</option>
-                        <option>NGO / Community</option>
-                        <option>Agricultural</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-secondary-700 mb-2">
-                        Location *
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        placeholder="City, Region, Ghana"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium text-secondary-700 mb-2">
-                          Preferred Timeline
-                        </label>
-                        <select className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
-                          <option>ASAP</option>
-                          <option>1-3 months</option>
-                          <option>3-6 months</option>
-                          <option>6+ months</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-secondary-700 mb-2">
-                          Budget Range
-                        </label>
-                        <select className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
-                          <option>Under GHS 50,000</option>
-                          <option>GHS 50,000 - 200,000</option>
-                          <option>GHS 200,000 - 500,000</option>
-                          <option>GHS 500,000 - 1M</option>
-                          <option>Over GHS 1M</option>
-                          <option>Discuss with expert</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-secondary-700 mb-2">
-                        Project Description *
-                      </label>
-                      <textarea
-                        rows={6}
-                        className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        placeholder="Describe your project requirements, current situation, goals, and any specific needs..."
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-secondary-700 mb-2">
-                        Preferred Contact Method
-                      </label>
-                      <div className="flex gap-6">
-                        <label className="flex items-center">
-                          <input type="radio" name="contact" value="email" className="mr-2" defaultChecked />
-                          Email
-                        </label>
-                        <label className="flex items-center">
-                          <input type="radio" name="contact" value="phone" className="mr-2" />
-                          Phone
-                        </label>
-                        <label className="flex items-center">
-                          <input type="radio" name="contact" value="whatsapp" className="mr-2" />
-                          WhatsApp
-                        </label>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start space-x-3">
-                      <input type="checkbox" className="mt-1" />
-                      <p className="text-sm text-secondary-600">
-                        I agree to receive communications from Eleyson Ghana Limited about my quote request and project updates.
-                      </p>
-                    </div>
-
-                    <Button size="lg" className="w-full">
-                      <Send className="w-5 h-5 mr-2" />
-                      Request Quote
-                    </Button>
-                  </form>
+                      <Button
+                        type="submit"
+                        size="lg"
+                        className="w-full"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                            Processing...
+                          </>
+                        ) : (
+                          <>
+                            <Send className="w-5 h-5 mr-2" />
+                            Request Quote
+                          </>
+                        )}
+                      </Button>
+                    </form>
+                  )}
                 </CardContent>
               </Card>
             </motion.div>
@@ -326,7 +421,7 @@ export default function RequestQuotePage() {
                 Speak with an Expert
               </Button>
               <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary-900">
-                Call +233 XX XXX XXXX
+                Call +233 244 973 788
               </Button>
             </div>
           </motion.div>

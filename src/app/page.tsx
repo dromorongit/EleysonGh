@@ -5,7 +5,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Star, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone, MapPin, Layers } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { getFeaturedProjects, projects } from "@/data/projects";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -22,91 +23,7 @@ const stagger = {
 };
 
 export default function Home() {
-  const [featuredProjects, setFeaturedProjects] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchFeaturedProjects = async () => {
-      try {
-        const res = await fetch('/api/projects?featured=true');
-        if (res.ok) {
-          const data = await res.json();
-          if (data.projects && data.projects.length > 0) {
-            setFeaturedProjects(data.projects);
-          } else {
-            // Fallback to static data if CMS returns empty
-            setFeaturedProjects([
-              {
-                title: "Commercial Solar Installation",
-                location: "Accra, Ghana",
-                type: "Solar",
-                description: "500kW hybrid solar system for major commercial facility"
-              },
-              {
-                title: "Industrial Borehole Project",
-                location: "Tema, Ghana",
-                type: "Hydro",
-                description: "Complete drilling and mechanization for manufacturing plant"
-              },
-              {
-                title: "Government Energy Solution",
-                location: "Eastern Region",
-                type: "Solar",
-                description: "Off-grid solar power for remote government facility"
-              }
-            ]);
-          }
-        } else {
-          setFeaturedProjects([
-            {
-              title: "Commercial Solar Installation",
-              location: "Accra, Ghana",
-              type: "Solar",
-              description: "500kW hybrid solar system for major commercial facility"
-            },
-            {
-              title: "Industrial Borehole Project",
-              location: "Tema, Ghana",
-              type: "Hydro",
-              description: "Complete drilling and mechanization for manufacturing plant"
-            },
-            {
-              title: "Government Energy Solution",
-              location: "Eastern Region",
-              type: "Solar",
-              description: "Off-grid solar power for remote government facility"
-            }
-          ]);
-        }
-      } catch (error) {
-        console.error('Error fetching featured projects:', error);
-        setFeaturedProjects([
-          {
-            title: "Commercial Solar Installation",
-            location: "Accra, Ghana",
-            type: "Solar",
-            description: "500kW hybrid solar system for major commercial facility"
-          },
-          {
-            title: "Industrial Borehole Project",
-            location: "Tema, Ghana",
-            type: "Hydro",
-            description: "Complete drilling and mechanization for manufacturing plant"
-          },
-          {
-            title: "Government Energy Solution",
-            location: "Eastern Region",
-            type: "Solar",
-            description: "Off-grid solar power for remote government facility"
-          }
-        ]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchFeaturedProjects();
-  }, []);
+  const featuredProjects = getFeaturedProjects();
 
   return (
     <>
@@ -148,14 +65,14 @@ export default function Home() {
             animate="animate"
             variants={stagger}
           >
-             <motion.h1
-               className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-primary-900 mb-8 leading-[0.85] tracking-tight"
-               variants={fadeInUp}
-             >
-               Engineering the Future<br />
-               of <span className="bg-gradient-to-r from-energy-600 to-energy-800 bg-clip-text text-transparent">Energy</span> &<br />
-               <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Water</span>
-             </motion.h1>
+            <motion.h1
+              className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-primary-900 mb-8 leading-[0.85] tracking-tight"
+              variants={fadeInUp}
+            >
+              Engineering the Future<br />
+              of <span className="bg-gradient-to-r from-energy-600 to-energy-800 bg-clip-text text-transparent">Energy</span> &<br />
+              <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Water</span>
+            </motion.h1>
             <motion.p
               className="text-xl md:text-2xl text-secondary-700 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
               variants={fadeInUp}
@@ -402,42 +319,36 @@ export default function Home() {
             viewport={{ once: true }}
             variants={stagger}
           >
-            {loading ? (
-              <div className="col-span-1 md:col-span-3 text-center py-12 text-white">
-                Loading featured projects...
-              </div>
-            ) : featuredProjects.length > 0 ? (
-              featuredProjects.map((project: any, index: number) => (
-                <motion.div key={project._id || index} variants={fadeInUp}>
-                  <Card className="h-full hover:shadow-xl transition-all duration-300 bg-white text-primary-900">
-                    <div
-                      className="aspect-video bg-gradient-to-br from-primary-200 to-energy-200 rounded-t-lg bg-cover bg-center"
-                      style={{
-                        backgroundImage: project.featuredImage
-                          ? `url(${project.featuredImage})`
-                          : undefined
-                      }}
-                    />
-                    <CardHeader>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-gold bg-gold/10 px-2 py-1 rounded">
-                          {project.category || project.type}
-                        </span>
-                        <span className="text-sm text-secondary-600">{project.location}</span>
-                      </div>
-                      <h3 className="text-lg font-semibold text-primary-900">
-                        {project.title}
-                      </h3>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-secondary-700 text-sm">
-                        {project.shortDescription || project.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))
-            ) : null}
+            {featuredProjects.slice(0, 3).map((project, index) => (
+              <motion.div key={project.slug} variants={fadeInUp}>
+                <Card className="h-full hover:shadow-xl transition-all duration-300 bg-white text-primary-900">
+                  <div
+                    className="aspect-video bg-gradient-to-br from-primary-200 to-energy-200 rounded-t-lg bg-cover bg-center"
+                    style={{
+                      backgroundImage: project.featuredImage
+                        ? `url(${project.featuredImage})`
+                        : undefined
+                    }}
+                  />
+                  <CardHeader>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-medium text-gold bg-gold/10 px-2 py-1 rounded">
+                        {project.category}
+                      </span>
+                      <span className="text-sm text-secondary-600">{project.location}</span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-primary-900">
+                      {project.title}
+                    </h3>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-secondary-700 text-sm">
+                      {project.shortDescription}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </motion.div>
 
           <motion.div
@@ -481,20 +392,20 @@ export default function Home() {
               Our experts are ready to discuss your project requirements.
             </motion.p>
             <motion.div
-               className="flex flex-col sm:flex-row gap-4 justify-center"
-               variants={fadeInUp}
-             >
-               <Link href="/request-a-quote">
-                 <Button size="lg" variant="gold" className="text-lg px-8 py-4">
-                   <MessageCircle className="w-5 h-5 mr-2" />
-                   Request a Quote
-                 </Button>
-               </Link>
-               <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary-900">
-                 <Phone className="w-5 h-5 mr-2" />
-                 Call Now
-               </Button>
-             </motion.div>
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              variants={fadeInUp}
+            >
+              <Link href="/request-a-quote">
+                <Button size="lg" variant="gold" className="text-lg px-8 py-4">
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Request a Quote
+                </Button>
+              </Link>
+              <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary-900">
+                <Phone className="w-5 h-5 mr-2" />
+                Call Now
+              </Button>
+            </motion.div>
           </motion.div>
         </Container>
       </section>
