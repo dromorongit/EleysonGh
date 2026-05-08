@@ -52,57 +52,60 @@ export function Header() {
            {/* Logo */}
            <div className="flex-shrink-0">
               <Link href="/" className="flex items-center space-x-2" aria-label="Eleyson Ghana Limited - Home">
-                <Image src="/images/eleysonlogo.jpg" alt="Eleyson Ghana Limited logo" width={100} height={100} className="flex-shrink-0" />
+                <Image src="/images/eleysonlogo.jpg" alt="Eleyson Ghana Limited logo" width={95} height={95} className="flex-shrink-0" />
               </Link>
            </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
-            {navigation.map((item) => (
-              <div key={item.name} className="relative">
-                {item.children ? (
-                  <button
-                    onMouseEnter={() => setSolutionsOpen(true)}
-                    onMouseLeave={() => setSolutionsOpen(false)}
-                    onFocus={() => setSolutionsOpen(true)}
-                    onBlur={() => setSolutionsOpen(false)}
-                    className="flex items-center space-x-1 text-secondary-700 hover:text-primary-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded px-2 py-1"
-                    aria-expanded={solutionsOpen}
-                    aria-haspopup="true"
-                  >
-                    <span>{item.name}</span>
-                    <ChevronDown className="w-4 h-4" aria-hidden="true" />
-                  </button>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className="text-secondary-700 hover:text-primary-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded px-2 py-1"
-                  >
-                    {item.name}
-                  </Link>
-                )}
+           {/* Desktop Navigation */}
+           <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
+             {navigation.map((item) => (
+               <div key={item.name} className="relative">
+                 {item.children ? (
+                   <div
+                     onMouseEnter={() => setSolutionsOpen(true)}
+                     onMouseLeave={() => setSolutionsOpen(false)}
+                   >
+                     <button
+                       onFocus={() => setSolutionsOpen(true)}
+                       onBlur={() => setSolutionsOpen(false)}
+                       className="flex items-center space-x-1 text-secondary-700 hover:text-primary-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded px-2 py-1"
+                       aria-expanded={solutionsOpen}
+                       aria-haspopup="true"
+                     >
+                       <span>{item.name}</span>
+                       <ChevronDown className="w-4 h-4" aria-hidden="true" />
+                     </button>
 
-                {item.children && solutionsOpen && (
-                  <div
-                    className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-primary-100 py-2"
-                    role="menu"
-                    aria-label={`${item.name} submenu`}
-                  >
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.name}
-                        href={child.href}
-                        className="block px-4 py-2 text-sm text-secondary-700 hover:bg-primary-50 hover:text-primary-800 focus:outline-none focus:bg-primary-50"
-                        role="menuitem"
-                      >
-                        {child.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
+                     {solutionsOpen && (
+                       <div
+                         className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-primary-100 py-2"
+                         role="menu"
+                         aria-label={`${item.name} submenu`}
+                       >
+                         {item.children.map((child) => (
+                           <Link
+                             key={child.name}
+                             href={child.href}
+                             className="block px-4 py-2 text-sm text-secondary-700 hover:bg-primary-50 hover:text-primary-800 focus:outline-none focus:bg-primary-50"
+                             role="menuitem"
+                           >
+                             {child.name}
+                           </Link>
+                         ))}
+                       </div>
+                     )}
+                   </div>
+                 ) : (
+                   <Link
+                     href={item.href}
+                     className="text-secondary-700 hover:text-primary-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded px-2 py-1"
+                   >
+                     {item.name}
+                   </Link>
+                 )}
+               </div>
+             ))}
+           </nav>
 
            {/* CTA Buttons */}
            <div className="hidden lg:flex items-center space-x-2">
