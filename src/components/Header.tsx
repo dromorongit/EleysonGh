@@ -51,9 +51,9 @@ export function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
            {/* Logo */}
            <div className="flex-shrink-0">
-             <Link href="/" className="flex items-center space-x-2" aria-label="Eleyson Ghana Limited - Home">
-               <Image src="/images/eleysonlogo.jpg" alt="Eleyson Ghana Limited logo" width={40} height={40} className="flex-shrink-0" />
-             </Link>
+              <Link href="/" className="flex items-center space-x-2" aria-label="Eleyson Ghana Limited - Home">
+                <Image src="/images/eleysonlogo.jpg" alt="Eleyson Ghana Limited logo" width={80} height={80} className="flex-shrink-0" />
+              </Link>
            </div>
 
           {/* Desktop Navigation */}
