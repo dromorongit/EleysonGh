@@ -52,7 +52,7 @@ export function Header() {
            {/* Logo */}
            <div className="flex-shrink-0">
               <Link href="/" className="flex items-center space-x-2" aria-label="Eleyson Ghana Limited - Home">
-                <Image src="/images/eleysonlogo.jpg" alt="Eleyson Ghana Limited logo" width={95} height={95} className="flex-shrink-0" />
+                <Image src="/images/eleysonlogo.jpg" alt="Eleyson Ghana Limited logo" width={85} height={85} className="flex-shrink-0" />
               </Link>
            </div>
 
@@ -64,6 +64,7 @@ export function Header() {
                    <div
                      onMouseEnter={() => setSolutionsOpen(true)}
                      onMouseLeave={() => setSolutionsOpen(false)}
+                     className="pb-2"
                    >
                      <button
                        onFocus={() => setSolutionsOpen(true)}
@@ -78,7 +79,7 @@ export function Header() {
 
                      {solutionsOpen && (
                        <div
-                         className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-primary-100 py-2"
+                         className="absolute top-full left-0 w-64 bg-white rounded-lg shadow-lg border border-primary-100 py-2"
                          role="menu"
                          aria-label={`${item.name} submenu`}
                        >
