@@ -48,8 +48,8 @@ export const metadata: Metadata = {
     images: ["https://eleysonghana.com/images/homepage.jpg"],
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/images/eleysonlogo.jpg",
+    shortcut: "/images/eleysonlogo.jpg",
   },
 };
 

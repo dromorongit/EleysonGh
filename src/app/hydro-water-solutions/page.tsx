@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Droplets, MapPin, FileText, Cog, Wrench, TestTube, CheckCircle, ArrowRight, Activity, Truck } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
+import { projects } from "@/data/projects";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -294,89 +295,84 @@ export default function HydroWaterSolutionsPage() {
         </Container>
       </Section>
 
-      {/* Featured Projects */}
-      <Section className="bg-secondary-50">
-        <Container>
-          <motion.div
-            className="text-center mb-12"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            <motion.h2
-              className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-4"
-              variants={fadeInUp}
-            >
-              Featured Hydro Projects
-            </motion.h2>
-          </motion.div>
+       {/* Featured Projects */}
+       <Section className="bg-secondary-50">
+         <Container>
+           <motion.div
+             className="text-center mb-12"
+             initial="initial"
+             whileInView="animate"
+             viewport={{ once: true }}
+             variants={stagger}
+           >
+             <motion.h2
+               className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-4"
+               variants={fadeInUp}
+             >
+               Featured Hydro Projects
+             </motion.h2>
+           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            {[
-              {
-                title: "Rural Community Borehole",
-                location: "Eastern Region, Ghana",
-                depth: "120m",
-                description: "Complete borehole system serving 500+ households"
-              },
-              {
-                title: "Industrial Water Supply",
-                location: "Tema, Ghana",
-                depth: "85m",
-                description: "High-capacity borehole for manufacturing facility"
-              },
-              {
-                title: "Agricultural Irrigation System",
-                location: "Ashanti Region, Ghana",
-                depth: "95m",
-                description: "Solar-powered irrigation borehole for farm cooperative"
-              }
-            ].map((project, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className="h-full">
-                  <div className="aspect-video bg-gradient-to-br from-primary-100 to-energy-100 rounded-t-lg" />
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded">
-                        {project.depth}
-                      </span>
-                      <span className="text-sm text-secondary-500">{project.location}</span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-primary-900">
-                      {project.title}
-                    </h3>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-secondary-600 text-sm">{project.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
+           <motion.div
+             className="grid grid-cols-1 md:grid-cols-3 gap-8"
+             initial="initial"
+             whileInView="animate"
+             viewport={{ once: true }}
+             variants={stagger}
+           >
+             {projects
+               .filter(project => project.category === 'Hydro')
+               .map((project, index) => (
+                 <motion.div key={project.slug} variants={fadeInUp}>
+                   <Card className="h-full">
+                     <div className="aspect-video rounded-t-lg overflow-hidden relative">
+                       <Image
+                         src={project.featuredImage}
+                         alt={project.title}
+                         fill
+                         className="object-cover"
+                       />
+                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                       <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                         <div className="flex items-center justify-between mb-2">
+                           <span className="text-sm font-medium bg-gold text-navy px-2 py-1 rounded">
+                             {project.category}
+                           </span>
+                           <span className="text-sm text-white/80">{project.location}</span>
+                         </div>
+                         <h3 className="text-lg font-semibold mb-2">
+                           {project.title}
+                         </h3>
+                         <p className="text-white/70 text-sm mb-4">{project.shortDescription}</p>
+                         <Link href={`/projects/${project.slug}`}>
+                           <Button variant="gold" size="sm">
+                             View Case Study
+                             <ArrowRight className="w-4 h-4 ml-1" />
+                           </Button>
+                         </Link>
+                       </div>
+                     </div>
+                   </Card>
+                 </motion.div>
+               ))}
+           </motion.div>
 
-          <motion.div
-            className="text-center mt-12"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <Link href="/projects">
-              <Button size="lg">
-                View All Hydro Projects
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
-          </motion.div>
-        </Container>
-      </Section>
+           <motion.div
+             className="text-center mt-12"
+             initial="initial"
+             whileInView="animate"
+             viewport={{ once: true }}
+             variants={fadeInUp}
+           >
+             <Link href="/projects">
+               <Button size="lg">
+                 View All Hydro Projects
+                 <ArrowRight className="w-5 h-5 ml-2" />
+               </Button>
+             </Link>
+           </motion.div>
+         </Container>
+       </Section>
 
       {/* CTA Section */}
       <Section className="bg-gradient-to-r from-primary-900 to-primary-800 text-white">

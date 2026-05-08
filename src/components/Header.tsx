@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "./Button";
@@ -48,17 +49,12 @@ export function Header() {
     <header className={cn("sticky top-0 z-50 transition-all duration-300 border-b", isScrolled || !isHome ? "bg-white shadow-lg backdrop-blur-md border-primary-100" : "bg-transparent backdrop-blur-sm border-transparent")} role="banner">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center space-x-2" aria-label="Eleyson Ghana Limited - Home">
-              <div className="w-8 h-8 bg-primary-800 rounded-lg flex items-center justify-center">
-                <span className="text-white font-serif font-bold text-lg">E</span>
-              </div>
-              <span className="text-xl font-serif font-bold text-primary-900">
-                Eleyson Ghana
-              </span>
-            </Link>
-          </div>
+           {/* Logo */}
+           <div className="flex-shrink-0">
+             <Link href="/" className="flex items-center space-x-2" aria-label="Eleyson Ghana Limited - Home">
+               <Image src="/images/eleysonlogo.jpg" alt="Eleyson Ghana Limited logo" width={40} height={40} className="flex-shrink-0" />
+             </Link>
+           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
@@ -108,24 +104,26 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-2">
-            <Button variant="outline" size="sm" className="px-3 py-1.5 text-xs">
-              <Phone className="w-3 h-3 mr-1" aria-hidden="true" />
-              <span className="sr-only">Call us</span>
-              Call
-            </Button>
-            <Button size="sm" className="px-3 py-1.5 text-xs">
-              <FaWhatsapp className="w-3 h-3 mr-1" aria-hidden="true" />
-              <span className="sr-only">WhatsApp us</span>
-              WhatsApp
-            </Button>
-            <Link href="/request-a-quote">
-              <Button variant="gold" size="sm" className="px-3 py-1.5 text-xs">
-                Request Quote
-              </Button>
-            </Link>
-          </div>
+           {/* CTA Buttons */}
+           <div className="hidden lg:flex items-center space-x-2">
+             <Button variant="outline" size="sm" className="px-3 py-1.5 text-xs">
+               <Phone className="w-3 h-3 mr-1" aria-hidden="true" />
+               <span className="sr-only">Call us</span>
+               Call
+             </Button>
+             <a href="https://wa.me/233244973788" target="_blank" rel="noopener noreferrer">
+               <Button size="sm" className="px-3 py-1.5 text-xs">
+                 <FaWhatsapp className="w-3 h-3 mr-1" aria-hidden="true" />
+                 <span className="sr-only">WhatsApp us</span>
+                 WhatsApp
+               </Button>
+             </a>
+             <Link href="/request-a-quote">
+               <Button variant="gold" size="sm" className="px-3 py-1.5 text-xs">
+                 Request Quote
+               </Button>
+             </Link>
+           </div>
 
           {/* Mobile menu button */}
           <button
@@ -179,21 +177,23 @@ export function Header() {
                 )}
               </div>
             ))}
-             <div className="pt-4 border-t border-gold/20 space-y-3">
-                <Button variant="outline" className="w-full justify-center">
-                  <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
-                  Call Now
-                </Button>
-                <Button className="w-full justify-center">
-                  <FaWhatsapp className="w-4 h-4 mr-2" aria-hidden="true" />
-                  WhatsApp
-                </Button>
-                <Link href="/request-a-quote">
-                  <Button variant="gold" className="w-full justify-center">
-                    Request Quote
-                  </Button>
-                </Link>
-              </div>
+              <div className="pt-4 border-t border-gold/20 space-y-3">
+                 <Button variant="outline" className="w-full justify-center">
+                   <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
+                   Call Now
+                 </Button>
+                 <a href="https://wa.me/233244973788" target="_blank" rel="noopener noreferrer">
+                   <Button className="w-full justify-center">
+                     <FaWhatsapp className="w-4 h-4 mr-2" aria-hidden="true" />
+                     WhatsApp
+                   </Button>
+                 </a>
+                 <Link href="/request-a-quote">
+                   <Button variant="gold" className="w-full justify-center">
+                     Request Quote
+                   </Button>
+                 </Link>
+               </div>
           </div>
         </div>
       )}
