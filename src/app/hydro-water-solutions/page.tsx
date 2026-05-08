@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Droplets, MapPin, FileText, Cog, Wrench, TestTube, CheckCircle, ArrowRight, Activity, Truck } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
+import Image from "next/image";
 import { projects } from "@/data/projects";
 
 const fadeInUp = {
@@ -326,12 +327,11 @@ export default function HydroWaterSolutionsPage() {
                  <motion.div key={project.slug} variants={fadeInUp}>
                    <Card className="h-full">
                      <div className="aspect-video rounded-t-lg overflow-hidden relative">
-                       <Image
-                         src={project.featuredImage}
-                         alt={project.title}
-                         fill
-                         className="object-cover"
-                       />
+                        <Image
+                          src={project.featuredImage}
+                          alt={project.title}
+                          fill
+                        />
                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                        <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                          <div className="flex items-center justify-between mb-2">
