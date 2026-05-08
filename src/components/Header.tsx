@@ -52,7 +52,7 @@ export function Header() {
            {/* Logo */}
            <div className="flex-shrink-0">
               <Link href="/" className="flex items-center space-x-2" aria-label="Eleyson Ghana Limited - Home">
-                <Image src="/images/eleysonlogo.jpg" alt="Eleyson Ghana Limited logo" width={80} height={80} className="flex-shrink-0" />
+                <Image src="/images/eleysonlogo.jpg" alt="Eleyson Ghana Limited logo" width={100} height={100} className="flex-shrink-0" />
               </Link>
            </div>
 
