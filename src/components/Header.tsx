@@ -48,7 +48,7 @@ export function Header() {
   return (
     <header className={cn("sticky top-0 z-50 transition-all duration-300 border-b", isScrolled || !isHome ? "bg-white shadow-lg backdrop-blur-md border-primary-100" : "bg-transparent backdrop-blur-sm border-transparent")} role="banner">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+        <div className="flex items-center justify-between h-[84px] lg:h-24">
            {/* Logo */}
            <div className="flex-shrink-0">
               <Link href="/" className="flex items-center space-x-2" aria-label="Eleyson Ghana Limited - Home">
