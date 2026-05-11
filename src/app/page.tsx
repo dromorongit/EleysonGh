@@ -39,7 +39,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-energy-50" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary-900/5 to-energy-500/5" />
         <div className="absolute inset-0 bg-radial-gradient from-gold/10 via-transparent to-transparent opacity-60" />
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[800px] h-[800px] bg-gradient-radial from-gold/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[500px] lg:w-[800px] lg:h-[800px] bg-gradient-radial from-gold/5 to-transparent rounded-full blur-3xl" />
 
         {/* Subtle Ambient Motion */}
         <motion.div

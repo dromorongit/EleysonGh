@@ -56,8 +56,8 @@ export function Header() {
               </Link>
            </div>
 
-           {/* Desktop Navigation */}
-           <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8" role="navigation" aria-label="Main navigation">
              {navigation.map((item) => (
                <div key={item.name} className="relative">
                  {item.children ? (

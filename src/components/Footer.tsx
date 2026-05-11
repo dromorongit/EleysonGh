@@ -142,14 +142,18 @@ export function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-start space-x-3">
                 <Phone className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <div>
+                <div className="space-y-1">
                   <p className="text-white/70">+233 244 973 788</p>
                   <p className="text-white/70">+233 302 507 889</p>
+                  <p className="text-white/70">+233 204 981 687</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <Mail className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <p className="text-white/70">info@eleysonghana.com</p>
+                <div className="space-y-1">
+                  <p className="text-white/70 break-words">info@eleysonghana.com</p>
+                  <p className="text-white/70 break-words">projects@eleysonghana.com</p>
+                </div>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
