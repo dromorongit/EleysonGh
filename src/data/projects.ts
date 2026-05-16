@@ -46,12 +46,6 @@ export const projects: Project[] = [
       '/images/sunyanisolar4.jpg',
       '/images/sunyanisolar5.jpg',
       '/images/sunyanisolar6.jpg',
-      '/images/sunyanisolar7.jpg',
-      '/images/sunyanisolar8.jpg',
-      '/images/sunyanisolar9.jpg',
-      '/images/sunyanisolar10.jpg',
-      '/images/sunyanisolar11.jpg',
-      '/images/sunyanisolar12.jpg',
       '/images/sunyanisolar1.MP4',
       '/images/sunyanisolar2.MP4',
       '/images/sunyanisolar3.MP4'
