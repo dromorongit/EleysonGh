@@ -117,8 +117,7 @@ export default function ContactPage() {
                     <p className="text-secondary-600">+233 302 507 889</p>
                     <p className="text-secondary-600">+233 204 981 687</p>
                   </div>
-                </div>
-
+</div>
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Mail className="w-6 h-6 text-primary-600" />
@@ -126,7 +125,6 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-primary-900 mb-2">Email</h3>
                     <p className="text-secondary-600">info@eleysonghana.com</p>
-                    <p className="text-secondary-600">projects@eleysonghana.com</p>
                   </div>
                 </div>
 

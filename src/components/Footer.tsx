@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, MessageCircle, Home, Link2, Settings, Package } from "lucide-react";
+import Image from "next/image";
+import { Phone, Mail, MapPin, MessageCircle, Link2, Settings, Package } from "lucide-react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { Button } from "./Button";
 import { Container } from "./Container";
@@ -13,9 +14,7 @@ export function Footer() {
           <div className="space-y-4 pr-8 border-r border-gold/10 last:border-r-0">
             <div className="flex items-center space-x-2">
               <Link href="/" className="flex items-center space-x-2" aria-label="Eleyson Ghana Limited - Home">
-                <div className="w-8 h-8 bg-gold rounded-lg flex items-center justify-center" aria-hidden="true">
-                  <span className="text-navy font-serif font-bold text-lg">E</span>
-                </div>
+                <Image src="/images/eleysonlogo.jpg" alt="Eleyson Ghana Limited logo" width={32} height={32} className="flex-shrink-0" />
                 <span className="text-xl font-serif font-bold">Eleyson Ghana</span>
               </Link>
             </div>
@@ -152,7 +151,6 @@ export function Footer() {
                 <Mail className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <div className="space-y-1">
                   <p className="text-white/70 break-words">info@eleysonghana.com</p>
-                  <p className="text-white/70 break-words">projects@eleysonghana.com</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
@@ -163,17 +161,17 @@ export function Footer() {
                 </p>
               </div>
             </div>
-             <div className="pt-4 space-y-2">
-               <Link href="/request-a-quote">
-                 <Button variant="gold" className="w-full">
-                   Request a Quote
-                 </Button>
-               </Link>
-               <Button variant="outline" className="w-full border-white/20 text-white/70 hover:bg-white/10">
-                 <MessageCircle className="w-4 h-4 mr-2" />
-                 WhatsApp Us
-               </Button>
-             </div>
+            <div className="pt-4 space-y-2">
+              <Link href="/request-a-quote">
+                <Button variant="gold" className="w-full">
+                  Request a Quote
+                </Button>
+              </Link>
+              <Button variant="outline" className="w-full border-white/20 text-white/70 hover:bg-white/10">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                WhatsApp Us
+              </Button>
+            </div>
           </div>
 
           {/* Newsletter */}

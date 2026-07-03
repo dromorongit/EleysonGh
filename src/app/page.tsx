@@ -31,7 +31,7 @@ export default function Home() {
     }
   };
 
-  return (
+return (
     <>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden pt-20 md:pt-0">
@@ -72,59 +72,58 @@ export default function Home() {
             variants={stagger}
           >
             <motion.h1
-                className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-primary-900 mb-8 leading-[0.85] tracking-tight"
-                variants={fadeInUp}
-               >
-                 Engineering Energy & Water<br />
-                 <span className="bg-gradient-to-r from-energy-600 to-energy-800 bg-clip-text text-transparent">Infrastructure</span><br />
-                 <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Across West Africa</span>
-               </motion.h1>
-               <motion.p
-                 className="text-xl md:text-2xl text-secondary-700 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
-                 variants={fadeInUp}
-               >
-                 Eleyson Ghana Limited delivers engineered solar power and hydrogeological solutions
-                 for commercial, industrial, and government infrastructure projects.
-                 <br className="hidden md:block" />
-                 Since 2011, we've designed and installed over 500 systems across Ghana.
-               </motion.p>
+              className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-primary-900 mb-8 leading-[0.85] tracking-tight"
+              variants={fadeInUp}
+            >
+              Engineering The Future of Energy & Water<br />
+              <span className="bg-gradient-to-r from-energy-600 to-energy-800 bg-clip-text text-transparent">Across West Africa</span>
+            </motion.h1>
+            <motion.p
+              className="text-xl md:text-2xl text-secondary-700 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
+              variants={fadeInUp}
+            >
+              Eleyson Ghana Limited delivers engineered solar power and hydrogeological solutions
+              for commercial, industrial, and government infrastructure projects.
+              <br className="hidden md:block" />
+              Since 2011, we've designed and installed over 500 systems across Ghana.
+            </motion.p>
 
-             {/* Trust Indicators */}
-              <motion.div
-                className="flex flex-wrap justify-center gap-8 mb-12 text-sm md:text-base"
-                variants={fadeInUp}
-              >
-                <div className="flex items-center space-x-2 text-secondary-600">
-                  <div className="w-2 h-2 bg-gold rounded-full" />
-                  <span>13+ Years Engineering Excellence</span>
-                </div>
-                <div className="flex items-center space-x-2 text-secondary-600">
-                  <div className="w-2 h-2 bg-gold rounded-full" />
-                  <span>500+ Projects Across Ghana</span>
-                </div>
-                <div className="flex items-center space-x-2 text-secondary-600">
-                  <div className="w-2 h-2 bg-gold rounded-full" />
-                  <span>Certified Engineering Team</span>
-                </div>
-              </motion.div>
+            {/* Trust Indicators */}
+            <motion.div
+              className="flex flex-wrap justify-center gap-8 mb-12 text-sm md:text-base"
+              variants={fadeInUp}
+            >
+              <div className="flex items-center space-x-2 text-secondary-600">
+                <div className="w-2 h-2 bg-gold rounded-full" />
+                <span>13+ Years Engineering Excellence</span>
+              </div>
+              <div className="flex items-center space-x-2 text-secondary-600">
+                <div className="w-2 h-2 bg-gold rounded-full" />
+                <span>500+ Projects Across Ghana</span>
+              </div>
+              <div className="flex items-center space-x-2 text-secondary-600">
+                <div className="w-2 h-2 bg-gold rounded-full" />
+                <span>Certified Engineering Team</span>
+              </div>
+            </motion.div>
 
-               <motion.div
-                 className="flex flex-col sm:flex-row gap-6 justify-center"
-                 variants={fadeInUp}
-               >
-                 <Link href="/request-a-quote">
-                   <Button size="lg" variant="gold" className="text-lg px-10 py-5 bg-gradient-to-r from-gold to-gold/90 shadow-2xl hover:shadow-gold/30 hover:from-gold/90 hover:to-gold/80 transition-all duration-300">
-                     <MessageCircle className="w-5 h-5 mr-3" />
-                     Request a Technical Consultation
-                   </Button>
-                 </Link>
-                 <Link href="/projects">
-                   <Button variant="outline" size="lg" className="text-lg px-10 py-5 border-2 hover:bg-primary-50">
-                     View Engineering Case Studies
-                     <ArrowRight className="w-5 h-5 ml-3" />
-                   </Button>
-                 </Link>
-               </motion.div>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+              variants={fadeInUp}
+            >
+              <Link href="/request-a-quote">
+                <Button size="lg" variant="gold" className="text-lg px-10 py-5 bg-gradient-to-r from-gold to-gold/90 shadow-2xl hover:shadow-gold/30 hover:from-gold/90 hover:to-gold/80 transition-all duration-300">
+                  <MessageCircle className="w-5 h-5 mr-3" />
+                  Request a Technical Consultation
+                </Button>
+              </Link>
+              <Link href="/projects">
+                <Button variant="outline" size="lg" className="text-lg px-10 py-5 border-2 hover:bg-primary-50">
+                  View Engineering Case Studies
+                  <ArrowRight className="w-5 h-5 ml-3" />
+                </Button>
+              </Link>
+            </motion.div>
           </motion.div>
         </Container>
       </section>
