@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle, CheckCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, MessageCircle, CheckCircle, Share2 } from "lucide-react";
+import Link from "next/link";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaTiktok } from "react-icons/fa";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
 import { useState } from "react";
 
@@ -106,63 +108,90 @@ export default function ContactPage() {
                 Get In Touch
               </h2>
 
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-primary-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary-900 mb-2">Phone</h3>
-                    <p className="text-secondary-600">+233 244 973 788</p>
-                    <p className="text-secondary-600">+233 302 507 889</p>
-                    <p className="text-secondary-600">+233 204 981 687</p>
-                  </div>
-</div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-primary-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary-900 mb-2">Email</h3>
-                    <p className="text-secondary-600">info@eleysonghana.com</p>
-                  </div>
-                </div>
+<div className="space-y-6">
+                 <div className="flex items-start space-x-4">
+                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                     <Phone className="w-6 h-6 text-primary-600" />
+                   </div>
+                   <div>
+                     <h3 className="font-semibold text-primary-900 mb-2">Phone</h3>
+                     <p className="text-secondary-600">+233 244 973 788</p>
+                     <p className="text-secondary-600">+233 302 507 889</p>
+                     <p className="text-secondary-600">+233 204 981 687</p>
+                   </div>
+                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-primary-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary-900 mb-2">Office Location</h3>
-                    <p className="text-secondary-600">
-                      Abokobi, Ghana
-                    </p>
-                  </div>
-                </div>
+                 <div className="flex items-start space-x-4">
+                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                     <Mail className="w-6 h-6 text-primary-600" />
+                   </div>
+                   <div>
+                     <h3 className="font-semibold text-primary-900 mb-2">Email</h3>
+                     <p className="text-secondary-600">info@eleysonghana.com</p>
+                   </div>
+                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-primary-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary-900 mb-2">Business Hours</h3>
-                    <p className="text-secondary-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                    <p className="text-secondary-600">Saturday: 9:00 AM - 2:00 PM</p>
-                  </div>
-                </div>
-              </div>
+                 <div className="flex items-start space-x-4">
+                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                     <MapPin className="w-6 h-6 text-primary-600" />
+                   </div>
+                   <div>
+                     <h3 className="font-semibold text-primary-900 mb-2">Office Location</h3>
+                     <p className="text-secondary-600">
+                       Abokobi, Ghana
+                     </p>
+                   </div>
+                 </div>
 
-              <div className="mt-8 space-y-4">
-                <Button size="lg" className="w-full">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Call Now
-                </Button>
-                <Button variant="outline" size="lg" className="w-full">
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  WhatsApp Us
-                </Button>
-              </div>
-            </motion.div>
+                 <div className="flex items-start space-x-4">
+                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                     <Clock className="w-6 h-6 text-primary-600" />
+                   </div>
+                   <div>
+                     <h3 className="font-semibold text-primary-900 mb-2">Business Hours</h3>
+                     <p className="text-secondary-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                     <p className="text-secondary-600">Saturday: 9:00 AM - 2:00 PM</p>
+                   </div>
+                 </div>
+
+                 <div className="flex items-start space-x-4">
+                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                     <Share2 className="w-6 h-6 text-primary-600" />
+                   </div>
+                   <div>
+                     <h3 className="font-semibold text-primary-900 mb-2">Follow Us</h3>
+                     <div className="flex space-x-4" aria-label="Social media links">
+                       <Link href="https://www.facebook.com/eleysonghana" className="text-primary-600 hover:text-gold transition-colors" aria-label="Facebook">
+                         <FaFacebookF className="w-5 h-5" aria-hidden="true" />
+                       </Link>
+                       <Link href="https://www.linkedIn.com/in/eleysonghana/" className="text-primary-600 hover:text-gold transition-colors" aria-label="LinkedIn">
+                         <FaLinkedinIn className="w-5 h-5" aria-hidden="true" />
+                       </Link>
+                       <Link href="https://www.x.com/eleysonghana/" className="text-primary-600 hover:text-gold transition-colors" aria-label="X">
+                         <FaTwitter className="w-5 h-5" aria-hidden="true" />
+                       </Link>
+                       <Link href="https://www.instagram.com/eleysonghana/" className="text-primary-600 hover:text-gold transition-colors" aria-label="Instagram">
+                         <FaInstagram className="w-5 h-5" aria-hidden="true" />
+                       </Link>
+                       <Link href="https://www.tiktok.com/@eleysonghana/" className="text-primary-600 hover:text-gold transition-colors" aria-label="TikTok">
+                         <FaTiktok className="w-5 h-5" aria-hidden="true" />
+                       </Link>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
+               <div className="mt-8 space-y-4">
+                 <Button size="lg" className="w-full">
+                   <Phone className="w-5 h-5 mr-2" />
+                   Call Now
+                 </Button>
+                 <Button variant="outline" size="lg" className="w-full">
+                   <MessageCircle className="w-5 h-5 mr-2" />
+                   WhatsApp Us
+                 </Button>
+               </div>
+             </motion.div>
 
             {/* Contact Form */}
             <motion.div variants={fadeInUp}>

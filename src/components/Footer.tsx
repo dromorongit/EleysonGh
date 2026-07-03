@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, MessageCircle, Link2, Settings, Package } from "lucide-react";
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaTiktok } from "react-icons/fa";
 import { Button } from "./Button";
 import { Container } from "./Container";
 
@@ -22,15 +22,24 @@ export function Footer() {
               Engineering the Future of Energy & Water. Premium solar and hydrogeological solutions
               serving Ghana and West Africa with technical excellence and reliability.
             </p>
-            <div className="flex space-x-4" aria-label="Social media links">
-              <Link href="https://www.facebook.com/eleysonghana" className="text-white/70 hover:text-gold transition-colors" aria-label="Facebook">
-                <FaFacebookF className="w-5 h-5" aria-hidden="true" />
-              </Link>
-              <Link href="https://www.linkedin.com/company/eleyson-ghana-limited" className="text-white/70 hover:text-gold transition-colors" aria-label="LinkedIn">
-                <FaLinkedinIn className="w-5 h-5" aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
+<div className="flex space-x-4" aria-label="Social media links">
+               <Link href="https://www.facebook.com/eleysonghana" className="text-white/70 hover:text-gold transition-colors" aria-label="Facebook">
+                 <FaFacebookF className="w-5 h-5" aria-hidden="true" />
+               </Link>
+               <Link href="https://www.linkedIn.com/in/eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="LinkedIn">
+                 <FaLinkedinIn className="w-5 h-5" aria-hidden="true" />
+               </Link>
+               <Link href="https://www.x.com/eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="X">
+                 <FaTwitter className="w-5 h-5" aria-hidden="true" />
+               </Link>
+               <Link href="https://www.instagram.com/eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="Instagram">
+                 <FaInstagram className="w-5 h-5" aria-hidden="true" />
+               </Link>
+               <Link href="https://www.tiktok.com/@eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="TikTok">
+                 <FaTiktok className="w-5 h-5" aria-hidden="true" />
+               </Link>
+             </div>
+           </div>
 
           {/* Quick Links */}
           <div className="pr-8 border-r border-gold/10 last:border-r-0">
