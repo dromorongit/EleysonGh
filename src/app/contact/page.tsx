@@ -14,11 +14,11 @@ import {
 import Link from "next/link";
 import {
   FaFacebookF,
-  FaTwitter,
   FaLinkedinIn,
   FaInstagram,
   FaTiktok,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import {
   Button,
   Section,
@@ -241,7 +241,7 @@ export default function ContactPage() {
                         className="text-primary-600 hover:text-gold transition-colors"
                         aria-label="X"
                       >
-                        <FaTwitter className="w-5 h-5" aria-hidden="true" />
+                        <FaXTwitter className="w-5 h-5" aria-hidden="true" />
                       </Link>
                       <Link
                         href="https://www.instagram.com/eleysonghana/"

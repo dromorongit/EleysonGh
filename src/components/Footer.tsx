@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, MessageCircle, Link2, Settings, Package } from "lucide-react";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { Button } from "./Button";
 import { Container } from "./Container";
 
@@ -30,7 +31,7 @@ export function Footer() {
                 <FaLinkedinIn className="w-5 h-5" aria-hidden="true" />
               </Link>
               <Link href="https://www.x.com/eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="X">
-                <FaTwitter className="w-5 h-5" aria-hidden="true" />
+                <FaXTwitter className="w-5 h-5" aria-hidden="true" />
               </Link>
               <Link href="https://www.instagram.com/eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="Instagram">
                 <FaInstagram className="w-5 h-5" aria-hidden="true" />
