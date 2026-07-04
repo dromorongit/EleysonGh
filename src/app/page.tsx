@@ -188,13 +188,13 @@ return (
                 </motion.div>
              </motion.div>
 <motion.div
-               className="order-1 lg:order-2 aspect-square bg-gradient-to-br from-primary-100 to-energy-100 rounded-2xl shadow-lg"
+               className="order-1 lg:order-2 aspect-square rounded-2xl shadow-lg overflow-hidden"
                initial="initial"
                whileInView="animate"
                viewport={{ once: true }}
                variants={fadeInUp}
              >
-               {/* Placeholder for brand visual */}
+               <img src="/images/homepagebanner.jpg" alt="Engineering Excellence" className="w-full h-full object-cover" />
              </motion.div>
           </div>
         </Container>
