@@ -85,8 +85,7 @@ export default function ContactPage() {
               className="text-lg md:text-xl text-secondary-600 max-w-2xl mx-auto leading-relaxed"
               variants={fadeInUp}
             >
-              Ready to discuss your engineering project? Get in touch with our experts.
-              We're here to help you find the perfect solution for your energy and water needs.
+              Ready to discuss your engineering project? Get in touch with our experts. We're here to help you find the perfect solution for your energy and water needs.
             </motion.p>
           </motion.div>
         </Container>
@@ -115,9 +114,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-primary-900 mb-2">Phone</h3>
-                    <p className="text-secondary-600">+233 244 973 788</p>
-                    <p className="text-secondary-600">+233 302 507 889</p>
-                    <p className="text-secondary-600">+233 204 981 687</p>
+                    <a href="tel:+233244973788" className="text-secondary-600 hover:text-primary-600 transition-colors block">+233 244 973 788</a>
+                    <a href="tel:+233302507889" className="text-secondary-600 hover:text-primary-600 transition-colors block">+233 302 507 889</a>
+                    <a href="tel:+233204981687" className="text-secondary-600 hover:text-primary-600 transition-colors block">+233 204 981 687</a>
                   </div>
                 </div>
 
@@ -127,7 +126,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-primary-900 mb-2">Email</h3>
-                    <p className="text-secondary-600">info@eleysonghana.com</p>
+                    <a href="mailto:info@eleysonghana.com" className="text-secondary-600 hover:text-primary-600 transition-colors">info@eleysonghana.com</a>
                   </div>
                 </div>
 
@@ -137,9 +136,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-primary-900 mb-2">Office Location</h3>
-                    <p className="text-secondary-600">
-                      Abokobi, Ghana
-                    </p>
+                    <p className="text-secondary-600">Abokobi, Ghana</p>
                   </div>
                 </div>
 
@@ -149,8 +146,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-primary-900 mb-2">Business Hours</h3>
-                    <p className="text-secondary-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                    <p className="text-secondary-600">Saturday: 9:00 AM - 2:00 PM</p>
+                    <p className="text-secondary-600">Monday - Friday: 8:00 AM - 5:00PM</p>
+                    <p className="text-secondary-600">Saturday: 9:00 AM - 4:00PM</p>
+                    <p className="text-secondary-600">Sunday: 10:00AM - 2:00PM</p>
                   </div>
                 </div>
 
@@ -182,14 +180,18 @@ export default function ContactPage() {
               </div>
 
               <div className="mt-8 space-y-4">
-                <Button size="lg" className="w-full">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Call Now
-                </Button>
-                <Button variant="outline" size="lg" className="w-full">
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  WhatsApp Us
-                </Button>
+                <a href="tel:+233244973788">
+                  <Button size="lg" className="w-full">
+                    <Phone className="w-5 h-5 mr-2" />
+                    Call Now
+                  </Button>
+                </a>
+                <a href="https://wa.me/233244973788" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="lg" className="w-full">
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    WhatsApp Us
+                  </Button>
+                </a>
               </div>
             </motion.div>
 
