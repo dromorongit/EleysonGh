@@ -167,7 +167,7 @@ export default function TermsPage() {
                   <div className="mt-4 p-4 bg-primary-50 rounded-lg">
                     <p className="text-secondary-700">
                       <strong>Eleyson Ghana Limited</strong><br />
-                      Abokobi, Ghana<br />
+                      Nii John Tetth ST, Teiman, Abokobi Road, Oyarifa, Ghana<br />
                       Email: info@eleysonghana.com<br />
                       Phone: +233 244 973 788
                     </p>

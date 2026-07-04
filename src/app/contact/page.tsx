@@ -186,7 +186,7 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-primary-900 mb-2">
                       Office Location
                     </h3>
-                    <p className="text-secondary-600">Abokobi, Ghana</p>
+                    <p className="text-secondary-600">Nii John Tetth ST, Teiman, Abokobi Road, Oyarifa, Ghana</p>
                   </div>
                 </div>
 

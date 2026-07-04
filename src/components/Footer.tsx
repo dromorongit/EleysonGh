@@ -166,8 +166,8 @@ export function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <p className="text-white/70">
-                  Abokobi, Ghana<br />
-                  West Africa
+                  Nii John Tetth ST, Teiman, Abokobi Road<br />
+                  Oyarifa, Ghana
                 </p>
               </div>
             </div>

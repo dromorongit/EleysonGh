@@ -73,19 +73,19 @@ export default function RootLayout({
           "url": "https://eleysonghana.com/",
           "telephone": "+233 244 973 788",
           "email": "info@eleysonghana.com",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Abokobi",
-            "addressLocality": "Accra",
-            "addressRegion": "Greater Accra Region",
-            "postalCode": "Ghana",
-            "addressCountry": "GH"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 5.7426399,
-            "longitude": -0.1957862
-          },
+"address": {
+             "@type": "PostalAddress",
+             "streetAddress": "Nii John Tetth ST, Teiman, Abokobi Road",
+             "addressLocality": "Oyarifa",
+             "addressRegion": "Greater Accra Region",
+             "postalCode": "Ghana",
+             "addressCountry": "GH"
+           },
+           "geo": {
+             "@type": "GeoCoordinates",
+             "latitude": 5.7426399,
+             "longitude": -0.1957862
+           },
           "openingHoursSpecification": [
             {
               "@type": "OpeningHoursSpecification",
