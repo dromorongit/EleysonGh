@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Header, Footer, WhatsAppButton } from "@/components";
 
 const inter = Inter({
@@ -63,13 +64,6 @@ export default function RootLayout({
        className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
      >
       <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-RQ09Z9PKWY"></script>
-        <script>
-          {`window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-RQ09Z9PKWY');`}
-        </script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
@@ -168,6 +162,7 @@ export default function RootLayout({
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <GoogleAnalytics gaId="G-RQ09Z9PKWY" />
       </body>
     </html>
   );
