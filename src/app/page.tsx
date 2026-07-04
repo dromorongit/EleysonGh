@@ -62,7 +62,7 @@ return (
         <div className="absolute inset-0 bg-radial-gradient from-energy-100/30 via-transparent to-transparent opacity-40" />
 
         {/* Background Image */}
-        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: 'url(/images/homepagebanner.jpg)'}} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: 'url(/images/homepage.jpg)'}} />
 
         <Container className="relative z-10">
           <motion.div
@@ -187,15 +187,15 @@ return (
                   </Link>
                 </motion.div>
              </motion.div>
-            <motion.div
-              className="order-1 lg:order-2 aspect-square bg-gradient-to-br from-primary-100 to-energy-100 rounded-2xl shadow-lg"
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={fadeInUp}
-            >
-              {/* Placeholder for brand visual */}
-            </motion.div>
+<motion.div
+               className="order-1 lg:order-2 aspect-square bg-gradient-to-br from-primary-100 to-energy-100 rounded-2xl shadow-lg"
+               initial="initial"
+               whileInView="animate"
+               viewport={{ once: true }}
+               variants={fadeInUp}
+             >
+               {/* Placeholder for brand visual */}
+             </motion.div>
           </div>
         </Container>
       </Section>

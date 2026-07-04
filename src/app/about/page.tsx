@@ -23,7 +23,7 @@ export default function AboutPage() {
     <>
       {/* Hero Section */}
       <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[60vh] flex items-center relative">
-        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: 'url(/images/aboutbanner.jpg)'}} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: 'url(/images/about.jpg)'}} />
         <Container>
           <motion.div
             className="max-w-4xl mx-auto text-center"
@@ -84,9 +84,9 @@ export default function AboutPage() {
                 </div>
               </div>
             </motion.div>
-            <motion.div variants={fadeInUp}>
-              <div className="aspect-square bg-gradient-to-br from-primary-100 to-energy-100 rounded-lg" />
-            </motion.div>
+<motion.div variants={fadeInUp}>
+               <img src="/images/aboutbanner.jpg" alt="About Eleyson" className="aspect-square rounded-lg shadow-lg object-cover w-full" />
+             </motion.div>
           </motion.div>
         </Container>
       </Section>
