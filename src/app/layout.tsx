@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import Head from "next/head";
 import "./globals.css";
 import { Header, Footer, WhatsAppButton } from "@/components";
 
@@ -59,105 +58,112 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
-    >
+<html
+       lang="en"
+       className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
+     >
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-RQ09Z9PKWY"></script>
+        <script>
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RQ09Z9PKWY');`}
+        </script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Eleyson Ghana Limited",
+          "image": "https://eleysonghana.com/images/homepage.jpg",
+          "@id": "https://eleysonghana.com/",
+          "url": "https://eleysonghana.com/",
+          "telephone": "+233 244 973 788",
+          "email": "info@eleysonghana.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Abokobi",
+            "addressLocality": "Accra",
+            "addressRegion": "Greater Accra Region",
+            "postalCode": "Ghana",
+            "addressCountry": "GH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 5.7426399,
+            "longitude": -0.1957862
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+              ],
+              "opens": "08:00",
+              "closes": "18:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "09:00",
+              "closes": "14:00"
+            }
+          ],
+          "description": "Premium engineering solutions for solar energy and hydrogeological services in Ghana and West Africa. Expert consultation, installation, and maintenance.",
+          "priceRange": "GHS 50,000 - GHS 5,000,000",
+          "servesCoverageArea": {
+            "@type": "AdministrativeArea",
+            "name": "Ghana"
+          },
+          "sameAs": [
+            "https://www.facebook.com/eleysonghana",
+            "https://www.linkedin.com/company/eleyson-ghana-limited",
+            "https://www.instagram.com/eleysonghana/"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Engineering Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Solar Energy Solutions"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Hydro & Water Solutions"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Energy Audits"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Maintenance & Support"
+                }
+              }
+            ]
+          }
+        })}</script>
+      </head>
       <body className="min-h-full flex flex-col font-sans">
         {/* Skip to main content link for accessibility */}
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-800 text-white px-4 py-2 rounded-md z-50">
           Skip to main content
         </a>
-        <Head>
-          <script type="application/ld+json">{JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Eleyson Ghana Limited",
-            "image": "https://eleysonghana.com/images/homepage.jpg",
-            "@id": "https://eleysonghana.com/",
-            "url": "https://eleysonghana.com/",
-            "telephone": "+233 244 973 788",
-            "email": "info@eleysonghana.com",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Abokobi",
-              "addressLocality": "Accra",
-              "addressRegion": "Greater Accra Region",
-              "postalCode": "Ghana",
-              "addressCountry": "GH"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 5.7426399,
-              "longitude": -0.1957862
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "08:00",
-                "closes": "18:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Saturday",
-                "opens": "09:00",
-                "closes": "14:00"
-              }
-            ],
-            "description": "Premium engineering solutions for solar energy and hydrogeological services in Ghana and West Africa. Expert consultation, installation, and maintenance.",
-            "priceRange": "GHS 50,000 - GHS 5,000,000",
-            "servesCoverageArea": {
-              "@type": "AdministrativeArea",
-              "name": "Ghana"
-            },
-            "sameAs": [
-              "https://www.facebook.com/eleysonghana",
-              "https://www.linkedin.com/company/eleyson-ghana-limited",
-              "https://www.instagram.com/eleysonghana/"
-            ],
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Engineering Services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Solar Energy Solutions"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Hydro & Water Solutions"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Energy Audits"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Maintenance & Support"
-                  }
-                }
-              ]
-            }
-          })}</script>
-        </Head>
         <Header />
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />
