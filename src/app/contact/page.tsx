@@ -1,24 +1,46 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle, CheckCircle, Share2 } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  MessageCircle,
+  CheckCircle,
+  Share2,
+} from "lucide-react";
 import Link from "next/link";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaTiktok } from "react-icons/fa";
-import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+  FaTiktok,
+} from "react-icons/fa";
+import {
+  Button,
+  Section,
+  Container,
+  Card,
+  CardHeader,
+  CardContent,
+} from "@/components";
 import { useState } from "react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.6 },
 };
 
 const stagger = {
   animate: {
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 export default function ContactPage() {
@@ -35,17 +57,17 @@ export default function ContactPage() {
     const formData = new FormData(form);
 
     // Create a hidden iframe for submission to avoid page navigation
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
     document.body.appendChild(iframe);
 
     try {
-      const response = await fetch('https://formsubmit.co/eleysonghana.com', {
-        method: 'POST',
+      const response = await fetch("https://formsubmit.co/eleysonghana.com", {
+        method: "POST",
         body: formData,
         headers: {
-          'Accept': 'application/json'
-        }
+          Accept: "application/json",
+        },
       });
 
       if (response.ok) {
@@ -54,10 +76,10 @@ export default function ContactPage() {
         // Reset success message after 5 seconds
         setTimeout(() => setIsSuccess(false), 5000);
       } else {
-        console.error('Form submission error');
+        console.error("Form submission error");
       }
     } catch (error) {
-      console.error('Form submission failed:', error);
+      console.error("Form submission failed:", error);
     } finally {
       setIsSubmitting(false);
       document.body.removeChild(iframe);
@@ -85,7 +107,9 @@ export default function ContactPage() {
               className="text-lg md:text-xl text-secondary-600 max-w-2xl mx-auto leading-relaxed"
               variants={fadeInUp}
             >
-              Ready to discuss your engineering project? Get in touch with our experts. We're here to help you find the perfect solution for your energy and water needs.
+              Ready to discuss your engineering project? Get in touch with our
+              experts. We're here to help you find the perfect solution for your
+              energy and water needs.
             </motion.p>
           </motion.div>
         </Container>
@@ -113,10 +137,27 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6 text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-primary-900 mb-2">Phone</h3>
-                    <a href="tel:+233244973788" className="text-secondary-600 hover:text-primary-600 transition-colors block">+233 244 973 788</a>
-                    <a href="tel:+233302507889" className="text-secondary-600 hover:text-primary-600 transition-colors block">+233 302 507 889</a>
-                    <a href="tel:+233204981687" className="text-secondary-600 hover:text-primary-600 transition-colors block">+233 204 981 687</a>
+                    <h3 className="font-semibold text-primary-900 mb-2">
+                      Phone
+                    </h3>
+                    <a
+                      href="tel:+233244973788"
+                      className="text-secondary-600 hover:text-primary-600 transition-colors block"
+                    >
+                      +233 244 973 788
+                    </a>
+                    <a
+                      href="tel:+233302507889"
+                      className="text-secondary-600 hover:text-primary-600 transition-colors block"
+                    >
+                      +233 302 507 889
+                    </a>
+                    <a
+                      href="tel:+233204981687"
+                      className="text-secondary-600 hover:text-primary-600 transition-colors block"
+                    >
+                      +233 204 981 687
+                    </a>
                   </div>
                 </div>
 
@@ -125,8 +166,15 @@ export default function ContactPage() {
                     <Mail className="w-6 h-6 text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-primary-900 mb-2">Email</h3>
-                    <a href="mailto:info@eleysonghana.com" className="text-secondary-600 hover:text-primary-600 transition-colors">info@eleysonghana.com</a>
+                    <h3 className="font-semibold text-primary-900 mb-2">
+                      Email
+                    </h3>
+                    <a
+                      href="mailto:info@eleysonghana.com"
+                      className="text-secondary-600 hover:text-primary-600 transition-colors"
+                    >
+                      info@eleysonghana.com
+                    </a>
                   </div>
                 </div>
 
@@ -135,7 +183,9 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6 text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-primary-900 mb-2">Office Location</h3>
+                    <h3 className="font-semibold text-primary-900 mb-2">
+                      Office Location
+                    </h3>
                     <p className="text-secondary-600">Abokobi, Ghana</p>
                   </div>
                 </div>
@@ -145,10 +195,18 @@ export default function ContactPage() {
                     <Clock className="w-6 h-6 text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-primary-900 mb-2">Business Hours</h3>
-                    <p className="text-secondary-600">Monday - Friday: 8:00 AM - 5:00PM</p>
-                    <p className="text-secondary-600">Saturday: 9:00 AM - 4:00PM</p>
-                    <p className="text-secondary-600">Sunday: 10:00AM - 2:00PM</p>
+                    <h3 className="font-semibold text-primary-900 mb-2">
+                      Business Hours
+                    </h3>
+                    <p className="text-secondary-600">
+                      Monday - Friday: 8:00 AM - 5:00PM
+                    </p>
+                    <p className="text-secondary-600">
+                      Saturday: 9:00 AM - 4:00PM
+                    </p>
+                    <p className="text-secondary-600">
+                      Sunday: 10:00AM - 2:00PM
+                    </p>
                   </div>
                 </div>
 
@@ -157,21 +215,46 @@ export default function ContactPage() {
                     <Share2 className="w-6 h-6 text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-primary-900 mb-2">Follow Us</h3>
-                    <div className="flex space-x-4" aria-label="Social media links">
-                      <Link href="https://www.facebook.com/eleysonghana" className="text-primary-600 hover:text-gold transition-colors" aria-label="Facebook">
+                    <h3 className="font-semibold text-primary-900 mb-2">
+                      Follow Us
+                    </h3>
+                    <div
+                      className="flex space-x-4"
+                      aria-label="Social media links"
+                    >
+                      <Link
+                        href="https://www.facebook.com/eleysonghana"
+                        className="text-primary-600 hover:text-gold transition-colors"
+                        aria-label="Facebook"
+                      >
                         <FaFacebookF className="w-5 h-5" aria-hidden="true" />
                       </Link>
-                      <Link href="https://www.linkedIn.com/in/eleysonghana/" className="text-primary-600 hover:text-gold transition-colors" aria-label="LinkedIn">
+                      <Link
+                        href="https://www.linkedIn.com/in/eleysonghana/"
+                        className="text-primary-600 hover:text-gold transition-colors"
+                        aria-label="LinkedIn"
+                      >
                         <FaLinkedinIn className="w-5 h-5" aria-hidden="true" />
                       </Link>
-                      <Link href="https://www.x.com/eleysonghana/" className="text-primary-600 hover:text-gold transition-colors" aria-label="X">
+                      <Link
+                        href="https://www.x.com/eleysonghana/"
+                        className="text-primary-600 hover:text-gold transition-colors"
+                        aria-label="X"
+                      >
                         <FaTwitter className="w-5 h-5" aria-hidden="true" />
                       </Link>
-                      <Link href="https://www.instagram.com/eleysonghana/" className="text-primary-600 hover:text-gold transition-colors" aria-label="Instagram">
+                      <Link
+                        href="https://www.instagram.com/eleysonghana/"
+                        className="text-primary-600 hover:text-gold transition-colors"
+                        aria-label="Instagram"
+                      >
                         <FaInstagram className="w-5 h-5" aria-hidden="true" />
                       </Link>
-                      <Link href="https://www.tiktok.com/@eleysonghana/" className="text-primary-600 hover:text-gold transition-colors" aria-label="TikTok">
+                      <Link
+                        href="https://www.tiktok.com/@eleysonghana/"
+                        className="text-primary-600 hover:text-gold transition-colors"
+                        aria-label="TikTok"
+                      >
                         <FaTiktok className="w-5 h-5" aria-hidden="true" />
                       </Link>
                     </div>
@@ -186,7 +269,11 @@ export default function ContactPage() {
                     Call Now
                   </Button>
                 </a>
-                <a href="https://wa.me/233244973788" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://wa.me/233244973788"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button variant="outline" size="lg" className="w-full">
                     <MessageCircle className="w-5 h-5 mr-2" />
                     WhatsApp Us
@@ -199,8 +286,12 @@ export default function ContactPage() {
             <motion.div variants={fadeInUp}>
               <Card>
                 <CardHeader>
-                  <h3 className="text-2xl font-serif font-bold text-primary-900">Send us a Message</h3>
-                  <p className="text-secondary-600">We'll get back to you within 24 hours</p>
+                  <h3 className="text-2xl font-serif font-bold text-primary-900">
+                    Send us a Message
+                  </h3>
+                  <p className="text-secondary-600">
+                    We'll get back to you within 24 hours
+                  </p>
                 </CardHeader>
                 <CardContent>
                   {isSuccess ? (
@@ -208,14 +299,28 @@ export default function ContactPage() {
                       <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
                         <CheckCircle className="w-8 h-8 text-green-600" />
                       </div>
-                      <h3 className="text-xl font-semibold text-primary-900 mb-2">Message Sent!</h3>
-                      <p className="text-secondary-600">Thank you for contacting us. We'll respond within 24 hours.</p>
+                      <h3 className="text-xl font-semibold text-primary-900 mb-2">
+                        Message Sent!
+                      </h3>
+                      <p className="text-secondary-600">
+                        Thank you for contacting us. We'll respond within 24
+                        hours.
+                      </p>
                     </div>
                   ) : (
-                    <form className="space-y-6" action="https://formsubmit.co/eleysonghana.com" method="POST" onSubmit={handleSubmit}>
+                    <form
+                      className="space-y-6"
+                      action="https://formsubmit.co/eleysonghana.com"
+                      method="POST"
+                      onSubmit={handleSubmit}
+                    >
                       {/* Hidden fields for FormSubmit */}
                       <input type="hidden" name="_captcha" value="false" />
-                      <input type="hidden" name="_subject" value="New Contact Inquiry from Eleyson Website" />
+                      <input
+                        type="hidden"
+                        name="_subject"
+                        value="New Contact Inquiry from Eleyson Website"
+                      />
                       <input type="hidden" name="_replyto" value="" />
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -279,8 +384,12 @@ export default function ContactPage() {
                           className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                         >
                           <option value="">Select a service</option>
-                          <option value="Solar Energy Solutions">Solar Energy Solutions</option>
-                          <option value="Hydro & Water Solutions">Hydro & Water Solutions</option>
+                          <option value="Solar Energy Solutions">
+                            Solar Energy Solutions
+                          </option>
+                          <option value="Hydro & Water Solutions">
+                            Hydro & Water Solutions
+                          </option>
                           <option value="Energy Audits">Energy Audits</option>
                           <option value="Products">Products</option>
                           <option value="Other">Other</option>
@@ -346,7 +455,7 @@ export default function ContactPage() {
                 width="100%"
                 height="100%"
                 frameBorder="0"
-                style={{ border: '0' }}
+                style={{ border: "0" }}
                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDsh-Z6hRhVh3Te8kZo0oZuwe1C4Ez5YaI&q=5.7426399,-0.1957862&zoom=15"
                 allowFullScreen
                 loading="lazy"

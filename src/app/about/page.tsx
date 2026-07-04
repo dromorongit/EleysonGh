@@ -261,7 +261,7 @@ export default function AboutPage() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
@@ -269,19 +269,14 @@ export default function AboutPage() {
           >
             {[
               {
-                name: "Dr. Kwame Osei",
-                role: "Chief Engineer",
-                credentials: "PhD in Renewable Energy, 15+ years experience"
+                name: "Engr. Samuel Kofi Freeman-Amoah",
+                role: "Chief Executive Officer",
+                credentials: "B(Tech) Renewable Energy Systems Engineering, MSc. Energy & Sustainable Management, Licensed Professional Engineer. 15+ years experience"
               },
               {
-                name: "Eng. Ama Mensah",
-                role: "Hydrogeology Director",
-                credentials: "MSc Hydrogeology, Licensed Professional Engineer"
-              },
-              {
-                name: "Mr. Kofi Addo",
-                role: "Operations Director",
-                credentials: "MBA, 12+ years project management experience"
+                name: "Felix Tetteh",
+                role: "Head of Operations",
+                credentials: "B(Tech) Renewable Energy Systems Engineering, HND Electrical Electronics Engineering, Certified Electrical Wiring Professional. 7+ years experience."
               }
             ].map((leader, index) => (
               <motion.div key={index} variants={fadeInUp}>
