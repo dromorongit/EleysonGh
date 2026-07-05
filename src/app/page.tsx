@@ -122,7 +122,9 @@ return (
                 <img src="/images/waterresource.PNG" alt="Water Resources Commission" className="h-8 w-auto" />
                 <span className="text-secondary-700 font-medium text-sm">Water Resources Commission</span>
               </div>
-              <motion.div
+</motion.div>
+
+            <motion.div
               className="flex flex-col sm:flex-row gap-6 justify-center"
               variants={fadeInUp}
             >
