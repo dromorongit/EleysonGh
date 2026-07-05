@@ -88,7 +88,7 @@ return (
               Since 2011, we've designed and installed over 500 systems across Ghana.
             </motion.p>
 
-            {/* Trust Indicators */}
+{/* Trust Indicators */}
             <motion.div
               className="flex flex-wrap justify-center gap-8 mb-12 text-sm md:text-base"
               variants={fadeInUp}
@@ -107,11 +107,26 @@ return (
               </div>
             </motion.div>
 
+            {/* Certifications */}
+            <motion.div
+              className="flex flex-wrap justify-center gap-6 mb-12"
+              variants={fadeInUp}
+            >
+              <div className="flex items-center space-x-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg">
+                <img src="/images/energycomm.PNG" alt="Energy Commission" className="h-8 w-auto" />
+                <span className="text-secondary-700 font-medium text-sm">Energy Commission</span>
+              </div>
+              <div className="flex items-center space-x-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg">
+                <img src="/images/waterresource.PNG" alt="Water Resources Commission" className="h-8 w-auto" />
+                <span className="text-secondary-700 font-medium text-sm">Water Resources Commission</span>
+              </div>
+            </motion.div>
+
             <motion.div
               className="flex flex-col sm:flex-row gap-6 justify-center"
               variants={fadeInUp}
             >
-              <Link href="/request-a-quote">
+                <Link href="/request-a-quote">
                 <Button size="lg" variant="gold" className="text-lg px-10 py-5 bg-gradient-to-r from-gold to-gold/90 shadow-2xl hover:shadow-gold/30 hover:from-gold/90 hover:to-gold/80 transition-all duration-300">
                   <MessageCircle className="w-5 h-5 mr-3" />
                   Request a Technical Consultation
