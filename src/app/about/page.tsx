@@ -48,6 +48,34 @@ export default function AboutPage() {
         </Container>
       </Section>
 
+      {/* Certifications */}
+      <Section className="bg-white">
+        <Container>
+          <motion.div
+            className="flex flex-wrap justify-center gap-8"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeInUp}>
+              <div className="flex items-center space-x-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-lg shadow-md">
+                <Award className="w-5 h-5 text-gold flex-shrink-0" />
+                <img src="/images/energycomm.PNG" alt="Energy Commission" className="h-10 w-auto" />
+                <span className="text-secondary-700 font-medium">Energy Commission</span>
+              </div>
+            </motion.div>
+            <motion.div variants={fadeInUp}>
+              <div className="flex items-center space-x-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-lg shadow-md">
+                <Award className="w-5 h-5 text-gold flex-shrink-0" />
+                <img src="/images/waterresource.PNG" alt="Water Resources Commission" className="h-10 w-auto" />
+                <span className="text-secondary-700 font-medium">Water Resources Commission</span>
+              </div>
+            </motion.div>
+          </motion.div>
+        </Container>
+      </Section>
+
       {/* Company Overview */}
       <Section>
         <Container>
