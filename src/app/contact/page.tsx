@@ -387,8 +387,8 @@ export default function ContactPage() {
                           <option value="Solar Energy Solutions">
                             Solar Energy Solutions
                           </option>
-                          <option value="Hydro & Water Solutions">
-                            Hydro & Water Solutions
+                          <option value="Hydrogeological Services">
+                            Hydrogeological Services
                           </option>
                           <option value="Energy Audits">Energy Audits</option>
                           <option value="Products">Products</option>

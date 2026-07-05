@@ -255,12 +255,12 @@ return (
                   description: "Engineered photovoltaic systems for commercial, industrial, and residential applications. Includes hybrid configurations, battery storage, and grid-tie solutions optimized for Ghana's climate.",
                   link: "/solar-solutions"
                 },
-                {
-                  icon: Droplets,
-                  title: "Hydro & Water Solutions",
-                  description: "Complete hydrogeological services from geophysical surveying to borehole drilling and mechanized water systems. Engineered for sustainable, long-term water access.",
-                  link: "/hydro-water-solutions"
-                },
+{
+                   icon: Droplets,
+                   title: "Hydrogeological Services",
+                   description: "Professional geophysical surveying, borehole drilling, and pump installation services. Engineered for sustainable, long-term water access.",
+                   link: "/hydro-water-solutions"
+                 },
                 {
                   icon: TrendingUp,
                   title: "Energy Audits",

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Droplets, MapPin, FileText, Cog, Wrench, TestTube, CheckCircle, ArrowRight, Activity, Truck } from "lucide-react";
+import { Droplets, MapPin, Wrench, CheckCircle, ArrowRight, Activity } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
 import Image from "next/image";
 import { projects } from "@/data/projects";
@@ -40,12 +40,12 @@ export default function HydroWaterSolutionsPage() {
             >
               <Droplets className="w-10 h-10 text-primary-600" />
             </motion.div>
-            <motion.h1
-               className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6"
-               variants={fadeInUp}
-             >
-               Hydro & Water Engineering
-             </motion.h1>
+<motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6"
+              variants={fadeInUp}
+            >
+                Hydrogeological Services
+            </motion.h1>
              <motion.p
                className="text-lg md:text-xl text-secondary-600 max-w-2xl mx-auto leading-relaxed"
                variants={fadeInUp}
@@ -57,7 +57,7 @@ export default function HydroWaterSolutionsPage() {
         </Container>
       </Section>
 
-      {/* Overview */}
+{/* Overview */}
       <Section>
         <Container>
           <motion.div
@@ -71,7 +71,7 @@ export default function HydroWaterSolutionsPage() {
               className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-6"
               variants={fadeInUp}
             >
-              Complete Water Infrastructure Engineering
+              Hydrogeological Services
             </motion.h2>
             <motion.p
               className="text-lg text-secondary-600 leading-relaxed"
@@ -83,7 +83,7 @@ export default function HydroWaterSolutionsPage() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
@@ -92,46 +92,34 @@ export default function HydroWaterSolutionsPage() {
             {[
               {
                 icon: Activity,
-                title: "Geophysical Surveying",
-                description: "Advanced geophysical techniques to identify optimal borehole locations"
+                title: "Geophysics Survey",
+                items: ["Site Survey", "Detailed Report Writing"]
               },
               {
                 icon: MapPin,
-                title: "Site Survey & Assessment",
-                description: "Detailed geological and hydrological site evaluations"
-              },
-              {
-                icon: Cog,
                 title: "Borehole Drilling",
-                description: "Professional drilling services with modern equipment and techniques"
+                items: ["Pre-construction Stage", "Construction Phase (Drilling works)", "Development Phase", "Testing & Evaluation Stage", "Mechanization", "Civil works Phase", "Water Sample testing", "Commissioning Phase", "Handing Over"]
               },
               {
                 icon: Wrench,
-                title: "Pump Installation",
-                description: "DC and AC pump systems for efficient water extraction"
-              },
-              {
-                icon: Truck,
-                title: "Mechanization & Civil Works",
-                description: "Complete water system mechanization and infrastructure development"
-              },
-              {
-                icon: TestTube,
-                title: "Water Testing & Quality",
-                description: "Comprehensive water quality analysis and treatment recommendations"
+                title: "Pump Installation (DC/AC)",
+                items: ["Designing", "Installation", "Maintenance"]
               }
             ].map((service, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="text-center h-full">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <service.icon className="w-6 h-6 text-primary-600" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-primary-900">{service.title}</h3>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-secondary-600 text-sm">{service.description}</p>
-                  </CardContent>
+                <Card className="text-center h-full p-6">
+                  <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <service.icon className="w-8 h-8 text-primary-600" />
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-primary-900 mb-4">{service.title}</h3>
+                  <ul className="text-left space-y-2">
+                    {service.items.map((item, i) => (
+                      <li key={i} className="flex items-start space-x-2">
+                        <CheckCircle className="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-secondary-700 text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </Card>
               </motion.div>
             ))}
@@ -240,63 +228,7 @@ export default function HydroWaterSolutionsPage() {
         </Container>
       </Section>
 
-      {/* Pump Installation */}
-      <Section>
-        <Container>
-          <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            <motion.div variants={fadeInUp}>
-              <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
-                <Wrench className="w-8 h-8 text-primary-600" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-6">
-                Advanced Pump Systems
-              </h2>
-              <p className="text-secondary-600 mb-6 leading-relaxed">
-                We install both DC and AC pump systems optimized for efficiency, reliability,
-                and compatibility with solar power systems for sustainable water extraction.
-              </p>
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-primary-900">DC Solar Pumps</h4>
-                    <p className="text-secondary-600 text-sm">Direct solar-powered pumping for off-grid applications</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-primary-900">AC Pumps with Solar</h4>
-                    <p className="text-secondary-600 text-sm">Grid-tie and hybrid AC pump installations</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-primary-900">Variable Frequency Drives</h4>
-                    <p className="text-secondary-600 text-sm">Advanced controls for optimal performance and protection</p>
-                  </div>
-                </div>
-              </div>
-              <Button size="lg">
-                Learn About Pump Systems
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </motion.div>
-            <motion.div variants={fadeInUp}>
-              <div className="aspect-square bg-gradient-to-br from-primary-100 to-energy-100 rounded-lg" />
-            </motion.div>
-          </motion.div>
-        </Container>
-      </Section>
-
-       {/* Featured Projects */}
+{/* Featured Projects */}
        <Section className="bg-secondary-50">
          <Container>
            <motion.div
@@ -321,10 +253,10 @@ export default function HydroWaterSolutionsPage() {
              viewport={{ once: true }}
              variants={stagger}
            >
-             {projects
-               .filter(project => project.category === 'Hydro')
-               .map((project, index) => (
-                 <motion.div key={project.slug} variants={fadeInUp}>
+{projects
+                .filter(project => project.category === 'Hydro')
+                .map((project) => (
+                  <motion.div key={project.slug} variants={fadeInUp}>
                    <Card className="h-full">
                      <div className="aspect-video rounded-t-lg overflow-hidden relative">
                         <Image
@@ -394,7 +326,7 @@ export default function HydroWaterSolutionsPage() {
               className="text-lg text-primary-100 mb-8 max-w-2xl mx-auto"
               variants={fadeInUp}
             >
-              Partner with Ghana's leading hydrogeological engineers for reliable,
+              Partner with Ghana&apos;s leading hydrogeological engineers for reliable,
               sustainable water solutions that last.
             </motion.p>
             <motion.div variants={fadeInUp}>

@@ -132,7 +132,7 @@ export default function RootLayout({
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Hydro & Water Solutions"
+                  "name": "Hydrogeological Services"
                 }
               },
               {

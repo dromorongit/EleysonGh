@@ -16,7 +16,7 @@ const navigation = [
     href: "/solutions",
     children: [
       { name: "Solar Solutions", href: "/solar-solutions" },
-      { name: "Hydro & Water Solutions", href: "/hydro-water-solutions" },
+      { name: "Hydrogeological Services", href: "/hydro-water-solutions" },
       { name: "Energy Audits", href: "/energy-audits" },
       { name: "Maintenance & Support", href: "/maintenance-support" },
       { name: "Training & Workshops", href: "/training-workshops" },

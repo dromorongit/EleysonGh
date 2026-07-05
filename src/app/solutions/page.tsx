@@ -128,22 +128,20 @@ export default function SolutionsPage() {
                   <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
                     <Droplets className="w-8 h-8 text-primary-600" />
                   </div>
-                  <h3 className="text-2xl font-serif font-bold text-primary-900 mb-4">
-                    Hydro & Water Solutions
-                  </h3>
-                  <p className="text-secondary-600 mb-6">
-                    Professional hydrogeological surveying, borehole drilling, mechanization,
-                    and water system engineering for sustainable water infrastructure.
-                  </p>
+<h3 className="text-2xl font-serif font-bold text-primary-900 mb-4">
+                     Hydrogeological Services
+                   </h3>
+                   <p className="text-secondary-600 mb-6">
+                     Professional geophysical surveying, borehole drilling, pump installation, 
+                     and water system engineering for sustainable water infrastructure.
+                   </p>
                 </CardHeader>
-                <CardContent>
+<CardContent>
                   <div className="space-y-3 mb-6">
                     {[
-                      "Geophysical Surveying & Assessment",
-                      "Borehole Drilling & Construction",
-                      "Pump Installation & Mechanization",
-                      "Water Testing & Quality Analysis",
-                      "Maintenance & Rehabilitation"
+                      "Geophysical Survey - Site Survey & Detailed Report Writing",
+                      "Borehole Drilling - Pre-construction to Handing Over",
+                      "Pump Installation (DC/AC) - Designing, Installation, Maintenance"
                     ].map((service, index) => (
                       <div key={index} className="flex items-center space-x-3">
                         <CheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0" />
@@ -153,7 +151,7 @@ export default function SolutionsPage() {
                   </div>
                   <Link href="/hydro-water-solutions">
                     <Button className="w-full">
-                      Explore Hydro Solutions
+                      Explore Hydrogeological Services
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
