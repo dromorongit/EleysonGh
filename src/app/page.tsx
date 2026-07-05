@@ -113,12 +113,14 @@ return (
               variants={fadeInUp}
             >
               <div className="flex items-center space-x-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <img src="/images/energycomm.PNG" alt="Energy Commission" className="h-8 w-auto" />
-                <span className="text-secondary-700 font-medium text-sm">Energy Commission</span>
+<Award className="w-4 h-4 text-gold flex-shrink-0" />
+                  <img src="/images/energycomm.PNG" alt="Energy Commission" className="h-8 w-auto" />
+                  <span className="text-secondary-700 font-medium text-sm">Energy Commission</span>
               </div>
               <div className="flex items-center space-x-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <img src="/images/waterresource.PNG" alt="Water Resources Commission" className="h-8 w-auto" />
-                <span className="text-secondary-700 font-medium text-sm">Water Resources Commission</span>
+<Award className="w-4 h-4 text-gold flex-shrink-0" />
+                  <img src="/images/waterresource.PNG" alt="Water Resources Commission" className="h-8 w-auto" />
+                  <span className="text-secondary-700 font-medium text-sm">Water Resources Commission</span>
               </div>
             </motion.div>
 
