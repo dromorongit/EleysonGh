@@ -28,35 +28,34 @@ export default function RequestQuotePage() {
     setIsSubmitting(true);
 
     const form = e.currentTarget;
-    const formData = new FormData(form);
 
-    // Create a hidden iframe for submission to avoid page navigation
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.name = "formsubmit-iframe";
     document.body.appendChild(iframe);
 
-    try {
-      const response = await fetch('https://formsubmit.co/eleysonghana.com', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
+    form.target = "formsubmit-iframe";
 
-      if (response.ok) {
+    try {
+      form.submit();
+      setTimeout(() => {
         setIsSuccess(true);
         form.reset();
-        setTimeout(() => setIsSuccess(false), 5000);
-      } else {
-        console.error('Form submission error');
-      }
+        form.target = "";
+        if (document.body.contains(iframe)) {
+          document.body.removeChild(iframe);
+        }
+      }, 1000);
     } catch (error) {
-      console.error('Form submission failed:', error);
+      console.error("Form submission failed:", error);
+      form.target = "";
+      if (document.body.contains(iframe)) {
+        document.body.removeChild(iframe);
+      }
     } finally {
-      setIsSubmitting(false);
-      document.body.removeChild(iframe);
+      setTimeout(() => setIsSuccess(false), 6000);
     }
+    setIsSubmitting(false);
   };
 
   return (
@@ -127,11 +126,10 @@ export default function RequestQuotePage() {
                       <p className="text-secondary-600">Thank you for your interest. We'll prepare a detailed quote and respond within 24-48 hours.</p>
                     </div>
                   ) : (
-                    <form className="space-y-6" action="https://formsubmit.co/eleysonghana.com" method="POST" onSubmit={handleSubmit}>
-                      {/* Hidden fields for FormSubmit */}
+                    <form className="space-y-6" action="https://formsubmit.co/info@eleysonghana.com" method="POST" onSubmit={handleSubmit}>
                       <input type="hidden" name="_captcha" value="false" />
                       <input type="hidden" name="_subject" value="New Quote Request from Eleyson Website" />
-                      <input type="hidden" name="_replyto" value="" />
+                      <input type="hidden" name="_replyto" value="email" />
 
                       {/* Contact Information */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

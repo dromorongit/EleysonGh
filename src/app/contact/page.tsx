@@ -51,39 +51,35 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // FormSubmit handles the submission, we just need to show a success message
-    // The form will redirect to a thank you page, but we'll show a loading state
     const form = e.currentTarget;
-    const formData = new FormData(form);
 
-    // Create a hidden iframe for submission to avoid page navigation
     const iframe = document.createElement("iframe");
     iframe.style.display = "none";
+    iframe.name = "formsubmit-iframe";
     document.body.appendChild(iframe);
 
-    try {
-      const response = await fetch("https://formsubmit.co/eleysonghana.com", {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      });
+    form.target = "formsubmit-iframe";
 
-      if (response.ok) {
+    try {
+      form.submit();
+      setTimeout(() => {
         setIsSuccess(true);
         form.reset();
-        // Reset success message after 5 seconds
-        setTimeout(() => setIsSuccess(false), 5000);
-      } else {
-        console.error("Form submission error");
-      }
+        form.target = "";
+        if (document.body.contains(iframe)) {
+          document.body.removeChild(iframe);
+        }
+      }, 1000);
     } catch (error) {
       console.error("Form submission failed:", error);
+      form.target = "";
+      if (document.body.contains(iframe)) {
+        document.body.removeChild(iframe);
+      }
     } finally {
-      setIsSubmitting(false);
-      document.body.removeChild(iframe);
+      setTimeout(() => setIsSuccess(false), 6000);
     }
+    setIsSubmitting(false);
   };
 
   return (
@@ -310,18 +306,13 @@ export default function ContactPage() {
                   ) : (
                     <form
                       className="space-y-6"
-                      action="https://formsubmit.co/eleysonghana.com"
+                      action="https://formsubmit.co/info@eleysonghana.com"
                       method="POST"
                       onSubmit={handleSubmit}
                     >
-                      {/* Hidden fields for FormSubmit */}
                       <input type="hidden" name="_captcha" value="false" />
-                      <input
-                        type="hidden"
-                        name="_subject"
-                        value="New Contact Inquiry from Eleyson Website"
-                      />
-                      <input type="hidden" name="_replyto" value="" />
+                      <input type="hidden" name="_subject" value="New Contact Inquiry from Eleyson Website" />
+                      <input type="hidden" name="_replyto" value="email" />
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
