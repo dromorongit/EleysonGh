@@ -96,7 +96,7 @@ export const projects: Project[] = [
       { key: 'Power Source', value: 'Solar PV System 20kW' },
       { key: 'Filtration', value: 'Multi-stage filtration system' },
     ],
-    featuredImage: '/images/borekoftown1.jpg',
+    featuredImage: '/images/hydrosolutions.jpg',
     galleryImages: [
       '/images/borekoftown1.jpg',
       '/images/borekoftown2.jpg',
