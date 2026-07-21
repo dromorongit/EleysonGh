@@ -166,7 +166,7 @@ export const projects: Project[] = [
       { key: 'Filtration', value: 'Multi-stage filtration' },
       { key: 'People Served', value: '500+ daily' },
     ],
-    featuredImage: '/images/borehole1.jpg',
+    featuredImage: '/images/hydrosolutions.jpg',
     galleryImages: [
       '/images/borehole1.jpg',
       '/images/borehole2.jpg',
