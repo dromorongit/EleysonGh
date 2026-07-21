@@ -26,8 +26,8 @@ export default function BoreholeDrillingPage() {
     <>
       {/* Hero Section */}
       <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[60vh] flex items-center relative">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{backgroundImage: 'url(/images/hydrosolutions.jpg)'}} />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-cover bg-center opacity-50" style={{backgroundImage: 'url(/images/hydrosolutions.jpg)'}} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
         <Container className="relative z-10">
           <motion.div
             className="max-w-4xl mx-auto text-center"
