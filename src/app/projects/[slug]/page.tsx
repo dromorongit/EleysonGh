@@ -1,63 +1,31 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowLeft, Play, X } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Button, Section, Container } from "@/components";
-import { useState } from "react";
 import { getProjectBySlug } from "@/data/projects";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-};
+export async function generateStaticParams() {
+  const projectSlugs = [
+    'solar-residential-installation-at-sunyani',
+    'solar-residential-installation-at-kpong',
+    'geophysics-survey-borehole-drilling-pump-installation',
+    'geophysics-survey-borehole-drilling-pump-installation-obourtumpah',
+    'geophysics-survey-borehole-drilling-pump-installation-koforidua',
+    'solar-residential-installation-at-dansoman',
+    'solar-residential-installation-at-pantang-backup-solution',
+    'solar-residential-installation-at-dome',
+  ];
+  return projectSlugs.map((slug) => ({ slug }));
+}
 
-const stagger = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug);
-
-  const [selectedMedia, setSelectedMedia] = useState<string | null>(null);
-  const [mediaType, setMediaType] = useState<'image' | 'video' | null>(null);
+export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
 
   if (!project) {
-    return (
-      <Section className="py-20">
-        <Container>
-          <div className="text-center">
-            <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
-            <p className="mb-6">The project you're looking for doesn't exist.</p>
-            <Link href="/projects">
-              <Button>Back to Projects</Button>
-            </Link>
-          </div>
-        </Container>
-      </Section>
-    );
+    notFound();
   }
-
-  const openMedia = (url: string) => {
-    const ext = url.split('.').pop()?.toLowerCase();
-    if (ext === 'mp4' || ext === 'mov' || ext === 'avi') {
-      setMediaType('video');
-    } else {
-      setMediaType('image');
-    }
-    setSelectedMedia(url);
-  };
-
-  const closeMedia = () => {
-    setSelectedMedia(null);
-    setMediaType(null);
-  };
 
   return (
     <>
@@ -70,41 +38,26 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
           <Container className="relative h-full flex items-end pb-12">
-            <motion.div
-              className="max-w-4xl"
-              initial="initial"
-              animate="animate"
-              variants={stagger}
-            >
-              <motion.div variants={fadeInUp}>
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center text-white/80 hover:text-white mb-4 transition-colors"
-                >
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Back to Projects
-                </Link>
-              </motion.div>
-              <motion.div variants={fadeInUp}>
-                <span className="inline-block px-3 py-1 bg-gold text-navy text-sm font-medium rounded mb-4">
-                  {project.category}
-                </span>
-              </motion.div>
-              <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4"
-                variants={fadeInUp}
+            <div className="max-w-4xl">
+              <Link
+                href="/projects"
+                className="inline-flex items-center text-white/80 hover:text-white mb-4 transition-colors"
               >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Projects
+              </Link>
+              <span className="inline-block px-3 py-1 bg-gold text-navy text-sm font-medium rounded mb-4">
+                {project.category}
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">
                 {project.title}
-              </motion.h1>
-              <motion.div
-                className="flex items-center gap-6 text-white/90"
-                variants={fadeInUp}
-              >
+              </h1>
+              <div className="flex items-center gap-6 text-white/90">
                 <span>{project.location}</span>
                 <span>•</span>
                 <span>{project.clientType}</span>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </Container>
         </div>
       </Section>
@@ -116,178 +69,106 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-12">
               {/* Overview */}
-              <motion.div
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                variants={stagger}
-              >
-                <motion.h2
-                  className="text-3xl font-serif font-bold text-primary-900 mb-6"
-                  variants={fadeInUp}
-                >
+              <div>
+                <h2 className="text-3xl font-serif font-bold text-primary-900 mb-6">
                   Project Overview
-                </motion.h2>
-                <motion.p
-                  className="text-lg text-secondary-600 leading-relaxed"
-                  variants={fadeInUp}
-                >
+                </h2>
+                <p className="text-lg text-secondary-600 leading-relaxed">
                   {project.shortDescription}
-                </motion.p>
+                </p>
                 {project.fullDescription && (
-                  <motion.p
-                    className="text-lg text-secondary-600 leading-relaxed mt-4"
-                    variants={fadeInUp}
-                  >
+                  <p className="text-lg text-secondary-600 leading-relaxed mt-4">
                     {project.fullDescription}
-                  </motion.p>
+                  </p>
                 )}
-              </motion.div>
+              </div>
 
               {/* Challenge */}
               {project.challenge && (
-                <motion.div
-                  initial="initial"
-                  whileInView="animate"
-                  viewport={{ once: true }}
-                  variants={stagger}
-                >
-                  <motion.h2
-                    className="text-3xl font-serif font-bold text-primary-900 mb-6"
-                    variants={fadeInUp}
-                  >
+                <div>
+                  <h2 className="text-3xl font-serif font-bold text-primary-900 mb-6">
                     The Challenge
-                  </motion.h2>
-                  <motion.p
-                    className="text-lg text-secondary-600 leading-relaxed"
-                    variants={fadeInUp}
-                  >
+                  </h2>
+                  <p className="text-lg text-secondary-600 leading-relaxed">
                     {project.challenge}
-                  </motion.p>
-                </motion.div>
+                  </p>
+                </div>
               )}
 
               {/* Solution */}
               {project.solution && (
-                <motion.div
-                  initial="initial"
-                  whileInView="animate"
-                  viewport={{ once: true }}
-                  variants={stagger}
-                >
-                  <motion.h2
-                    className="text-3xl font-serif font-bold text-primary-900 mb-6"
-                    variants={fadeInUp}
-                  >
+                <div>
+                  <h2 className="text-3xl font-serif font-bold text-primary-900 mb-6">
                     Our Solution
-                  </motion.h2>
-                  <motion.p
-                    className="text-lg text-secondary-600 leading-relaxed"
-                    variants={fadeInUp}
-                  >
+                  </h2>
+                  <p className="text-lg text-secondary-600 leading-relaxed">
                     {project.solution}
-                  </motion.p>
-                </motion.div>
+                  </p>
+                </div>
               )}
 
               {/* Impact */}
               {project.impact && (
-                <motion.div
-                  initial="initial"
-                  whileInView="animate"
-                  viewport={{ once: true }}
-                  variants={stagger}
-                >
-                  <motion.h2
-                    className="text-3xl font-serif font-bold text-primary-900 mb-6"
-                    variants={fadeInUp}
-                  >
+                <div>
+                  <h2 className="text-3xl font-serif font-bold text-primary-900 mb-6">
                     The Impact
-                  </motion.h2>
-                  <motion.p
-                    className="text-lg text-secondary-600 leading-relaxed"
-                    variants={fadeInUp}
-                  >
+                  </h2>
+                  <p className="text-lg text-secondary-600 leading-relaxed">
                     {project.impact}
-                  </motion.p>
-                </motion.div>
+                  </p>
+                </div>
               )}
 
               {/* Media Gallery */}
-              <motion.div
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                variants={stagger}
-              >
-                <motion.h2
-                  className="text-3xl font-serif font-bold text-primary-900 mb-6"
-                  variants={fadeInUp}
-                >
+              <div>
+                <h2 className="text-3xl font-serif font-bold text-primary-900 mb-6">
                   Project Gallery
-                </motion.h2>
+                </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {project.galleryImages.map((mediaUrl, index) => {
-                     const isVideo = mediaUrl.toLowerCase().endsWith('.mp4') ||
-                                     mediaUrl.toLowerCase().endsWith('.mov') ||
-                                     mediaUrl.toLowerCase().endsWith('.avi');
-                     return (
-                       <motion.div
-                         key={index}
-                         variants={fadeInUp}
-                         className={`relative overflow-hidden rounded-lg cursor-pointer group ${
-                           isVideo ? 'aspect-video' : 'aspect-video'
-                         }`}
-                         onClick={() => openMedia(mediaUrl)}
-                       >
-                         {isVideo ? (
-                           <>
-                             <video
-                               src={mediaUrl}
-                               className="w-full h-full object-cover"
-                               muted
-                               onMouseOver={(e) => e.currentTarget.play()}
-                               onMouseOut={(e) => {
-                                 e.currentTarget.pause();
-                                 e.currentTarget.currentTime = 0;
-                               }}
-                             />
-                             <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-colors">
-                               <Play className="w-16 h-16 text-white" fill="white" />
-                             </div>
-                           </>
-                         ) : (
-                           <>
-                             <Image
-                               src={mediaUrl}
-                               alt={`${project.title} - Image ${index + 1}`}
-                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                               fill
-                             />
-                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-                           </>
-                         )}
-                       </motion.div>
-                     );
-                   })}
+                  {project.galleryImages.map((mediaUrl: string, index: number) => {
+                    const isVideo = mediaUrl.toLowerCase().endsWith('.mp4') ||
+                      mediaUrl.toLowerCase().endsWith('.mov') ||
+                      mediaUrl.toLowerCase().endsWith('.avi');
+                    return (
+                      <div
+                        key={index}
+                        className="relative overflow-hidden rounded-lg cursor-pointer group aspect-video"
+                      >
+                        {isVideo ? (
+                          <>
+                            <video
+                              src={mediaUrl}
+                              className="w-full h-full object-cover"
+                              muted
+                            />
+                            <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                                <div className="w-0 h-0 border-l-[12px] border-l-black border-y-[8px] border-y-transparent ml-1" />
+                              </div>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <Image
+                              src={mediaUrl}
+                              alt={`${project.title} - Image ${index + 1}`}
+                              className="w-full h-full object-cover"
+                              fill
+                            />
+                          </>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
-                <p className="text-sm text-gray-500 mt-4">
-                  Click on any image or video to view fullscreen. Videos play on hover.
-                </p>
-              </motion.div>
+              </div>
             </div>
 
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-24 space-y-8">
                 {/* Technical Specs */}
-                <motion.div
-                  className="bg-gray-50 rounded-xl p-6"
-                  initial="initial"
-                  whileInView="animate"
-                  viewport={{ once: true }}
-                  variants={fadeInUp}
-                >
+                <div className="bg-gray-50 rounded-xl p-6">
                   <h3 className="text-xl font-serif font-bold text-primary-900 mb-4">
                     Technical Specifications
                   </h3>
@@ -299,16 +180,10 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                       </div>
                     ))}
                   </div>
-                </motion.div>
+                </div>
 
                 {/* CTA */}
-                <motion.div
-                  className="bg-primary-900 text-white rounded-xl p-6"
-                  initial="initial"
-                  whileInView="animate"
-                  viewport={{ once: true }}
-                  variants={fadeInUp}
-                >
+                <div className="bg-primary-900 text-white rounded-xl p-6">
                   <h3 className="text-xl font-serif font-bold mb-4">
                     Interested in a Similar Project?
                   </h3>
@@ -320,43 +195,12 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                       Request a Quote
                     </Button>
                   </Link>
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>
         </Container>
       </Section>
-
-      {/* Media Lightbox */}
-      {selectedMedia && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 cursor-pointer"
-          onClick={closeMedia}
-        >
-          <button
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
-            onClick={closeMedia}
-          >
-            <X className="w-8 h-8" />
-          </button>
-          {mediaType === 'video' ? (
-             <video
-               src={selectedMedia}
-               className="max-w-full max-h-[90vh] rounded-lg"
-               controls
-               autoPlay
-               onClick={(e) => e.stopPropagation()}
-             />
-           ) : (
-             <img
-               src={selectedMedia}
-               alt={`${project.title} - Full size view`}
-               className="max-w-full max-h-[90vh] object-contain rounded-lg"
-               onClick={(e) => e.stopPropagation()}
-             />
-           )}
-        </div>
-      )}
     </>
   );
 }
