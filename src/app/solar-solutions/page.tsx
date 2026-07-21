@@ -26,7 +26,8 @@ export default function SolarSolutionsPage() {
     <>
       {/* Hero Section */}
       <Section className="bg-gradient-to-br from-energy-50 to-primary-50 min-h-[60vh] flex items-center relative">
-        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: 'url(/images/solarsolutions.jpg)'}} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{backgroundImage: 'url(/images/solarsolutions.jpg)'}} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         <Container className="relative z-10">
           <motion.div
             className="max-w-4xl mx-auto text-center"

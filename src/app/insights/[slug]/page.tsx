@@ -1,11 +1,16 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, Clock, Share2, Loader2 } from "lucide-react";
-import { Button, Section, Container, Card } from "@/components";
+import { ArrowLeft, Calendar, Share2 } from "lucide-react";
+import { Button, Section, Container } from "@/components";
+import { insights, getInsightBySlug } from "@/data/insights";
+import { Insight } from "@/data/insights";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+export async function generateStaticParams() {
+  return insights.map((insight) => ({
+    slug: insight.slug,
+  }));
+}
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -22,71 +27,15 @@ const stagger = {
 };
 
 export default function SingleArticlePage({ params }: { params: { slug: string } }) {
-  const [post, setPost] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
+  const post = getInsightBySlug(params.slug) as Insight | undefined;
 
-  useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch(`/api/blog?slug=${params.slug}`);
-        if (!res.ok) {
-          if (res.status === 404) {
-            setError('Article not found');
-          } else {
-            throw new Error('Failed to fetch article');
-          }
-          return;
-        }
-        const data = await res.json();
-        setPost(data.post);
-        
-        // Fetch related posts (other published posts)
-        const relatedRes = await fetch('/api/blog');
-        if (relatedRes.ok) {
-          const relatedData = await relatedRes.json();
-          const otherPosts = (relatedData.posts || []).filter((p: any) => p.slug !== params.slug).slice(0, 3);
-          setRelatedPosts(otherPosts);
-        }
-      } catch (err) {
-        console.error('Error fetching article:', err);
-        setError('Failed to load article');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (params.slug) {
-      fetchPost();
-    }
-  }, [params.slug]);
-
-  if (loading) {
+  if (!post) {
     return (
       <>
         <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[50vh] flex items-center">
           <Container>
             <div className="text-center py-12">
-              <div className="flex items-center justify-center gap-4">
-                <Loader2 className="h-6 w-6 animate-spin" />
-                <p className="text-sm text-gray-500">Loading article...</p>
-              </div>
-            </div>
-          </Container>
-        </Section>
-      </>
-    );
-  }
-
-  if (error || !post) {
-    return (
-      <>
-        <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[50vh] flex items-center">
-          <Container>
-            <div className="text-center py-12">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{error || 'Article not found'}</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Article not found</h2>
               <Link href="/insights">
                 <Button>Back to Insights</Button>
               </Link>
@@ -96,6 +45,8 @@ export default function SingleArticlePage({ params }: { params: { slug: string }
       </>
     );
   }
+
+  const relatedPosts = insights.filter((p) => p.slug !== params.slug).slice(0, 3);
 
   return (
     <>
@@ -122,7 +73,7 @@ export default function SingleArticlePage({ params }: { params: { slug: string }
                 </span>
                 <span className="text-sm text-secondary-500 flex items-center">
                   <Calendar className="w-4 h-4 mr-1" />
-                  {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : 'N/A'}
+                  {post.publishedDate ? new Date(post.publishedDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : 'N/A'}
                 </span>
               </div>
 
@@ -195,8 +146,8 @@ export default function SingleArticlePage({ params }: { params: { slug: string }
               >
                 <h2 className="text-2xl font-serif font-bold text-primary-900 mb-6">Related Articles</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {relatedPosts.map((relatedPost: any, index: number) => (
-                    <div key={relatedPost._id || index} className="bg-white rounded-lg shadow-sm p-6 h-full">
+                  {relatedPosts.map((relatedPost: Insight, index: number) => (
+                    <div key={relatedPost.slug || index} className="bg-white rounded-lg shadow-sm p-6 h-full">
                       <div className="aspect-video rounded mb-4 relative overflow-hidden">
                         <Image
                           src={relatedPost.featuredImage || '/images/insights.jpg'}
@@ -210,7 +161,7 @@ export default function SingleArticlePage({ params }: { params: { slug: string }
                           {relatedPost.category || 'General'}
                         </span>
                         <span className="text-sm text-secondary-500">
-                          {relatedPost.publishedAt ? new Date(relatedPost.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'N/A'}
+                          {relatedPost.publishedDate ? new Date(relatedPost.publishedDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'N/A'}
                         </span>
                       </div>
                       <h3 className="text-lg font-semibold text-primary-900 mb-2">{relatedPost.title}</h3>

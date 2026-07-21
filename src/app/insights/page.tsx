@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { BookOpen, Calendar, ArrowRight, Tag } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
+import { insights } from "@/data/insights";
 import Image from "next/image";
 
 const fadeInUp = {
@@ -21,10 +22,16 @@ const stagger = {
 };
 
 export default function InsightsPage() {
-  return (
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  };
+
+return (
     <>
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[50vh] flex items-center relative">`n        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: 'url(/images/insights.jpg)'}} />
+      <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[50vh] flex items-center relative">
+        <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{backgroundImage: 'url(/images/insights.jpg)'}} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         <Container>
           <motion.div
             className="max-w-4xl mx-auto text-center"
@@ -73,44 +80,55 @@ export default function InsightsPage() {
             </motion.h2>
           </motion.div>
 
-          <motion.div
-            className="max-w-4xl mx-auto"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <Card className="overflow-hidden">
-              <div className="aspect-video bg-gradient-to-br from-energy-100 to-primary-100" />
-              <CardHeader>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
-                    Solar Technology
-                  </span>
-                  <span className="text-sm text-secondary-500 flex items-center">
-                    <Calendar className="w-4 h-4 mr-1" />
-                    December 15, 2024
-                  </span>
-                </div>
-                <h3 className="text-2xl font-serif font-bold text-primary-900 mb-4">
-                  How Hybrid Solar Systems Improve Energy Reliability in Ghana's Climate
-                </h3>
-                <p className="text-secondary-600 text-lg leading-relaxed">
-                  Discover how combining solar power with battery storage and backup generators
-                  creates resilient energy systems that perform reliably throughout Ghana's
-                  variable weather patterns and power challenges.
-                </p>
-              </CardHeader>
-              <CardContent>
-                <Link href="/insights/how-hybrid-solar-systems-improve-energy-reliability">
-                  <Button size="lg">
-                    Read Full Article
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          </motion.div>
+          {insights.length > 0 && (
+            <motion.div
+              className="max-w-4xl mx-auto"
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+            >
+              <Card className="overflow-hidden">
+                {insights[0].featuredImage ? (
+                  <div className="aspect-video rounded-t-lg relative overflow-hidden">
+                    <Image
+                      src={insights[0].featuredImage}
+                      alt={insights[0].title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="aspect-video bg-gradient-to-br from-energy-100 to-primary-100 rounded-t-lg" />
+                )}
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+                      {insights[0].category}
+                    </span>
+                    <span className="text-sm text-secondary-500 flex items-center">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {formatDate(insights[0].publishedDate)}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-serif font-bold text-primary-900 mb-4">
+                    {insights[0].title}
+                  </h3>
+                  <p className="text-secondary-600 text-lg leading-relaxed">
+                    {insights[0].excerpt}
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <Link href={`/insights/${insights[0].slug}`}>
+                    <Button size="lg">
+                      Read Full Article
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </motion.div>
+          )}
         </Container>
       </Section>
 
@@ -203,84 +221,39 @@ export default function InsightsPage() {
             viewport={{ once: true }}
             variants={stagger}
           >
-            {[
-              {
-                title: "What to Know Before Starting a Borehole Project",
-                excerpt: "Essential planning considerations and technical requirements for successful borehole development in Ghana.",
-                category: "Hydrogeology",
-                date: "December 10, 2024",
-                readTime: "5 min read",
-                image: "/images/insights.jpg"
-              },
-              {
-                title: "The Importance of Preventive Maintenance for Energy Systems",
-                excerpt: "How regular maintenance extends system life and ensures optimal performance of solar installations.",
-                category: "Solar Maintenance",
-                date: "December 5, 2024",
-                readTime: "4 min read",
-                image: "/images/insights.jpg"
-              },
-              {
-                title: "Solar Power Trends in West Africa for 2025",
-                excerpt: "Market analysis and technological developments shaping the solar industry across West Africa.",
-                category: "Industry News",
-                date: "November 28, 2024",
-                readTime: "6 min read",
-                image: "/images/insights.jpg"
-              },
-              {
-                title: "Water Quality Testing: Why It Matters",
-                excerpt: "Understanding water quality parameters and their impact on borehole system design and operation.",
-                category: "Water Quality",
-                date: "November 20, 2024",
-                readTime: "4 min read",
-                image: "/images/insights.jpg"
-              },
-              {
-                title: "Off-Grid Solar Solutions for Rural Communities",
-                excerpt: "Case studies and best practices for implementing sustainable energy solutions in remote areas.",
-                category: "Solar Technology",
-                date: "November 15, 2024",
-                readTime: "5 min read",
-                image: "/images/insights.jpg"
-              },
-              {
-                title: "Energy Audit Best Practices",
-                excerpt: "Comprehensive guide to conducting effective energy audits for businesses and institutions.",
-                category: "Energy Efficiency",
-                date: "November 8, 2024",
-                readTime: "7 min read",
-                image: "/images/insights.jpg"
-              }
-            ].map((article, index) => (
-              <motion.div key={index} variants={fadeInUp}>
+            {insights.map((insight, index) => (
+              <motion.div key={insight.slug} variants={fadeInUp}>
                 <Card className="h-full hover:shadow-lg transition-all duration-200">
-                  <div className="aspect-video rounded-t-lg relative overflow-hidden">
-                    <Image
-                      src={article.image}
-                      alt={article.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                  {insight.featuredImage ? (
+                    <div className="aspect-video rounded-t-lg relative overflow-hidden">
+                      <Image
+                        src={insight.featuredImage}
+                        alt={insight.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="aspect-video rounded-t-lg bg-gradient-to-br from-energy-100 to-primary-100" />
+                  )}
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded">
-                        {article.category}
+                        {insight.category}
                       </span>
-                      <span className="text-sm text-secondary-500">{article.readTime}</span>
+                      <span className="text-sm text-secondary-500">{Math.floor(insight.content.length / 500)} min read</span>
                     </div>
                     <h3 className="text-lg font-semibold text-primary-900 mb-2">
-                      {article.title}
+                      {insight.title}
                     </h3>
-                    <p className="text-secondary-600 text-sm mb-4">{article.excerpt}</p>
+                    <p className="text-secondary-600 text-sm mb-4">{insight.excerpt}</p>
                     <div className="flex items-center text-xs text-secondary-500">
                       <Calendar className="w-3 h-3 mr-1" />
-                      {article.date}
+                      {formatDate(insight.publishedDate)}
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <Link href={`/insights/${article.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                    <Link href={`/insights/${insight.slug}`}>
                       <Button variant="outline" size="sm" className="w-full">
                         Read Article
                         <ArrowRight className="w-4 h-4 ml-1" />

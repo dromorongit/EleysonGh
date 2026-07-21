@@ -61,8 +61,8 @@ return (
         {/* Engineering Atmosphere Overlay */}
         <div className="absolute inset-0 bg-radial-gradient from-energy-100/30 via-transparent to-transparent opacity-40" />
 
-        {/* Background Image */}
-        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: 'url(/images/homepage.jpg)'}} />
+{/* Background Image */}
+         <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{backgroundImage: 'url(/images/homepage.jpg)'}} />
 
         <Container className="relative z-10">
           <motion.div
@@ -256,11 +256,11 @@ return (
                   link: "/solar-solutions"
                 },
 {
-                   icon: Droplets,
-                   title: "Hydrogeological Services",
-                   description: "Professional geophysical surveying, borehole drilling, and pump installation services. Engineered for sustainable, long-term water access.",
-                   link: "/hydro-water-solutions"
-                 },
+                    icon: Droplets,
+                    title: "Borehole Drilling",
+                    description: "Professional drilling services for residential, commercial, and industrial water needs. Engineered for West African conditions.",
+                    link: "/borehole-drilling"
+                  },
                 {
                   icon: TrendingUp,
                   title: "Energy Audits",

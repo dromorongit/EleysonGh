@@ -90,9 +90,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/hydro-water-solutions" className="text-white/70 hover:text-gold transition-colors">
-                  Hydrogeological Services
-                </Link>
+<Link href="/borehole-drilling" className="text-white/70 hover:text-gold transition-colors">
+                   Borehole Drilling
+                 </Link>
               </li>
               <li>
                 <Link href="/energy-audits" className="text-white/70 hover:text-gold transition-colors">

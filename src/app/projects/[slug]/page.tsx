@@ -1,13 +1,11 @@
 "use client";
 
-import { useParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, Play, X } from "lucide-react";
 import { Button, Section, Container } from "@/components";
 import { useState } from "react";
-import { getProjectBySlug, projects } from "@/data/projects";
-import { Project } from "@/data/projects";
+import { getProjectBySlug } from "@/data/projects";
 import Image from "next/image";
 
 const fadeInUp = {
@@ -24,10 +22,8 @@ const stagger = {
   }
 };
 
-export default function ProjectDetailPage() {
-  const params = useParams();
-  const slug = params.slug as string;
-  const project = getProjectBySlug(slug);
+export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
+  const project = getProjectBySlug(params.slug);
 
   const [selectedMedia, setSelectedMedia] = useState<string | null>(null);
   const [mediaType, setMediaType] = useState<'image' | 'video' | null>(null);
@@ -233,8 +229,8 @@ export default function ProjectDetailPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {project.galleryImages.map((mediaUrl, index) => {
                      const isVideo = mediaUrl.toLowerCase().endsWith('.mp4') ||
-                                    mediaUrl.toLowerCase().endsWith('.mov') ||
-                                    mediaUrl.toLowerCase().endsWith('.avi');
+                                     mediaUrl.toLowerCase().endsWith('.mov') ||
+                                     mediaUrl.toLowerCase().endsWith('.avi');
                      return (
                        <motion.div
                          key={index}
@@ -317,7 +313,7 @@ export default function ProjectDetailPage() {
                     Interested in a Similar Project?
                   </h3>
                   <p className="text-primary-100 mb-6">
-                    Contact us today to discuss your energy needs and get a customized solution.
+                    Contact us today to discuss your water or energy needs and get a customized solution.
                   </p>
                   <Link href="/request-a-quote">
                     <Button variant="gold" className="w-full">
