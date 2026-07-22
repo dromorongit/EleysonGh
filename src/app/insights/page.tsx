@@ -34,7 +34,7 @@ return (
          <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
         <Container>
           <motion.div
-            className="max-w-4xl mx-auto text-center bg-navy/30 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl"
+            className="max-w-4xl mx-auto text-center p-8 md:p-12"
             initial="initial"
             animate="animate"
             variants={stagger}

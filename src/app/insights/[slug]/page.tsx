@@ -33,7 +33,7 @@ export default async function SingleArticlePage({ params }: { params: Promise<{ 
         <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url(${post.featuredImage || '/images/insights.jpg'})`}} />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
         <Container>
-          <div className="max-w-4xl mx-auto bg-navy/30 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl">
+          <div className="max-w-4xl mx-auto p-8 md:p-12">
             <Link href="/insights" className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Insights

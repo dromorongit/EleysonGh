@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { Button, Section, Container } from "@/components";
+import { Button, Section, Container, MediaGallery } from "@/components";
 import { getProjectBySlug } from "@/data/projects";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -124,43 +123,18 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 <h2 className="text-3xl font-serif font-bold text-primary-900 mb-6">
                   Project Gallery
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {project.galleryImages.map((mediaUrl: string, index: number) => {
+                <MediaGallery
+                  items={project.galleryImages.map((mediaUrl: string, index: number) => {
                     const isVideo = mediaUrl.toLowerCase().endsWith('.mp4') ||
                       mediaUrl.toLowerCase().endsWith('.mov') ||
                       mediaUrl.toLowerCase().endsWith('.avi');
-                    return (
-                      <div
-                        key={index}
-                        className="relative overflow-hidden rounded-lg cursor-pointer group aspect-video"
-                      >
-                        {isVideo ? (
-                          <>
-                            <video
-                              src={mediaUrl}
-                              className="w-full h-full object-cover"
-                              muted
-                            />
-                            <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
-                                <div className="w-0 h-0 border-l-[12px] border-l-black border-y-[8px] border-y-transparent ml-1" />
-                              </div>
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <Image
-                              src={mediaUrl}
-                              alt={`${project.title} - Image ${index + 1}`}
-                              className="w-full h-full object-cover"
-                              fill
-                            />
-                          </>
-                        )}
-                      </div>
-                    );
+                    return {
+                      type: isVideo ? "video" : "image",
+                      src: mediaUrl,
+                      alt: `${project.title} - ${isVideo ? 'Video' : 'Image'} ${index + 1}`,
+                    };
                   })}
-                </div>
+                />
               </div>
             </div>
 
