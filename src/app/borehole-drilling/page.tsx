@@ -25,12 +25,12 @@ export default function BoreholeDrillingPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[60vh] flex items-center relative">
-         <div className="absolute inset-0 bg-cover bg-center opacity-75" style={{backgroundImage: 'url(/images/hydrosolutions.jpg)'}} />
-         <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+      <Section className="min-h-[60vh] flex items-center relative">
+         <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: 'url(/images/hydrosolutions.jpg)'}} />
+         <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
         <Container className="relative z-10">
           <motion.div
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-4xl mx-auto text-center bg-navy/30 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl"
             initial="initial"
             animate="animate"
             variants={stagger}
@@ -41,19 +41,19 @@ export default function BoreholeDrillingPage() {
             >
               <Drill className="w-10 h-10 text-primary-600" />
             </motion.div>
-<motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6"
-              variants={fadeInUp}
-            >
+ <motion.h1
+               className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 hero-text-shadow"
+               variants={fadeInUp}
+             >
                 Borehole Drilling
             </motion.h1>
              <motion.p
-               className="text-lg md:text-xl text-secondary-600 max-w-2xl mx-auto leading-relaxed"
+               className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed hero-text-shadow"
                variants={fadeInUp}
              >
-               Professional borehole drilling services for residential, commercial, and industrial water needs.
-               Engineered for West African conditions with guaranteed water yield and long-term reliability.
-             </motion.p>
+                Professional borehole drilling services for residential, commercial, and industrial water needs.
+                Engineered for West African conditions with guaranteed water yield and long-term reliability.
+              </motion.p>
           </motion.div>
         </Container>
       </Section>

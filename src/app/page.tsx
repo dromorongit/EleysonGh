@@ -35,52 +35,31 @@ return (
     <>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden pt-20 md:pt-0">
-        {/* Layered Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-energy-50" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/5 to-energy-500/5" />
-        <div className="absolute inset-0 bg-radial-gradient from-gold/10 via-transparent to-transparent opacity-60" />
+        {/* Background Image */}
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: 'url(/images/homepage.jpg)'}} />
+
+        {/* Cinematic directional overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
+
+        {/* Subtle ambient accents */}
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[500px] lg:w-[800px] lg:h-[800px] bg-gradient-radial from-gold/5 to-transparent rounded-full blur-3xl" />
-
-        {/* Subtle Ambient Motion */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-primary-100/20 to-energy-100/20"
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%"],
-          }}
-          transition={{
-            duration: 20,
-            ease: "linear",
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-          style={{
-            backgroundSize: "200% 200%",
-          }}
-        />
-
-        {/* Engineering Atmosphere Overlay */}
-        <div className="absolute inset-0 bg-radial-gradient from-energy-100/30 via-transparent to-transparent opacity-50" />
-
-{/* Background Image */}
-          <div className="absolute inset-0 bg-cover bg-center opacity-75" style={{backgroundImage: 'url(/images/homepage.jpg)'}} />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
 
         <Container className="relative z-10">
           <motion.div
-            className="max-w-5xl mx-auto text-center"
+            className="max-w-5xl mx-auto text-center bg-navy/30 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl"
             initial="initial"
             animate="animate"
             variants={stagger}
           >
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-primary-900 mb-8 leading-[0.85] tracking-tight"
+              className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 leading-[0.85] tracking-tight hero-text-shadow"
               variants={fadeInUp}
             >
               Engineering The Future of Energy & Water<br />
-              <span className="bg-gradient-to-r from-energy-600 to-energy-800 bg-clip-text text-transparent">Across West Africa</span>
+              <span className="bg-gradient-to-r from-energy-400 to-energy-600 bg-clip-text text-transparent hero-text-shadow">Across West Africa</span>
             </motion.h1>
             <motion.p
-              className="text-xl md:text-2xl text-secondary-700 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
+              className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed font-light hero-text-shadow"
               variants={fadeInUp}
             >
               Eleyson Ghana Limited delivers engineered solar power and hydrogeological solutions
@@ -89,39 +68,39 @@ return (
               Since 2011, we've designed and installed over 500 systems across Ghana.
             </motion.p>
 
-{/* Trust Indicators */}
+            {/* Trust Indicators */}
             <motion.div
               className="flex flex-wrap justify-center gap-8 mb-12 text-sm md:text-base"
               variants={fadeInUp}
             >
-              <div className="flex items-center space-x-2 text-secondary-600">
+              <div className="flex items-center space-x-2 text-white/80">
                 <div className="w-2 h-2 bg-gold rounded-full" />
                 <span>13+ Years Engineering Excellence</span>
               </div>
-              <div className="flex items-center space-x-2 text-secondary-600">
+              <div className="flex items-center space-x-2 text-white/80">
                 <div className="w-2 h-2 bg-gold rounded-full" />
                 <span>500+ Projects Across Ghana</span>
               </div>
-              <div className="flex items-center space-x-2 text-secondary-600">
+              <div className="flex items-center space-x-2 text-white/80">
                 <div className="w-2 h-2 bg-gold rounded-full" />
                 <span>Certified Engineering Team</span>
               </div>
             </motion.div>
 
-{/* Certifications */}
+            {/* Certifications */}
             <motion.div
               className="flex flex-wrap justify-center gap-6 mb-12"
               variants={fadeInUp}
             >
-              <div className="flex items-center space-x-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg">
+              <div className="flex items-center space-x-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg">
                 <Award className="w-4 h-4 text-gold flex-shrink-0" />
                 <img src="/images/energycomm.PNG" alt="Energy Commission" className="h-8 w-auto" />
-                <span className="text-secondary-700 font-medium text-sm">Energy Commission</span>
+                <span className="text-primary-900 font-medium text-sm">Energy Commission</span>
               </div>
-              <div className="flex items-center space-x-3 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg">
+              <div className="flex items-center space-x-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg">
                 <Award className="w-4 h-4 text-gold flex-shrink-0" />
                 <img src="/images/waterresource.PNG" alt="Water Resources Commission" className="h-8 w-auto" />
-                <span className="text-secondary-700 font-medium text-sm">Water Resources Commission</span>
+                <span className="text-primary-900 font-medium text-sm">Water Resources Commission</span>
               </div>
             </motion.div>
 
@@ -136,7 +115,7 @@ return (
                 </Button>
               </Link>
               <Link href="/projects">
-                <Button variant="outline" size="lg" className="text-lg px-10 py-5 border-2 hover:bg-primary-50">
+                <Button variant="outline" size="lg" className="text-lg px-10 py-5 border-2 border-white/30 text-white hover:bg-white/10">
                   View Engineering Case Studies
                   <ArrowRight className="w-5 h-5 ml-3" />
                 </Button>

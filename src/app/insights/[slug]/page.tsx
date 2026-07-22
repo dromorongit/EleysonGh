@@ -29,29 +29,31 @@ export default async function SingleArticlePage({ params }: { params: Promise<{ 
   return (
     <>
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-primary-50 to-energy-50 pt-24">
+      <Section className="pt-24 relative">
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url(${post.featuredImage || '/images/insights.jpg'})`}} />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
         <Container>
-          <div className="max-w-4xl mx-auto">
-            <Link href="/insights" className="inline-flex items-center text-primary-600 hover:text-primary-800 mb-6">
+          <div className="max-w-4xl mx-auto bg-navy/30 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl">
+            <Link href="/insights" className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Insights
             </Link>
 
-            <div className="flex items-center space-x-4 mb-4">
-              <span className="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+            <div className="flex flex-wrap items-center gap-4 mb-4">
+              <span className="text-sm font-medium text-white bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm">
                 {post.category || 'General'}
               </span>
-              <span className="text-sm text-secondary-500 flex items-center">
+              <span className="text-sm text-white/70 flex items-center">
                 <Calendar className="w-4 h-4 mr-1" />
                 {post.publishedDate ? new Date(post.publishedDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : 'N/A'}
               </span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-serif font-bold text-primary-900 mb-6">
+            <h1 className="text-3xl md:text-5xl font-serif font-bold text-white mb-6 hero-text-shadow">
               {post.title}
             </h1>
 
-            <p className="text-lg text-secondary-600 leading-relaxed mb-8">
+            <p className="text-lg text-white/90 leading-relaxed mb-8 hero-text-shadow">
               {post.excerpt}
             </p>
           </div>

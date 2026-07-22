@@ -36,9 +36,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${project.featuredImage})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
           <Container className="relative h-full flex items-end pb-12">
-            <div className="max-w-4xl">
+            <div className="max-w-4xl bg-navy/30 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-10 shadow-2xl">
               <Link
                 href="/projects"
                 className="inline-flex items-center text-white/80 hover:text-white mb-4 transition-colors"
@@ -49,10 +49,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <span className="inline-block px-3 py-1 bg-gold text-navy text-sm font-medium rounded mb-4">
                 {project.category}
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4 hero-text-shadow">
                 {project.title}
               </h1>
-              <div className="flex items-center gap-6 text-white/90">
+              <div className="flex flex-wrap items-center gap-6 text-white/90">
                 <span>{project.location}</span>
                 <span>•</span>
                 <span>{project.clientType}</span>
