@@ -26,7 +26,7 @@ export default function TestimonialsPage() {
       <Section className="min-h-[50vh] flex items-center relative">
          <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: 'url(/images/testimonials.jpg)'}} />
          <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
-        <Container>
+        <Container className="relative z-10">
           <motion.div
             className="max-w-4xl mx-auto text-center p-8 md:p-12"
             initial="initial"

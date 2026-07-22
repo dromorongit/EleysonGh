@@ -138,7 +138,7 @@ export const projects: Project[] = [
       { key: 'People Served', value: '500+ residents' },
       { key: 'Tap Stands', value: '6 community access points' },
     ],
-    featuredImage: '/images/hydrosolutions.jpg',
+    featuredImage: '/images/driller.jpg',
     galleryImages: [
       '/images/boreobour1.MP4',
       '/images/boreobour2.MP4'
