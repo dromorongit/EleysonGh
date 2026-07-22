@@ -38,7 +38,7 @@ export default function ProjectsPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
         <Container>
           <motion.div
-            className="max-w-4xl mx-auto text-center bg-navy/30 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl"
+            className="max-w-4xl mx-auto text-center relative z-10 p-8 md:p-12"
             initial="initial"
             animate="animate"
             variants={stagger}
