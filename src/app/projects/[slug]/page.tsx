@@ -38,7 +38,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           />
           <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
           <Container className="relative h-full flex items-end pb-12">
-            <div className="max-w-4xl bg-navy/30 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-10 shadow-2xl">
+            <div className="max-w-4xl p-8 md:p-10">
               <Link
                 href="/projects"
                 className="inline-flex items-center text-white/80 hover:text-white mb-4 transition-colors"

@@ -46,7 +46,7 @@ return (
 
         <Container className="relative z-10">
           <motion.div
-            className="max-w-5xl mx-auto text-center bg-navy/30 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl"
+            className="max-w-5xl mx-auto text-center p-8 md:p-12"
             initial="initial"
             animate="animate"
             variants={stagger}
