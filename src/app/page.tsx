@@ -31,12 +31,12 @@ function HeroCarousel() {
       {HERO_IMAGES.map((src, i) => (
         <motion.div
           key={src}
-          className="absolute inset-0"
+          className="absolute inset-0 bg-navy"
           initial={false}
           animate={{ opacity: index === i ? 1 : 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
         >
-          <Image src={src} alt="" fill className="object-cover" />
+          <Image src={src} alt="" fill className="object-cover scale-[0.97]" />
         </motion.div>
       ))}
     </div>
