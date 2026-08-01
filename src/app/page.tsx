@@ -101,28 +101,23 @@ return (
       {/* Credibility Strip */}
       <section className="bg-primary-900 text-white py-12">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div className="flex flex-col items-center space-y-2">
-              <Zap className="w-8 h-8 text-accent-400" />
-              <div className="text-3xl font-bold text-accent-400">13+</div>
-              <div className="text-primary-200 font-medium">Years Experience</div>
-            </div>
-            <div className="flex flex-col items-center space-y-2">
-              <CheckCircle className="w-8 h-8 text-accent-400" />
-              <div className="text-3xl font-bold text-accent-400">500+</div>
-              <div className="text-primary-200 font-medium">Projects Completed</div>
-            </div>
-            <div className="flex flex-col items-center space-y-2">
-              <MapPin className="w-8 h-8 text-accent-400" />
-              <div className="text-3xl font-bold text-accent-400">Nationwide</div>
-              <div className="text-primary-200 font-medium">Coverage</div>
-            </div>
-            <div className="flex flex-col items-center space-y-2">
-              <Layers className="w-8 h-8 text-accent-400" />
-              <div className="text-3xl font-bold text-accent-400">Dual</div>
-              <div className="text-primary-200 font-medium">Expertise Areas</div>
-            </div>
-          </div>
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+             <div className="flex flex-col items-center space-y-2">
+               <Zap className="w-8 h-8 text-accent-400" />
+               <div className="text-3xl font-bold text-accent-400">13+</div>
+               <div className="text-primary-200 font-medium">Years Experience</div>
+             </div>
+             <div className="flex flex-col items-center space-y-2">
+               <MapPin className="w-8 h-8 text-accent-400" />
+               <div className="text-3xl font-bold text-accent-400">Nationwide</div>
+               <div className="text-primary-200 font-medium">Coverage</div>
+             </div>
+             <div className="flex flex-col items-center space-y-2">
+               <Layers className="w-8 h-8 text-accent-400" />
+               <div className="text-3xl font-bold text-accent-400">Dual</div>
+               <div className="text-primary-200 font-medium">Expertise Areas</div>
+             </div>
+           </div>
         </Container>
       </section>
 
@@ -140,7 +135,7 @@ return (
                className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6 leading-tight"
                variants={fadeInUp}
              >
-               Engineered Solutions<br />for Critical Infrastructure
+                Our Services
              </motion.h2>
              <motion.p
                className="text-xl text-secondary-700 max-w-2xl mx-auto font-light"
