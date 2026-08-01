@@ -50,7 +50,7 @@ export function TrustedEngineeringAuthority({
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <img src="/images/homepagebanner.jpg" alt="Engineering Excellence" className="w-full h-full object-cover" />
+            <img src="/images/eleysonlogo.jpg" alt="Engineering Excellence" className="w-full h-full object-cover" />
           </motion.div>
         </div>
       </Container>

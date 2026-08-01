@@ -38,13 +38,6 @@ export default function AboutPage() {
               >
               About Eleyson Ghana Ltd
             </motion.h1>
-              <motion.p
-                 className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed hero-text-shadow"
-                 variants={fadeInUp}
-               >
-              West Africa's trusted engineering partner for solar power and hydrogeological solutions.
-              Certified expertise delivering reliable, engineered infrastructure across Ghana.
-            </motion.p>
           </motion.div>
         </Container>
       </Section>
