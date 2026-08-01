@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone, MapPin, Layers } from "lucide-react";
+import { ArrowRight, CheckCircle, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent, EngineeringExcellence } from "@/components";
 import { useState } from "react";
 import { getFeaturedProjects } from "@/data/projects";
@@ -97,29 +97,6 @@ return (
       </section>
 
       <EngineeringExcellence fadeInUp={fadeInUp} stagger={stagger} />
-
-      {/* Credibility Strip */}
-      <section className="bg-primary-900 text-white py-12">
-        <Container>
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-             <div className="flex flex-col items-center space-y-2">
-               <Zap className="w-8 h-8 text-accent-400" />
-               <div className="text-3xl font-bold text-accent-400">13+</div>
-               <div className="text-primary-200 font-medium">Years Experience</div>
-             </div>
-             <div className="flex flex-col items-center space-y-2">
-               <MapPin className="w-8 h-8 text-accent-400" />
-               <div className="text-3xl font-bold text-accent-400">Nationwide</div>
-               <div className="text-primary-200 font-medium">Coverage</div>
-             </div>
-             <div className="flex flex-col items-center space-y-2">
-               <Layers className="w-8 h-8 text-accent-400" />
-               <div className="text-3xl font-bold text-accent-400">Dual</div>
-               <div className="text-primary-200 font-medium">Expertise Areas</div>
-             </div>
-           </div>
-        </Container>
-      </section>
 
       {/* Core Solutions */}
        <Section className="bg-secondary-50">
