@@ -65,7 +65,7 @@ export function Header() {
       {/* Desktop Two-Column Layout */}
       <div className="hidden lg:flex">
         {/* Left: Logo Column */}
-        <div className="w-60 xl:w-72 flex-shrink-0 bg-white flex items-center justify-center border-r border-primary-100">
+        <div className="w-60 xl:w-72 flex-shrink-0 bg-white flex items-center justify-center">
           <Link href="/" className="flex items-center justify-center p-6" aria-label="Eleyson Ghana Limited - Home">
             <Image
               src="/images/eleysonlogo.jpg"
@@ -82,9 +82,9 @@ export function Header() {
         <div className="flex-1 flex flex-col">
           {/* Top Contact Bar */}
           <div className="h-11 bg-navy text-white flex items-center px-6 xl:px-8">
-            <div className="flex items-center justify-end space-x-5 text-xs w-full">
+            <div className="flex items-center justify-between w-full">
               {/* Social Media Icons */}
-              <div className="flex items-center space-x-2.5">
+              <div className="flex items-center space-x-3">
                 {socialLinks.map((item) => (
                   <a
                     key={item.name}
@@ -99,39 +99,42 @@ export function Header() {
                 ))}
               </div>
 
-              <div className="w-px h-4 bg-white/20" aria-hidden="true" />
+              {/* Telephone Numbers, Email, Location */}
+              <div className="flex items-center space-x-5 text-xs">
+                <div className="w-px h-4 bg-white/20" aria-hidden="true" />
 
-              {/* Telephone Numbers */}
-              <div className="flex items-center space-x-4 flex-nowrap">
-                {phoneNumbers.map((item) => (
-                  <a
-                    key={item.text}
-                    href={item.href}
-                    className="flex items-center space-x-1.5 text-white/80 hover:text-gold transition-colors whitespace-nowrap"
-                  >
-                    <Phone className="w-3.5 h-3.5" aria-hidden="true" />
-                    <span>{item.text}</span>
-                  </a>
-                ))}
-              </div>
+                {/* Telephone Numbers */}
+                <div className="flex items-center space-x-4 flex-nowrap">
+                  {phoneNumbers.map((item) => (
+                    <a
+                      key={item.text}
+                      href={item.href}
+                      className="flex items-center space-x-1.5 text-white/80 hover:text-gold transition-colors whitespace-nowrap"
+                    >
+                      <Phone className="w-3.5 h-3.5" aria-hidden="true" />
+                      <span>{item.text}</span>
+                    </a>
+                  ))}
+                </div>
 
-              <div className="w-px h-4 bg-white/20" aria-hidden="true" />
+                <div className="w-px h-4 bg-white/20" aria-hidden="true" />
 
-              {/* Email */}
-              <a
-                href="mailto:info@eleysonghana.com"
-                className="flex items-center space-x-1.5 text-white/80 hover:text-gold transition-colors whitespace-nowrap"
-              >
-                <Mail className="w-3.5 h-3.5" aria-hidden="true" />
-                <span>info@eleysonghana.com</span>
-              </a>
+                {/* Email */}
+                <a
+                  href="mailto:info@eleysonghana.com"
+                  className="flex items-center space-x-1.5 text-white/80 hover:text-gold transition-colors whitespace-nowrap"
+                >
+                  <Mail className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span>info@eleysonghana.com</span>
+                </a>
 
-              <div className="w-px h-4 bg-white/20" aria-hidden="true" />
+                <div className="w-px h-4 bg-white/20" aria-hidden="true" />
 
-              {/* Location */}
-              <div className="flex items-center space-x-1.5 text-white/80">
-                <MapPin className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
-                <span>Nii John Tetth ST, Teiman, Oyarifa, Ghana</span>
+                {/* Location */}
+                <div className="flex items-center space-x-1.5 text-white/80">
+                  <MapPin className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
+                  <span>Nii John Tetth ST, Teiman, Oyarifa, Ghana</span>
+                </div>
               </div>
             </div>
           </div>
