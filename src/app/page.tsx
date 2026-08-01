@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, CheckCircle, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone, Activity } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent, EngineeringExcellence, MissionVision } from "@/components";
 import { useState } from "react";
 import { getFeaturedProjects } from "@/data/projects";
@@ -131,62 +131,60 @@ return (
              viewport={{ once: true }}
              variants={stagger}
            >
-             {[
-                {
-                  icon: Zap,
-                  title: "Solar Energy Solutions",
-                  description: "Engineered photovoltaic systems for commercial, industrial, and residential applications. Includes hybrid configurations, battery storage, and grid-tie solutions optimized for Ghana's climate.",
-                  link: "/solar-solutions"
-                },
-{
-                    icon: Droplets,
-                    title: "Borehole Drilling",
-                    description: "Professional drilling services for residential, commercial, and industrial water needs. Engineered for West African conditions.",
-                    link: "/borehole-drilling"
-                  },
-                {
-                  icon: TrendingUp,
-                  title: "Energy Audits",
-                  description: "Comprehensive technical assessments with load analysis, solar potential studies, and ROI calculations. Data-driven recommendations for optimal energy efficiency.",
-                  link: "/energy-audits"
-                },
-                {
-                  icon: Users,
-                  title: "Maintenance & Support",
-                  description: "Preventive maintenance programs and technical support to ensure optimal system performance, longevity, and maximum return on investment.",
-                  link: "/maintenance-support"
-                },
-                {
-                  icon: Award,
-                  title: "Training & Workshops",
-                  description: "Professional development programs for engineers, technicians, and industry professionals. Hands-on training in solar PV, water systems, and renewable energy best practices.",
-                  link: "/training-workshops"
-                },
-                {
-                  icon: CheckCircle,
-                  title: "Backup Systems",
-                  description: "Hybrid solar backup solutions with battery storage and automatic transfer switching. Engineered for uninterrupted power supply during grid outages.",
-                  link: "/backup-systems"
-                }
-              ].map((solution, index) => (
-               <motion.div key={index} variants={fadeInUp}>
-                 <Card className="h-full hover:shadow-lg transition-all duration-200 group cursor-pointer">
-                   <CardHeader>
-                     <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors">
-                       <solution.icon className="w-6 h-6 text-primary-600" />
-                     </div>
-                     <h3 className="text-xl font-semibold text-primary-900 mb-2">
-                       {solution.title}
-                     </h3>
-                   </CardHeader>
-                   <CardContent>
-                     <p className="text-secondary-600 mb-4">{solution.description}</p>
-                     <Link href={solution.link}>
-                       <Button variant="ghost" className="p-0 h-auto text-primary-600 hover:text-primary-800">
-                          Learn More <ArrowRight className="w-4 h-4 ml-1" />
-                        </Button>
-                     </Link>
-                   </CardContent>
+              {[
+                 {
+                   icon: Zap,
+                   title: "Solar System Design & Installation",
+                   link: "/solar-solutions"
+                 },
+                 {
+                   icon: Activity,
+                   title: "Hydrogeological Survey",
+                   link: "/hydro-water-solutions"
+                 },
+                 {
+                   icon: Droplets,
+                   title: "Borehole Drilling",
+                   link: "/borehole-drilling"
+                 },
+                 {
+                   icon: TrendingUp,
+                   title: "Energy Audits",
+                   link: "/energy-audits"
+                 },
+                 {
+                   icon: Users,
+                   title: "Maintenance & Support",
+                   link: "/maintenance-support"
+                 },
+                 {
+                   icon: Award,
+                   title: "Training & Workshops",
+                   link: "/training-workshops"
+                 },
+                 {
+                   icon: CheckCircle,
+                   title: "Backup Systems",
+                   link: "/backup-systems"
+                 }
+               ].map((solution, index) => (
+                <motion.div key={index} variants={fadeInUp}>
+                  <Card className="h-full hover:shadow-lg transition-all duration-200 group cursor-pointer">
+                    <CardHeader>
+                      <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors">
+                        <solution.icon className="w-6 h-6 text-primary-600" />
+                      </div>
+                      <h3 className="text-xl font-semibold text-primary-900 mb-2">
+                        {solution.title}
+                      </h3>
+                    </CardHeader>
+                    <CardContent>
+                      <Link href={solution.link}>
+                        <Button variant="ghost" className="p-0 h-auto text-primary-600 hover:text-primary-800">
+                           Learn More <ArrowRight className="w-4 h-4 ml-1" />
+                         </Button>
+                      </Link>
+                    </CardContent>
                  </Card>
                </motion.div>
              ))}
