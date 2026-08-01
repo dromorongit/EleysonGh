@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone, Activity, Settings } from "lucide-react";
+import { ArrowRight, CheckCircle, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone, Activity, Settings, Sun, Battery, Package } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent, EngineeringExcellence, MissionVision } from "@/components";
 import { useState } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -193,9 +193,86 @@ return (
              ))}
            </motion.div>
          </Container>
-        </Section>
+         </Section>
 
-        {/* Quote CTA Banner */}
+         {/* Products Section */}
+         <Section className="bg-white">
+           <Container>
+             <motion.div
+               className="text-center mb-16"
+               initial="initial"
+               whileInView="animate"
+               viewport={{ once: true }}
+               variants={stagger}
+             >
+               <motion.h2
+                 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6 leading-tight"
+                 variants={fadeInUp}
+               >
+                 Our Products
+               </motion.h2>
+               <motion.p
+                 className="text-xl text-secondary-700 max-w-2xl mx-auto font-light"
+                 variants={fadeInUp}
+               >
+                 High-quality solar, hydro, and energy system components from trusted manufacturers
+               </motion.p>
+             </motion.div>
+
+             <motion.div
+               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+               initial="initial"
+               whileInView="animate"
+               viewport={{ once: true }}
+               variants={stagger}
+             >
+               {[
+                 {
+                   icon: Sun,
+                   title: "Solar Panels",
+                   link: "/products"
+                 },
+                 {
+                   icon: Zap,
+                   title: "Inverters",
+                   link: "/products"
+                 },
+                 {
+                   icon: Battery,
+                   title: "Batteries",
+                   link: "/products"
+                 },
+                 {
+                   icon: Package,
+                   title: "Accessories",
+                   link: "/products"
+                 }
+               ].map((product, index) => (
+                 <motion.div key={index} variants={fadeInUp}>
+                   <Card className="h-full hover:shadow-lg transition-all duration-200 group cursor-pointer text-center">
+                     <CardHeader>
+                       <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors mx-auto">
+                         <product.icon className="w-6 h-6 text-primary-600" />
+                       </div>
+                       <h3 className="text-xl font-semibold text-primary-900 mb-2">
+                         {product.title}
+                       </h3>
+                     </CardHeader>
+                     <CardContent>
+                       <Link href={product.link}>
+                         <Button variant="ghost" className="p-0 h-auto text-primary-600 hover:text-primary-800">
+                           View Products <ArrowRight className="w-4 h-4 ml-1" />
+                         </Button>
+                       </Link>
+                     </CardContent>
+                   </Card>
+                 </motion.div>
+               ))}
+             </motion.div>
+           </Container>
+         </Section>
+
+         {/* Quote CTA Banner */}
        <section className="bg-gradient-to-r from-primary-900 to-primary-800 text-white py-16">
          <Container>
            <motion.div
