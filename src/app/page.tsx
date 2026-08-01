@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone, Activity } from "lucide-react";
+import { ArrowRight, CheckCircle, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone, Activity, Settings } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent, EngineeringExcellence, MissionVision } from "@/components";
 import { useState } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -140,16 +140,21 @@ return (
                    title: "Hydrogeological Survey",
                    link: "/hydro-water-solutions"
                  },
-                 {
-                   icon: Droplets,
-                   title: "Borehole Drilling",
-                   link: "/borehole-drilling"
-                 },
-                 {
-                   icon: TrendingUp,
-                   title: "Energy Audits",
-                   link: "/energy-audits"
-                 },
+                  {
+                    icon: Droplets,
+                    title: "Borehole Drilling",
+                    link: "/borehole-drilling"
+                  },
+                  {
+                    icon: Settings,
+                    title: "Pump Installation (AC & DC)",
+                    link: "/borehole-drilling"
+                  },
+                  {
+                    icon: TrendingUp,
+                    title: "Energy Audits",
+                    link: "/energy-audits"
+                  },
                  {
                    icon: Users,
                    title: "Maintenance & Support",

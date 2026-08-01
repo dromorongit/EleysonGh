@@ -23,23 +23,6 @@ export function Footer() {
               Engineering the Future of Energy & Water. Premium solar and hydrogeological solutions
               serving Ghana and West Africa with technical excellence and reliability.
             </p>
-            <div className="flex space-x-4" aria-label="Social media links">
-              <Link href="https://www.facebook.com/eleysonghana" className="text-white/70 hover:text-gold transition-colors" aria-label="Facebook">
-                <FaFacebookF className="w-5 h-5" aria-hidden="true" />
-              </Link>
-              <Link href="https://www.linkedIn.com/in/eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="LinkedIn">
-                <FaLinkedinIn className="w-5 h-5" aria-hidden="true" />
-              </Link>
-              <Link href="https://www.x.com/eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="X">
-                <FaXTwitter className="w-5 h-5" aria-hidden="true" />
-              </Link>
-              <Link href="https://www.instagram.com/eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="Instagram">
-                <FaInstagram className="w-5 h-5" aria-hidden="true" />
-              </Link>
-              <Link href="https://www.tiktok.com/@eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="TikTok">
-                <FaTiktok className="w-5 h-5" aria-hidden="true" />
-              </Link>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -157,11 +140,28 @@ export function Footer() {
                 aria-label="Email address for newsletter subscription"
                 required
               />
-              <Button variant="gold" size="sm" className="w-full">
-                Subscribe
-              </Button>
-            </div>
-          </div>
+          <Button variant="gold" size="sm" className="w-full">
+            Subscribe
+          </Button>
+        </div>
+        <div className="flex space-x-4 pt-2" aria-label="Social media links">
+          <Link href="https://www.facebook.com/eleysonghana" className="text-white/70 hover:text-gold transition-colors" aria-label="Facebook">
+            <FaFacebookF className="w-5 h-5" aria-hidden="true" />
+          </Link>
+          <Link href="https://www.linkedIn.com/in/eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="LinkedIn">
+            <FaLinkedinIn className="w-5 h-5" aria-hidden="true" />
+          </Link>
+          <Link href="https://www.x.com/eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="X">
+            <FaXTwitter className="w-5 h-5" aria-hidden="true" />
+          </Link>
+          <Link href="https://www.instagram.com/eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="Instagram">
+            <FaInstagram className="w-5 h-5" aria-hidden="true" />
+          </Link>
+          <Link href="https://www.tiktok.com/@eleysonghana/" className="text-white/70 hover:text-gold transition-colors" aria-label="TikTok">
+            <FaTiktok className="w-5 h-5" aria-hidden="true" />
+          </Link>
+        </div>
+      </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-gold/20">
