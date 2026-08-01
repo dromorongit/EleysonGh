@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle, Users, Award, TrendingUp, Target, Heart } from "lucide-react";
-import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
+import { Button, Section, Container, Card, CardHeader, CardContent, TrustedEngineeringAuthority } from "@/components";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -76,6 +76,8 @@ export default function AboutPage() {
           </motion.div>
         </Container>
       </Section>
+
+      <TrustedEngineeringAuthority fadeInUp={fadeInUp} stagger={stagger} />
 
       {/* Mission & Vision */}
       <Section className="bg-secondary-50">
