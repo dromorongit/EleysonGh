@@ -45,13 +45,13 @@ return (
 
         <Container className="relative z-10">
           <motion.div
-            className="max-w-5xl mx-auto text-center p-8 md:p-12"
+            className="max-w-5xl mx-auto text-center px-6 py-12 md:px-8 md:py-16"
             initial="initial"
             animate="animate"
             variants={stagger}
           >
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 leading-[0.85] tracking-tight hero-text-shadow"
+              className="text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 md:mb-8 leading-[0.85] tracking-tight hero-text-shadow"
               variants={fadeInUp}
             >
               Engineering The Future of Energy & Water
@@ -59,35 +59,35 @@ return (
 
             {/* Certifications */}
             <motion.div
-              className="flex flex-wrap justify-center gap-6 mb-12"
+              className="flex flex-wrap justify-center gap-3 md:gap-6 mb-8 md:mb-12"
               variants={fadeInUp}
             >
-              <div className="flex items-center space-x-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <Award className="w-4 h-4 text-gold flex-shrink-0" />
-                <img src="/images/energycomm.PNG" alt="Energy Commission" className="h-8 w-auto" />
-                <span className="text-primary-900 font-medium text-sm">Energy Commission</span>
+              <div className="flex items-center space-x-2 bg-white/90 backdrop-blur-sm px-3 py-2 md:px-4 md:py-2 rounded-lg">
+                <Award className="w-3 h-3 md:w-4 md:h-4 text-gold flex-shrink-0" />
+                <img src="/images/energycomm.PNG" alt="Energy Commission" className="h-6 w-auto md:h-8" />
+                <span className="text-primary-900 font-medium text-xs md:text-sm">Energy Commission</span>
               </div>
-              <div className="flex items-center space-x-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <Award className="w-4 h-4 text-gold flex-shrink-0" />
-                <img src="/images/waterresource.PNG" alt="Water Resources Commission" className="h-8 w-auto" />
-                <span className="text-primary-900 font-medium text-sm">Water Resources Commission</span>
+              <div className="flex items-center space-x-2 bg-white/90 backdrop-blur-sm px-3 py-2 md:px-4 md:py-2 rounded-lg">
+                <Award className="w-3 h-3 md:w-4 md:h-4 text-gold flex-shrink-0" />
+                <img src="/images/waterresource.PNG" alt="Water Resources Commission" className="h-6 w-auto md:h-8" />
+                <span className="text-primary-900 font-medium text-xs md:text-sm">Water Resources Commission</span>
               </div>
             </motion.div>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-6 justify-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center"
               variants={fadeInUp}
             >
                 <Link href="/request-a-quote">
-                <Button size="lg" variant="gold" className="text-lg px-10 py-5 bg-gradient-to-r from-gold to-gold/90 shadow-2xl hover:shadow-gold/30 hover:from-gold/90 hover:to-gold/80 transition-all duration-300">
-                  <MessageCircle className="w-5 h-5 mr-3" />
+                <Button size="lg" variant="gold" className="text-base md:text-lg px-8 md:px-10 py-4 md:py-5 bg-gradient-to-r from-gold to-gold/90 shadow-2xl hover:shadow-gold/30 hover:from-gold/90 hover:to-gold/80 transition-all duration-300">
+                  <MessageCircle className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
                   Request a Technical Consultation
                 </Button>
               </Link>
               <Link href="/projects">
-                <Button variant="outline" size="lg" className="text-lg px-10 py-5 border-2 border-white/80 text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                <Button variant="outline" size="lg" className="text-base md:text-lg px-8 md:px-10 py-4 md:py-5 border-2 border-white/80 text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
                   Our Projects
-                  <ArrowRight className="w-5 h-5 ml-3" />
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2 md:ml-3" />
                 </Button>
               </Link>
             </motion.div>
