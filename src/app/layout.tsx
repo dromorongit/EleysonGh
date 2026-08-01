@@ -15,6 +15,13 @@ const playfairDisplay = Playfair_Display({
   weight: ["400", "700"],
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 export const metadata: Metadata = {
   title: {
     default: "Eleyson Ghana Limited - Engineering the Future of Energy & Water",
