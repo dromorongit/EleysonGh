@@ -58,7 +58,84 @@ export default function BoreholeDrillingPage() {
         </Container>
       </Section>
 
-      {/* Overview */}
+      {/* Featured Projects */}
+      <Section className="bg-secondary-50">
+        <Container>
+          <motion.div
+            className="text-center mb-12"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={stagger}
+          >
+            <motion.h2
+              className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-4"
+              variants={fadeInUp}
+            >
+              Featured Borehole Projects
+            </motion.h2>
+          </motion.div>
+
+           <motion.div
+             className="grid grid-cols-1 md:grid-cols-3 gap-8"
+             initial="initial"
+             whileInView="animate"
+             viewport={{ once: true }}
+             variants={stagger}
+           >
+             {projects
+                   .filter(project => project.category === 'Hydro')
+                   .map((project) => (
+                   <motion.div key={project.slug} variants={fadeInUp}>
+                     <Card className="h-full">
+                       <div className="aspect-video rounded-t-lg overflow-hidden relative">
+                         <Image
+                           src={project.featuredImage}
+                           alt={project.title}
+                           fill
+                         />
+                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                         <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                           <div className="flex items-center justify-between mb-2">
+                             <span className="text-sm font-medium bg-gold text-navy px-2 py-1 rounded">
+                               {project.category}
+                             </span>
+                             <span className="text-sm text-white/80">{project.location}</span>
+                           </div>
+                            <h3 className="text-lg font-semibold mb-2">
+                              {project.title}
+                            </h3>
+                            <Link href={`/projects/${project.slug}`}>
+                              <Button variant="gold" size="sm">
+                                View Project
+                                <ArrowRight className="w-4 h-4 ml-1" />
+                              </Button>
+                            </Link>
+                         </div>
+                       </div>
+                     </Card>
+                   </motion.div>
+                 ))}
+           </motion.div>
+
+           <motion.div
+             className="text-center mt-12"
+             initial="initial"
+             whileInView="animate"
+             viewport={{ once: true }}
+             variants={fadeInUp}
+           >
+             <Link href="/projects">
+               <Button size="lg">
+                  View All Projects
+                 <ArrowRight className="w-5 h-5 ml-2" />
+               </Button>
+             </Link>
+           </motion.div>
+         </Container>
+       </Section>
+
+       {/* Overview */}
       <Section>
         <Container>
           <motion.div
@@ -85,145 +162,20 @@ export default function BoreholeDrillingPage() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="space-y-4"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={stagger}
           >
             {[
-              {
-                icon: Activity,
-                title: "Geological Survey",
-                items: ["Site Investigation", "Water Yield Assessment", "Depth Analysis", "Geological Mapping"]
-              },
-              {
-                icon: Drill,
-                title: "Professional Drilling",
-                items: ["Rotary Drilling", "Percussion Drilling", "Depths 50-200m", "Steel/PVC Casing"]
-              },
-              {
-                icon: Gauge,
-                title: "Pump Testing & Installation",
-                items: ["Pump Testing", "Water Quality Testing", "Installation", "Commissioning"]
-              }
+              "Hydrogeological Survey",
+              "Professional Drilling",
+              "Pump Testing & Installation"
             ].map((service, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className="text-center h-full p-6">
-                  <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <service.icon className="w-8 h-8 text-primary-600" />
-                  </div>
-                  <h3 className="text-xl font-serif font-bold text-primary-900 mb-4">{service.title}</h3>
-                  <ul className="text-left space-y-2">
-                    {service.items.map((item, i) => (
-                      <li key={i} className="flex items-start space-x-2">
-                        <CheckCircle className="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
-                        <span className="text-secondary-700 text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Drilling Process */}
-      <Section className="bg-secondary-50">
-        <Container>
-          <motion.div
-            className="text-center mb-12"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            <motion.h2
-              className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-4"
-              variants={fadeInUp}
-            >
-              Our Drilling Process
-            </motion.h2>
-            <motion.p
-              className="text-lg text-secondary-600 max-w-2xl mx-auto"
-              variants={fadeInUp}
-            >
-              Systematic approach ensuring reliable water yield and long-term borehole performance
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            {[
-              {
-                step: "01",
-                title: "Site Investigation",
-                description: "Geological survey and water yield assessment to determine optimal drilling location and depth"
-              },
-              {
-                step: "02",
-                title: "Preparation & Permits",
-                description: "Equipment mobilization, site preparation, and necessary permits acquisition"
-              },
-              {
-                step: "03",
-                title: "Drilling Operations",
-                description: "Professional borehole drilling using rotary or percussion methods appropriate for geology"
-              },
-              {
-                step: "04",
-                title: "Casing & Screen Installation",
-                description: "Steel or PVC casing with screens installed to prevent collapse and ensure water flow"
-              },
-              {
-                step: "05",
-                title: "Pump Testing",
-                description: "Conducting pumping tests to determine sustainable yield and aquifer performance"
-              },
-              {
-                step: "06",
-                title: "Water Quality Testing",
-                description: "Laboratory analysis to ensure water meets health and usage standards"
-              },
-              {
-                step: "07",
-                title: "Pump Installation",
-                description: "Selection and installation of appropriate submersible or surface pumps"
-              },
-              {
-                step: "08",
-                title: "Mechanization & Control",
-                description: "Electrical connections, automation, and control systems installation"
-              },
-              {
-                step: "09",
-                title: "Civil Works",
-                description: "Pump house construction, drainage systems, and site finishing"
-              },
-              {
-                step: "10",
-                title: "Commissioning & Handover",
-                description: "System testing, operator training, and project completion with documentation"
-              }
-            ].map((process, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className="text-center h-full relative">
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                    {process.step}
-                  </div>
-                  <CardHeader className="pt-8">
-                    <h3 className="text-lg font-semibold text-primary-900">{process.title}</h3>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-secondary-600 text-sm">{process.description}</p>
-                  </CardContent>
-                </Card>
+              <motion.div key={index} variants={fadeInUp} className="flex items-start space-x-3">
+                <CheckCircle className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                <h4 className="font-semibold text-primary-900">{service}</h4>
               </motion.div>
             ))}
           </motion.div>
@@ -255,113 +207,22 @@ export default function BoreholeDrillingPage() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+            className="space-y-4"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={stagger}
           >
-            {/* Residential */}
-            <motion.div variants={fadeInUp}>
-              <Card className="h-full">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
-                    <Droplets className="w-8 h-8 text-primary-600" />
-                  </div>
-                  <h3 className="text-2xl font-serif font-bold text-primary-900 mb-4">
-                    Residential Boreholes
-                  </h3>
-                  <p className="text-secondary-600 mb-6">
-                    Reliable water access for households, ensuring consistent supply for daily domestic needs
-                    with low-maintenance systems designed for Ghanaian community conditions.
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3 mb-6">
-                    {[
-                      "Depths 50-100 meters",
-                      "2,000-5,000 liters/hour yield",
-                      "Single or three-phase pumps",
-                      "Basic water treatment"
-                    ].map((feature, index) => (
-                      <div key={index} className="flex items-center space-x-3">
-                        <CheckCircle className="w-4 h-4 text-primary-600 flex-shrink-0" />
-                        <span className="text-secondary-700 text-sm">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-xs text-secondary-500">Starting from 60m depth systems</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Commercial */}
-            <motion.div variants={fadeInUp}>
-              <Card className="h-full">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-energy-100 rounded-lg flex items-center justify-center mb-6">
-                    <Building className="w-8 h-8 text-energy-600" />
-                  </div>
-                  <h3 className="text-2xl font-serif font-bold text-primary-900 mb-4">
-                    Commercial Boreholes
-                  </h3>
-                  <p className="text-secondary-600 mb-6">
-                    Business-focused water solutions for hotels, offices, schools, and commercial facilities
-                    requiring reliable daily water supply and uninterrupted operation.
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3 mb-6">
-                    {[
-                      "Depths 80-150 meters",
-                      "5,000-10,000 liters/hour yield",
-                      "Multi-pump systems available",
-                      "Advanced filtration options"
-                    ].map((feature, index) => (
-                      <div key={index} className="flex items-center space-x-3">
-                        <CheckCircle className="w-4 h-4 text-energy-600 flex-shrink-0" />
-                        <span className="text-secondary-700 text-sm">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-xs text-secondary-500">10,000-50,000 liter storage options</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Industrial */}
-            <motion.div variants={fadeInUp}>
-              <Card className="h-full">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-accent-100 rounded-lg flex items-center justify-center mb-6">
-                    <Factory className="w-8 h-8 text-accent-600" />
-                  </div>
-                  <h3 className="text-2xl font-serif font-bold text-primary-900 mb-4">
-                    Industrial Boreholes
-                  </h3>
-                  <p className="text-secondary-600 mb-6">
-                    High-capacity systems for manufacturing, mining, and large-scale agricultural operations
-                    requiring substantial water volumes with redundant pumping systems.
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3 mb-6">
-                    {[
-                      "Depths 100-200+ meters",
-                      "10,000+ liters/hour yield",
-                      "Solar-powered pumping available",
-                      "SCADA monitoring systems"
-                    ].map((feature, index) => (
-                      <div key={index} className="flex items-center space-x-3">
-                        <CheckCircle className="w-4 h-4 text-accent-600 flex-shrink-0" />
-                        <span className="text-secondary-700 text-sm">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-xs text-secondary-500">Custom engineered for demand</p>
-                </CardContent>
-              </Card>
-            </motion.div>
+            {[
+              "Residential Boreholes",
+              "Commercial Boreholes",
+              "Industrial Boreholes"
+            ].map((sector, index) => (
+              <motion.div key={index} variants={fadeInUp} className="flex items-start space-x-3">
+                <CheckCircle className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                <h4 className="font-semibold text-primary-900">{sector}</h4>
+              </motion.div>
+            ))}
           </motion.div>
         </Container>
       </Section>
@@ -418,169 +279,6 @@ export default function BoreholeDrillingPage() {
             <motion.div variants={fadeInUp}>
               <div className="aspect-square bg-gradient-to-br from-primary-100 to-energy-100 rounded-lg" />
             </motion.div>
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Maintenance & Reliability */}
-      <Section>
-        <Container>
-          <motion.div
-            className="text-center mb-12"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            <motion.h2
-              className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-4"
-              variants={fadeInUp}
-            >
-              Long-term Reliability & Support
-            </motion.h2>
-            <motion.p
-              className="text-lg text-secondary-600 max-w-2xl mx-auto"
-              variants={fadeInUp}
-            >
-              Our commitment to water security extends beyond installation with comprehensive maintenance programs
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            <motion.div variants={fadeInUp}>
-              <Card className="text-center h-full">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Shield className="w-8 h-8 text-primary-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-primary-900 mb-2">Engineering Standards</h3>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-secondary-600 text-sm">
-                    All boreholes drilled to international standards with proper casing, screening,
-                    and development procedures ensuring structural integrity and water quality.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div variants={fadeInUp}>
-              <Card className="text-center h-full">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-energy-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Wrench className="w-8 h-8 text-energy-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-primary-900 mb-2">Preventive Maintenance</h3>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-secondary-600 text-sm">
-                    Regular pump servicing, water quality monitoring, and system checks to maximize
-                    borehole lifespan and ensure continuous water delivery.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div variants={fadeInUp}>
-              <Card className="text-center h-full">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-accent-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Leaf className="w-8 h-8 text-accent-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-primary-900 mb-2">Environmental Compliance</h3>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-secondary-600 text-sm">
-                    All drilling operations follow Ghana Environmental Protection Agency guidelines
-                    with minimal environmental impact and sustainable groundwater extraction.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Featured Projects */}
-      <Section className="bg-secondary-50">
-        <Container>
-          <motion.div
-            className="text-center mb-12"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            <motion.h2
-              className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-4"
-              variants={fadeInUp}
-            >
-              Featured Borehole Projects
-            </motion.h2>
-          </motion.div>
-
-         <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-          {projects
-                .filter(project => project.category === 'Hydro')
-                .map((project) => (
-                  <motion.div key={project.slug} variants={fadeInUp}>
-                    <Card className="h-full">
-                      <div className="aspect-video rounded-t-lg overflow-hidden relative">
-                        <Image
-                          src={project.featuredImage}
-                          alt={project.title}
-                          fill
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                        <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="text-sm font-medium bg-gold text-navy px-2 py-1 rounded">
-                              {project.category}
-                            </span>
-                            <span className="text-sm text-white/80">{project.location}</span>
-                          </div>
-                          <h3 className="text-lg font-semibold mb-2">
-                            {project.title}
-                          </h3>
-                          <p className="text-white/70 text-sm mb-4">{project.shortDescription}</p>
-                          <Link href={`/projects/${project.slug}`}>
-                            <Button variant="gold" size="sm">
-                              View Case Study
-                              <ArrowRight className="w-4 h-4 ml-1" />
-                            </Button>
-                          </Link>
-                        </div>
-                      </div>
-                    </Card>
-                  </motion.div>
-                ))}
-          </motion.div>
-
-          <motion.div
-            className="text-center mt-12"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <Link href="/projects">
-              <Button size="lg">
-                View All Hydro Projects
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
           </motion.div>
         </Container>
       </Section>
