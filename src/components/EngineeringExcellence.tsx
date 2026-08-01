@@ -27,7 +27,7 @@ export function EngineeringExcellence({
             </h2>
             <p className="text-secondary-600 mb-6 leading-relaxed">
               Founded in 2011, Eleyson Ghana Limited has established itself as a leading
-              engineering firm specializing in solar power systems and hydrogeological services.
+              engineering firm specializing in solar power systems, hydrogeological services and borehole drilling.
               Our integrated expertise provides comprehensive infrastructure solutions.
             </p>
             <p className="text-secondary-600 mb-6 leading-relaxed">
