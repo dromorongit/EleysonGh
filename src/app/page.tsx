@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone, Activity, Settings } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent, EngineeringExcellence, MissionVision } from "@/components";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useState, useEffect } from "react";
 
 const HERO_IMAGES = [
   "/images/homepage.jpg",
