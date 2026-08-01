@@ -11,31 +11,27 @@ import { cn } from "@/lib/utils";
 
 const navigation = [
   { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
   {
-    name: "Solutions",
+    name: "Services",
     href: "/solutions",
     children: [
       { name: "Solar Solutions", href: "/solar-solutions" },
-      {
-     name: "Borehole Drilling",
-     href: "/borehole-drilling"
-   },
+      { name: "Borehole Drilling", href: "/borehole-drilling" },
       { name: "Energy Audits", href: "/energy-audits" },
       { name: "Maintenance & Support", href: "/maintenance-support" },
+      { name: "Backup Systems", href: "/backup-systems" },
       { name: "Training & Workshops", href: "/training-workshops" },
     ],
   },
-  { name: "Projects", href: "/projects" },
   { name: "Products", href: "/products" },
-  { name: "Insights", href: "/insights" },
-  { name: "About", href: "/about" },
-  { name: "Testimonials", href: "/testimonials" },
-  { name: "Contact", href: "/contact" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -65,22 +61,22 @@ export function Header() {
                <div key={item.name} className="relative">
                  {item.children ? (
                    <div
-                     onMouseEnter={() => setSolutionsOpen(true)}
-                     onMouseLeave={() => setSolutionsOpen(false)}
+                      onMouseEnter={() => setServicesOpen(true)}
+                      onMouseLeave={() => setServicesOpen(false)}
                      className="pb-2"
                    >
                      <button
-                       onFocus={() => setSolutionsOpen(true)}
-                       onBlur={() => setSolutionsOpen(false)}
+                        onFocus={() => setServicesOpen(true)}
+                        onBlur={() => setServicesOpen(false)}
                        className="flex items-center space-x-1 text-secondary-700 hover:text-primary-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded px-2 py-1"
-                       aria-expanded={solutionsOpen}
+                       aria-expanded={servicesOpen}
                        aria-haspopup="true"
                      >
                        <span>{item.name}</span>
                        <ChevronDown className="w-4 h-4" aria-hidden="true" />
                      </button>
 
-                     {solutionsOpen && (
+                     {servicesOpen && (
                        <div
                          className="absolute top-full left-0 w-64 bg-white rounded-lg shadow-lg border border-primary-100 py-2"
                          role="menu"
