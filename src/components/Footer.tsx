@@ -142,48 +142,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact & CTA */}
-          <div className="space-y-4 pr-8 border-r border-gold/10 last:border-r-0">
-            <h3 className="font-semibold text-white mb-4 flex items-center">
-              <Phone className="w-5 h-5 mr-2 text-gold" aria-hidden="true" />
-              Contact Info
-            </h3>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-start space-x-3">
-                <Phone className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <div className="space-y-1">
-                  <p className="text-white/70">+233 244 973 788</p>
-                  <p className="text-white/70">+233 302 507 889</p>
-                  <p className="text-white/70">+233 204 981 687</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Mail className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <div className="space-y-1">
-                  <p className="text-white/70 break-words">info@eleysonghana.com</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <p className="text-white/70">
-                  Nii John Tetth ST, Teiman, Abokobi Road<br />
-                  Oyarifa, Ghana
-                </p>
-              </div>
-            </div>
-            <div className="pt-4 space-y-2">
-              <Link href="/request-a-quote">
-                <Button variant="gold" className="w-full">
-                  Request a Quote
-                </Button>
-              </Link>
-              <Button variant="outline" className="w-full border-white/20 text-white/70 hover:bg-white/10">
-                <MessageCircle className="w-4 h-4 mr-2" />
-                WhatsApp Us
-              </Button>
-            </div>
-          </div>
-
           {/* Newsletter */}
           <div className="space-y-4">
             <h3 className="font-semibold text-white mb-4 flex items-center">
