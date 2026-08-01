@@ -72,7 +72,7 @@ export function Header() {
               alt="Eleyson Ghana Limited logo"
               width={180}
               height={180}
-              className="max-h-[110px] lg:max-h-[150px] xl:max-h-[170px] w-auto object-contain"
+              className="max-h-[130px] lg:max-h-[180px] xl:max-h-[200px] w-auto object-contain"
               priority
             />
           </Link>
