@@ -5,8 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown, Phone, Mail, MapPin } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaWhatsapp, FaFacebookF, FaLinkedinIn, FaInstagram, FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Button } from "./Button";
 import { cn } from "@/lib/utils";
@@ -32,6 +31,7 @@ const navigation = [
 ];
 
 const socialLinks = [
+  { name: "WhatsApp", href: "https://wa.me/233244973788", icon: FaWhatsapp },
   { name: "Facebook", href: "https://www.facebook.com/eleysonghana", icon: FaFacebookF },
   { name: "LinkedIn", href: "https://www.linkedin.com/company/eleyson-ghana-limited", icon: FaLinkedinIn },
   { name: "X", href: "https://www.x.com/eleysonghana/", icon: FaXTwitter },
@@ -82,7 +82,7 @@ export function Header() {
         <div className="flex-1 flex flex-col">
           {/* Top Contact Bar */}
           <div className="h-11 bg-navy text-white flex items-center px-6 xl:px-8">
-            <div className="flex items-center space-x-5 text-xs w-full">
+            <div className="flex items-center justify-end space-x-5 text-xs w-full">
               {/* Social Media Icons */}
               <div className="flex items-center space-x-2.5">
                 {socialLinks.map((item) => (
@@ -137,7 +137,7 @@ export function Header() {
           </div>
 
           {/* Main Navigation Row */}
-          <div className="flex items-center justify-between h-24 px-6 xl:px-8">
+          <div className="flex items-center h-24 px-6 xl:px-8">
             {/* Desktop Navigation */}
             <nav className="flex items-center space-x-1 xl:space-x-2" role="navigation" aria-label="Main navigation">
               {navigation.map((item) => (
@@ -189,29 +189,6 @@ export function Header() {
                 </div>
               ))}
             </nav>
-
-            {/* CTA Buttons */}
-            <div className="hidden lg:flex items-center space-x-2">
-              <a href="tel:+233244973788" aria-label="Call us">
-                <Button variant="outline" size="sm" className="px-3 py-1.5 text-xs">
-                  <Phone className="w-3 h-3 mr-1.5" aria-hidden="true" />
-                  <span className="sr-only">Call us</span>
-                  Call
-                </Button>
-              </a>
-              <a href="https://wa.me/233244973788" target="_blank" rel="noopener noreferrer">
-                <Button size="sm" className="px-3 py-1.5 text-xs">
-                  <FaWhatsapp className="w-3 h-3 mr-1.5" aria-hidden="true" />
-                  <span className="sr-only">WhatsApp us</span>
-                  WhatsApp
-                </Button>
-              </a>
-              <Link href="/request-a-quote">
-                <Button variant="gold" size="sm" className="px-3 py-1.5 text-xs">
-                  Request Quote
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       </div>
