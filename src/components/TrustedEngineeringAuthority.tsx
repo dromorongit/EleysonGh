@@ -44,13 +44,13 @@ export function TrustedEngineeringAuthority({
             </motion.div>
           </motion.div>
           <motion.div
-            className="order-1 lg:order-2 aspect-square rounded-2xl shadow-lg overflow-hidden"
+            className="order-1 lg:order-2"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <img src="/images/eleysonlogo.jpg" alt="Engineering Excellence" className="w-full h-full object-cover" />
+            <img src="/images/eleysonlogo.jpg" alt="Engineering Excellence" className="w-full h-auto" />
           </motion.div>
         </div>
       </Container>
