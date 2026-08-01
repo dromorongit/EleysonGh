@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone } from "lucide-react";
-import { Button, Section, Container, Card, CardHeader, CardContent, EngineeringExcellence } from "@/components";
+import { Button, Section, Container, Card, CardHeader, CardContent, EngineeringExcellence, MissionVision } from "@/components";
 import { useState } from "react";
 import { getFeaturedProjects } from "@/data/projects";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -97,6 +97,8 @@ return (
       </section>
 
       <EngineeringExcellence fadeInUp={fadeInUp} stagger={stagger} />
+
+      <MissionVision fadeInUp={fadeInUp} stagger={stagger} />
 
       {/* Core Solutions */}
        <Section className="bg-secondary-50">
