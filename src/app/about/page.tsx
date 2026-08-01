@@ -36,7 +36,7 @@ export default function AboutPage() {
                className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 hero-text-shadow"
                variants={fadeInUp}
               >
-              Engineering Excellence Since 2011
+              About Eleyson Ghana Ltd
             </motion.h1>
               <motion.p
                  className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed hero-text-shadow"

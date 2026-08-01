@@ -58,34 +58,6 @@ return (
               Engineering The Future of Energy & Water<br />
               <span className="bg-gradient-to-r from-energy-400 to-energy-600 bg-clip-text text-transparent hero-text-shadow">Across West Africa</span>
             </motion.h1>
-            <motion.p
-              className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed font-light hero-text-shadow"
-              variants={fadeInUp}
-            >
-              Eleyson Ghana Limited delivers engineered solar power and hydrogeological solutions
-              for commercial, industrial, and government infrastructure projects.
-              <br className="hidden md:block" />
-              Since 2011, we've designed and installed over 500 systems across Ghana.
-            </motion.p>
-
-            {/* Trust Indicators */}
-            <motion.div
-              className="flex flex-wrap justify-center gap-8 mb-12 text-sm md:text-base"
-              variants={fadeInUp}
-            >
-              <div className="flex items-center space-x-2 text-white/80">
-                <div className="w-2 h-2 bg-gold rounded-full" />
-                <span>13+ Years Engineering Excellence</span>
-              </div>
-              <div className="flex items-center space-x-2 text-white/80">
-                <div className="w-2 h-2 bg-gold rounded-full" />
-                <span>500+ Projects Across Ghana</span>
-              </div>
-              <div className="flex items-center space-x-2 text-white/80">
-                <div className="w-2 h-2 bg-gold rounded-full" />
-                <span>Certified Engineering Team</span>
-              </div>
-            </motion.div>
 
             {/* Certifications */}
             <motion.div

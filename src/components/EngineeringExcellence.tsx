@@ -23,7 +23,7 @@ export function EngineeringExcellence({
         >
           <motion.div variants={fadeInUp}>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-6">
-              Engineering Excellence Since 2011
+              About Eleyson Ghana Ltd
             </h2>
             <p className="text-secondary-600 mb-6 leading-relaxed">
               Founded in 2011, Eleyson Ghana Limited has established itself as a leading
