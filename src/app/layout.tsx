@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Header, Footer, WhatsAppButton } from "@/components";
@@ -7,12 +7,6 @@ import { Header, Footer, WhatsAppButton } from "@/components";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const playfairDisplay = Playfair_Display({
-  variable: "--font-playfair-display",
-  subsets: ["latin"],
-  weight: ["400", "700"],
 });
 
 export const viewport = {
@@ -69,7 +63,7 @@ export default function RootLayout({
   return (
 <html
        lang="en"
-       className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
+        className={`${inter.variable} h-full antialiased`}
      >
       <head>
         <script type="application/ld+json">{JSON.stringify({

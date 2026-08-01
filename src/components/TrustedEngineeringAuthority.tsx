@@ -27,7 +27,7 @@ export function TrustedEngineeringAuthority({
               className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-8 leading-tight"
               variants={fadeInUp}
             >
-              West Africa&apos;s Trusted<br />Engineering Authority
+              Eleyson Ghana Ltd
             </motion.h2>
             <motion.p
               className="text-xl text-secondary-700 mb-12 leading-relaxed font-light"
