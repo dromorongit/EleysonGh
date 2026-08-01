@@ -67,23 +67,23 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-12">
-              {/* Overview */}
-              <div>
-                <h2 className="text-3xl font-serif font-bold text-primary-900 mb-6">
-                  Project Overview
-                </h2>
-                <p className="text-lg text-secondary-600 leading-relaxed">
-                  {project.shortDescription}
-                </p>
-                {project.fullDescription && (
-                  <p className="text-lg text-secondary-600 leading-relaxed mt-4">
-                    {project.fullDescription}
+              {project.category !== 'Solar' && (
+                <div>
+                  <h2 className="text-3xl font-serif font-bold text-primary-900 mb-6">
+                    Project Overview
+                  </h2>
+                  <p className="text-lg text-secondary-600 leading-relaxed">
+                    {project.shortDescription}
                   </p>
-                )}
-              </div>
+                  {project.fullDescription && (
+                    <p className="text-lg text-secondary-600 leading-relaxed mt-4">
+                      {project.fullDescription}
+                    </p>
+                  )}
+                </div>
+              )}
 
-              {/* Challenge */}
-              {project.challenge && (
+              {project.challenge && project.category !== 'Solar' && (
                 <div>
                   <h2 className="text-3xl font-serif font-bold text-primary-900 mb-6">
                     The Challenge
@@ -94,8 +94,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 </div>
               )}
 
-              {/* Solution */}
-              {project.solution && (
+              {project.solution && project.category !== 'Solar' && (
                 <div>
                   <h2 className="text-3xl font-serif font-bold text-primary-900 mb-6">
                     Our Solution
@@ -106,8 +105,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 </div>
               )}
 
-              {/* Impact */}
-              {project.impact && (
+              {project.impact && project.category !== 'Solar' && (
                 <div>
                   <h2 className="text-3xl font-serif font-bold text-primary-900 mb-6">
                     The Impact
