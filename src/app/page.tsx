@@ -33,7 +33,7 @@ export default function Home() {
 return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-20 md:pt-0">
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20 md:pt-0">
         {/* Background Image */}
         <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: 'url(/images/homepage.jpg)'}} />
 
@@ -181,30 +181,30 @@ return (
                   }
                 ].map((solution, index) => (
                  <motion.div key={index} variants={fadeInUp}>
-                   <Card className="h-full hover:shadow-lg transition-all duration-200 group cursor-pointer overflow-hidden">
-                     <div className="aspect-video bg-primary-100 relative overflow-hidden">
-                       <Image
-                         src={solution.image}
-                         alt={solution.title}
-                         fill
-                         className="object-cover group-hover:scale-105 transition-transform duration-300"
-                       />
-                     </div>
-                     <CardHeader>
-                      <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors">
-                        <solution.icon className="w-6 h-6 text-primary-600" />
+                  <Card className="h-full hover:shadow-lg transition-all duration-200 group cursor-pointer overflow-hidden">
+                      <div className="aspect-[4/3] bg-primary-100 relative overflow-hidden">
+                        <Image
+                          src={solution.image}
+                          alt={solution.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
                       </div>
-                      <h3 className="text-xl font-semibold text-primary-900 mb-2">
-                        {solution.title}
-                      </h3>
-                    </CardHeader>
-                    <CardContent>
-                      <Link href={solution.link}>
-                        <Button variant="ghost" className="p-0 h-auto text-primary-600 hover:text-primary-800">
-                           Learn More <ArrowRight className="w-4 h-4 ml-1" />
-                         </Button>
-                      </Link>
-                    </CardContent>
+                      <CardHeader>
+                       <div className="w-14 h-14 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors">
+                         <solution.icon className="w-7 h-7 text-primary-600" />
+                       </div>
+                       <h3 className="text-2xl font-semibold text-primary-900 mb-2">
+                         {solution.title}
+                       </h3>
+                     </CardHeader>
+                     <CardContent>
+                       <Link href={solution.link}>
+                         <Button variant="ghost" className="p-0 h-auto text-base text-primary-600 hover:text-primary-800">
+                            Learn More <ArrowRight className="w-4 h-4 ml-1" />
+                          </Button>
+                       </Link>
+                     </CardContent>
                  </Card>
                </motion.div>
              ))}
