@@ -65,14 +65,14 @@ export function Header() {
       {/* Desktop Two-Column Layout */}
       <div className="hidden lg:flex">
         {/* Left: Logo Column */}
-        <div className="w-60 xl:w-72 flex-shrink-0 bg-white flex items-center justify-center">
-          <Link href="/" className="flex items-center justify-center p-6" aria-label="Eleyson Ghana Limited - Home">
+        <div className="w-64 xl:w-80 flex-shrink-0 bg-white flex items-center justify-center">
+          <Link href="/" className="flex items-center justify-center p-6 lg:p-8" aria-label="Eleyson Ghana Limited - Home">
             <Image
               src="/images/eleysonlogo.jpg"
               alt="Eleyson Ghana Limited logo"
               width={180}
               height={180}
-              className="max-h-[120px] w-auto object-contain"
+              className="max-h-[110px] lg:max-h-[150px] xl:max-h-[170px] w-auto object-contain"
               priority
             />
           </Link>

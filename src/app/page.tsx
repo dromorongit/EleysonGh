@@ -2,6 +2,7 @@
 // Micro refinements applied
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone, Activity, Settings, Sun, Battery, Package } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent, EngineeringExcellence, MissionVision } from "@/components";
@@ -129,51 +130,67 @@ return (
              viewport={{ once: true }}
              variants={stagger}
            >
-              {[
-                 {
-                   icon: Zap,
-                   title: "Solar System Design & Installation",
-                   link: "/solar-solutions"
-                 },
-                 {
-                   icon: Activity,
-                   title: "Hydrogeological Survey",
-                   link: "/hydro-water-solutions"
-                 },
+               {[
                   {
-                    icon: Droplets,
-                    title: "Borehole Drilling",
-                    link: "/borehole-drilling"
+                    icon: Zap,
+                    title: "Solar System Design & Installation",
+                    link: "/solar-solutions",
+                    image: "/images/solar.jpg"
                   },
                   {
-                    icon: Settings,
-                    title: "Pump Installation (AC & DC)",
-                    link: "/borehole-drilling"
+                    icon: Activity,
+                    title: "Hydrogeological Survey",
+                    link: "/hydro-water-solutions",
+                    image: "/images/hydro.jpg"
+                  },
+                   {
+                     icon: Droplets,
+                     title: "Borehole Drilling",
+                     link: "/borehole-drilling",
+                     image: "/images/borehole.jpg"
+                   },
+                   {
+                     icon: Settings,
+                     title: "Pump Installation (AC & DC)",
+                     link: "/borehole-drilling",
+                     image: "/images/pump.jpg"
+                   },
+                   {
+                     icon: TrendingUp,
+                     title: "Energy Audits",
+                     link: "/energy-audits",
+                     image: "/images/energyaudit.jpg"
+                   },
+                  {
+                    icon: Users,
+                    title: "Maintenance & Support",
+                    link: "/maintenance-support",
+                    image: "/images/maintenance.jpg"
                   },
                   {
-                    icon: TrendingUp,
-                    title: "Energy Audits",
-                    link: "/energy-audits"
+                    icon: Award,
+                    title: "Training & Workshops",
+                    link: "/training-workshops",
+                    image: "/images/training.jpg"
                   },
-                 {
-                   icon: Users,
-                   title: "Maintenance & Support",
-                   link: "/maintenance-support"
-                 },
-                 {
-                   icon: Award,
-                   title: "Training & Workshops",
-                   link: "/training-workshops"
-                 },
-                 {
-                   icon: CheckCircle,
-                   title: "Backup Systems",
-                   link: "/backup-systems"
-                 }
-               ].map((solution, index) => (
-                <motion.div key={index} variants={fadeInUp}>
-                  <Card className="h-full hover:shadow-lg transition-all duration-200 group cursor-pointer">
-                    <CardHeader>
+                  {
+                    icon: CheckCircle,
+                    title: "Backup Systems",
+                    link: "/backup-systems",
+                    image: "/images/backup.jpg"
+                  }
+                ].map((solution, index) => (
+                 <motion.div key={index} variants={fadeInUp}>
+                   <Card className="h-full hover:shadow-lg transition-all duration-200 group cursor-pointer overflow-hidden">
+                     <div className="aspect-video bg-primary-100 relative overflow-hidden">
+                       <Image
+                         src={solution.image}
+                         alt={solution.title}
+                         fill
+                         className="object-cover group-hover:scale-105 transition-transform duration-300"
+                       />
+                     </div>
+                     <CardHeader>
                       <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors">
                         <solution.icon className="w-6 h-6 text-primary-600" />
                       </div>
