@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import { Section, Container } from "@/components";
 
@@ -8,8 +8,8 @@ export function EngineeringExcellence({
   fadeInUp,
   stagger,
 }: {
-  fadeInUp: Record<string, unknown>;
-  stagger: Record<string, unknown>;
+  fadeInUp: Variants;
+  stagger: Variants;
 }) {
   return (
     <Section>
