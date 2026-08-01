@@ -6,8 +6,41 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone, Activity, Settings } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent, EngineeringExcellence, MissionVision } from "@/components";
-import { useState } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+
+const HERO_IMAGES = [
+  "/images/homepage.jpg",
+  "/images/hydro.jpg",
+  "/images/heroborehole.jpg",
+  "/images/pump.jpg"
+];
+
+function HeroCarousel() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5500);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="absolute inset-0">
+      {HERO_IMAGES.map((src, i) => (
+        <motion.div
+          key={src}
+          className="absolute inset-0"
+          initial={false}
+          animate={{ opacity: index === i ? 1 : 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+        >
+          <Image src={src} alt="" fill className="object-cover" />
+        </motion.div>
+      ))}
+    </div>
+  );
+}
 
 export default function Home() {
   const prefersReducedMotion = useReducedMotion();
@@ -34,8 +67,8 @@ return (
     <>
       {/* Hero Section */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20 md:pt-0">
-        {/* Background Image */}
-        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: 'url(/images/homepage.jpg)'}} />
+        {/* Background Carousel */}
+        <HeroCarousel />
 
         {/* Cinematic directional overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
@@ -267,12 +300,12 @@ return (
                 ].map((product, index) => (
                   <motion.div key={index} variants={fadeInUp}>
                     <Card className="h-full hover:shadow-lg transition-all duration-200 group cursor-pointer overflow-hidden">
-                      <div className="aspect-[4/3] bg-primary-100 relative overflow-hidden">
+                      <div className="aspect-[4/3] bg-primary-100 relative overflow-hidden flex items-center justify-center p-4">
                         <Image
                           src={product.image}
                           alt={product.title}
                           fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="object-contain group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                       <CardHeader>
