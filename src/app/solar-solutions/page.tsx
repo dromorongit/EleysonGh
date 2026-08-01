@@ -103,16 +103,15 @@ export default function SolarSolutionsPage() {
                          </span>
                          <span className="text-sm text-white/80">{project.location}</span>
                        </div>
-                       <h3 className="text-lg font-semibold mb-2">
-                         {project.title}
-                       </h3>
-                       <p className="text-white/70 text-sm mb-4">{project.shortDescription}</p>
-                       <Link href={`/projects/${project.slug}`}>
-                         <Button variant="gold" size="sm">
-                           View Case Study
-                           <ArrowRight className="w-4 h-4 ml-1" />
-                         </Button>
-                       </Link>
+                        <h3 className="text-lg font-semibold mb-2">
+                          {project.title}
+                        </h3>
+                        <Link href={`/projects/${project.slug}`}>
+                          <Button variant="gold" size="sm">
+                            View Projects
+                            <ArrowRight className="w-4 h-4 ml-1" />
+                          </Button>
+                        </Link>
                      </div>
                    </div>
                  </Card>
@@ -129,7 +128,7 @@ export default function SolarSolutionsPage() {
            >
              <Link href="/projects">
                <Button size="lg">
-                 View All Solar Projects
+                  View All Projects
                  <ArrowRight className="w-5 h-5 ml-2" />
                </Button>
              </Link>
