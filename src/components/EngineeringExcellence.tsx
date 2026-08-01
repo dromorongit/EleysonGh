@@ -36,16 +36,6 @@ export function EngineeringExcellence({
               across Ghana and West Africa. Our engineering-first approach ensures
               reliable, efficient, and sustainable outcomes.
             </p>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="text-center p-4 bg-primary-50 rounded-lg">
-                <div className="text-2xl font-bold text-primary-900">13+</div>
-                <div className="text-sm text-secondary-600">Years Engineering</div>
-              </div>
-              <div className="text-center p-4 bg-energy-50 rounded-lg">
-                <div className="text-2xl font-bold text-energy-700">500+</div>
-                <div className="text-sm text-secondary-600">Systems Installed</div>
-              </div>
-            </div>
           </motion.div>
           <motion.div variants={fadeInUp}>
             <Image

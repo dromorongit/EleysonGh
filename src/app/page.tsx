@@ -55,8 +55,7 @@ return (
               className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 leading-[0.85] tracking-tight hero-text-shadow"
               variants={fadeInUp}
             >
-              Engineering The Future of Energy & Water<br />
-              <span className="bg-gradient-to-r from-energy-400 to-energy-600 bg-clip-text text-transparent hero-text-shadow">Across West Africa</span>
+              Engineering The Future of Energy & Water
             </motion.h1>
 
             {/* Certifications */}
