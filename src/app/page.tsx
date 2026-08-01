@@ -6,11 +6,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Zap, Droplets, Users, Award, TrendingUp, MessageCircle, Phone, Activity } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent, EngineeringExcellence, MissionVision } from "@/components";
 import { useState } from "react";
-import { getFeaturedProjects } from "@/data/projects";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 export default function Home() {
-  const featuredProjects = getFeaturedProjects();
   const prefersReducedMotion = useReducedMotion();
 
   // Adjust animation duration based on reduced motion preference
@@ -190,89 +188,9 @@ return (
              ))}
            </motion.div>
          </Container>
-       </Section>
+        </Section>
 
-      {/* Featured Projects Preview */}
-       <Section className="bg-gradient-to-br from-navy via-primary-900 to-navy text-white">
-         <Container>
-           <motion.div
-             className="text-center mb-16"
-             initial="initial"
-             whileInView="animate"
-             viewport={{ once: true }}
-             variants={stagger}
-           >
-             <motion.h2
-               className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight"
-               variants={fadeInUp}
-             >
-               Engineering Case Studies
-             </motion.h2>
-             <motion.p
-               className="text-xl text-white/80 max-w-2xl mx-auto font-light"
-               variants={fadeInUp}
-             >
-               Proven engineering solutions delivering measurable results across Ghana
-             </motion.p>
-           </motion.div>
-
-           <motion.div
-             className="grid grid-cols-1 md:grid-cols-3 gap-8"
-             initial="initial"
-             whileInView="animate"
-             viewport={{ once: true }}
-             variants={stagger}
-           >
-             {featuredProjects.slice(0, 3).map((project, index) => (
-               <motion.div key={project.slug} variants={fadeInUp}>
-                 <Card className="h-full hover:shadow-xl transition-all duration-300 bg-white text-primary-900">
-                   <div
-                     className="aspect-video bg-gradient-to-br from-primary-200 to-energy-200 rounded-t-lg bg-cover bg-center"
-                     style={{
-                       backgroundImage: project.featuredImage
-                         ? `url(${project.featuredImage})`
-                         : undefined
-                     }}
-                   />
-                   <CardHeader>
-                     <div className="flex items-center justify-between mb-2">
-                       <span className="text-sm font-medium text-gold bg-gold/10 px-2 py-1 rounded">
-                         {project.category}
-                       </span>
-                       <span className="text-sm text-secondary-600">{project.location}</span>
-                     </div>
-                     <h3 className="text-lg font-semibold text-primary-900">
-                       {project.title}
-                     </h3>
-                   </CardHeader>
-                   <CardContent>
-                     <p className="text-secondary-700 text-sm">
-                       {project.shortDescription}
-                     </p>
-                   </CardContent>
-                 </Card>
-               </motion.div>
-             ))}
-           </motion.div>
-
-           <motion.div
-             className="text-center mt-12"
-             initial="initial"
-             whileInView="animate"
-             viewport={{ once: true }}
-             variants={fadeInUp}
-           >
-             <Link href="/projects">
-               <Button size="lg" variant="gold">
-                 View All Case Studies
-                 <ArrowRight className="w-5 h-5 ml-2" />
-               </Button>
-             </Link>
-           </motion.div>
-         </Container>
-       </Section>
-
-       {/* Quote CTA Banner */}
+        {/* Quote CTA Banner */}
        <section className="bg-gradient-to-r from-primary-900 to-primary-800 text-white py-16">
          <Container>
            <motion.div
