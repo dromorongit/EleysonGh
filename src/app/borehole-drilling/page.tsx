@@ -84,7 +84,7 @@ export default function BoreholeDrillingPage() {
              variants={stagger}
            >
              {projects
-                   .filter(project => project.category === 'Hydro')
+                    .filter(project => project.category === 'Borehole')
                    .map((project) => (
                    <motion.div key={project.slug} variants={fadeInUp}>
                      <Card className="h-full">
@@ -241,9 +241,9 @@ export default function BoreholeDrillingPage() {
               <div className="w-16 h-16 bg-accent-100 rounded-lg flex items-center justify-center mb-6">
                 <Leaf className="w-8 h-8 text-accent-600" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-6">
-                Agricultural Boreholes
-              </h2>
+               <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-6">
+                 Agricultural Purposes
+               </h2>
               <p className="text-secondary-600 mb-6 leading-relaxed">
                 Irrigation and livestock water systems designed for agricultural productivity and
                 sustainable water management. From smallholder farms to large commercial operations,
@@ -277,7 +277,9 @@ export default function BoreholeDrillingPage() {
               </Button>
             </motion.div>
             <motion.div variants={fadeInUp}>
-              <div className="aspect-square bg-gradient-to-br from-primary-100 to-energy-100 rounded-lg" />
+              <div className="aspect-square relative rounded-lg overflow-hidden">
+                <Image src="/images/agric.jpg" alt="Agricultural Purposes" fill className="object-cover" />
+              </div>
             </motion.div>
           </motion.div>
         </Container>

@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Wrench, Shield, Clock, Users, CheckCircle, ArrowRight } from "lucide-react";
-import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
+import { Wrench, Shield, Clock, Users, CheckCircle } from "lucide-react";
+import { Button, Section, Container } from "@/components";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -23,8 +23,10 @@ export default function MaintenanceSupportPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[60vh] flex items-center">
-        <Container>
+      <Section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: 'url(/images/maintenance.jpg)'}} />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
+        <Container className="relative z-10">
           <motion.div
             className="max-w-4xl mx-auto text-center"
             initial="initial"
@@ -81,153 +83,54 @@ export default function MaintenanceSupportPage() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="max-w-4xl mx-auto"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={stagger}
           >
-            {[
-              {
-                icon: Wrench,
-                title: "Preventive Maintenance",
-                description: "Scheduled inspections, cleaning, and component checks to prevent failures and maintain efficiency."
-              },
-              {
-                icon: Clock,
-                title: "24/7 Emergency Support",
-                description: "Round-the-clock technical assistance and emergency response for critical system issues."
-              },
-              {
-                icon: Users,
-                title: "Remote Monitoring",
-                description: "Continuous system monitoring with real-time alerts and performance analytics."
-              },
-              {
-                icon: CheckCircle,
-                title: "Performance Optimization",
-                description: "Regular tuning and adjustments to ensure maximum energy production and water output."
-              },
-              {
-                icon: Shield,
-                title: "Warranty Management",
-                description: "Handling of warranty claims and coordination with manufacturers for replacements."
-              },
-              {
-                icon: Wrench,
-                title: "Repair & Replacement",
-                description: "Expert repair services and component replacement using genuine parts."
-              }
-            ].map((service, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className="text-center h-full">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <service.icon className="w-6 h-6 text-primary-600" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-primary-900">{service.title}</h3>
-                  </CardHeader>
-                  <CardContent>
+            <ul className="space-y-4">
+              {[
+                {
+                  icon: Wrench,
+                  title: "Preventive Maintenance",
+                  description: "Scheduled inspections, cleaning, and component checks to prevent failures and maintain efficiency."
+                },
+                {
+                  icon: Clock,
+                  title: "24/7 Emergency Support",
+                  description: "Round-the-clock technical assistance and emergency response for critical system issues."
+                },
+                {
+                  icon: Users,
+                  title: "Remote Monitoring",
+                  description: "Continuous system monitoring with real-time alerts and performance analytics."
+                },
+                {
+                  icon: CheckCircle,
+                  title: "Performance Optimization",
+                  description: "Regular tuning and adjustments to ensure maximum energy production and water output."
+                },
+                {
+                  icon: Shield,
+                  title: "Warranty Management",
+                  description: "Handling of warranty claims and coordination with manufacturers for replacements."
+                },
+                {
+                  icon: Wrench,
+                  title: "Repair & Replacement",
+                  description: "Expert repair services and component replacement using genuine parts."
+                }
+              ].map((service, index) => (
+                <motion.li key={index} variants={fadeInUp} className="flex items-start space-x-3">
+                  <service.icon className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-primary-900">{service.title}</h4>
                     <p className="text-secondary-600 text-sm">{service.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Service Plans */}
-      <Section className="bg-secondary-50">
-        <Container>
-          <motion.div
-            className="text-center mb-12"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            <motion.h2
-              className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-4"
-              variants={fadeInUp}
-            >
-              Maintenance Plans
-            </motion.h2>
-            <motion.p
-              className="text-lg text-secondary-600 max-w-2xl mx-auto"
-              variants={fadeInUp}
-            >
-              Flexible support packages tailored to your system size and requirements
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            {[
-              {
-                name: "Basic Care",
-                price: "From GHS 1,500/mo",
-                features: [
-                  "Quarterly inspections",
-                  "System cleaning",
-                  "Performance reports",
-                  "Email support",
-                  "Travel within 50km"
-                ]
-              },
-              {
-                name: "Comprehensive",
-                price: "From GHS 3,500/mo",
-                features: [
-                  "Monthly inspections",
-                  "Full system diagnostics",
-                  "Remote monitoring",
-                  "Priority phone support",
-                  "24hr emergency response",
-                  "Travel within 100km"
-                ],
-                popular: true
-              },
-              {
-                name: "Enterprise",
-                price: "Custom",
-                features: [
-                  "Weekly monitoring",
-                  "Dedicated technician",
-                  "On-site presence",
-                  "Unlimited support",
-                  "Nationwide coverage",
-                  "Custom SLAs"
-                ]
-              }
-            ].map((plan, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className={`h-full ${plan.popular ? 'border-2 border-gold' : ''}`}>
-                  <CardHeader>
-                    <h3 className="text-2xl font-serif font-bold text-primary-900 mb-2">{plan.name}</h3>
-                    <p className="text-gold font-medium">{plan.price}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3">
-                      {plan.features.map((feature, i) => (
-                        <li key={i} className="flex items-start space-x-2">
-                          <CheckCircle className="w-4 h-4 text-primary-600 mt-0.5 flex-shrink-0" />
-                          <span className="text-secondary-700 text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button variant={plan.popular ? "gold" : "outline"} className="w-full mt-6">
-                      Get Started
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                  </div>
+                </motion.li>
+              ))}
+            </ul>
           </motion.div>
         </Container>
       </Section>

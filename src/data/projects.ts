@@ -4,7 +4,7 @@
 export interface Project {
   title: string;
   slug: string;
-  category: 'Solar' | 'Hydro' | 'Energy' | 'Other';
+  category: 'Solar' | 'Borehole' | 'Energy' | 'Other';
   location: string;
   clientType: string;
   shortDescription: string;
@@ -78,9 +78,9 @@ export const projects: Project[] = [
     fullDescription: 'This compact and efficient residential solar installation in Kpong delivers a reliable backup power solution tailored for households seeking uninterrupted energy during grid outages. The 1.5kWp solar array, paired with a 3kVA hybrid inverter and a 4.8kWh lithium battery, forms a complete system that automatically takes over within milliseconds of a grid failure. The system intelligently manages power flow, prioritizing critical household loads such as refrigeration, lighting, and security systems. During sunny periods, the solar panels recharge the battery and offset grid consumption, reducing electricity bills while maintaining full backup readiness. This project exemplifies our ability to deliver cost-effective, high-performance solar solutions that bring peace of mind to Ghanaian homes.',
   },
   {
-    title: 'Geological Survey, Borehole Drilling and Pump Installation',
+    title: 'Hydrogeological Survey, Borehole Drilling and Pump Installation',
     slug: 'geophysics-survey-borehole-drilling-pump-installation',
-    category: 'Hydro',
+    category: 'Borehole',
     location: 'Koforidua, Ghana',
     clientType: 'Industrial',
     shortDescription: 'Comprehensive water solution featuring geophysical surveying, drilling, and mechanized pump installation for industrial facility.',
@@ -119,9 +119,9 @@ export const projects: Project[] = [
     fullDescription: 'This comprehensive water infrastructure project in Koforidua showcases our end-to-end capabilities in hydrogeological services. Starting with detailed geophysical surveying to identify the most promising aquifer locations, we proceeded with professional drilling operations to depths of 80-120 meters. The installation includes high-capacity solar-powered submersible pumps, extensive water storage facilities, and advanced filtration systems to ensure clean, reliable water. The integration of solar power eliminates dependency on fossil fuels and provides sustainable, cost-effective water pumping 24/7. This project demonstrates our commitment to delivering complete water solutions that address critical water scarcity issues for industrial clients across Ghana.',
   },
   {
-    title: 'Geological Survey, Borehole Drilling and Pump Installation',
+    title: 'Hydrogeological Survey, Borehole Drilling and Pump Installation',
     slug: 'geophysics-survey-borehole-drilling-pump-installation-obourtumpah',
-    category: 'Hydro',
+    category: 'Borehole',
     location: 'Obourtumpah, Ghana',
     clientType: 'Community',
     shortDescription: 'Community water system with solar pumping, providing clean water to 500+ residents and reducing waterborne diseases by 70%.',
@@ -147,9 +147,9 @@ export const projects: Project[] = [
     fullDescription: 'This transformative community water project in Obourtumpah represents our commitment to bringing clean water to rural Ghana. The project began with extensive geophysical surveying to identify a reliable groundwater source. After locating a promising aquifer, our team drilled to 100 meters and installed a solar-powered pumping system. The 30,000-liter storage tower ensures water availability even during cloudy periods, while six public tap stands provide convenient access throughout the village. The solar-powered system operates completely off-grid, with zero fuel costs and minimal maintenance. This project has fundamentally improved public health, education, and economic opportunities for the Obourtumpah community. Women and children no longer spend hours each day fetching water, and the reduction in waterborne diseases has decreased healthcare costs and improved quality of life. This is a testament to how sustainable water infrastructure can transform entire communities.',
   },
   {
-    title: 'Geological Survey, Borehole Drilling and Pump Installation',
+    title: 'Hydrogeological Survey, Borehole Drilling and Pump Installation',
     slug: 'geophysics-survey-borehole-drilling-pump-installation-koforidua',
-    category: 'Hydro',
+    category: 'Borehole',
     location: 'Koforidua, Ghana',
     clientType: 'Government',
     shortDescription: 'Government water system with 3 boreholes and 20kW solar array, providing 15,000L/hour for 500+ daily users.',

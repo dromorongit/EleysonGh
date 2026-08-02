@@ -25,7 +25,7 @@ const stagger = {
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const filters = ["All", "Solar", "Hydro", "Energy", "Other"];
+  const filters = ["All", "Solar", "Borehole", "Energy", "Other"];
   const filteredProjects = activeFilter === "All"
     ? projects
     : projects.filter(p => p.category.toLowerCase().trim() === activeFilter.toLowerCase().trim());
@@ -107,13 +107,12 @@ export default function ProjectsPage() {
                         </span>
                         <span className="text-sm text-white/80">{project.location}</span>
                       </div>
-                      <h3 className="text-lg font-semibold mb-2">
-                        {project.title}
-                      </h3>
-                      <p className="text-white/70 text-sm mb-4">{project.shortDescription}</p>
-                      <Link href={`/projects/${project.slug}`}>
+                       <h3 className="text-lg font-semibold mb-2">
+                         {project.title}
+                       </h3>
+                       <Link href={`/projects/${project.slug}`}>
                         <Button variant="gold" size="sm">
-                          View Case Study
+                           View Project
                           <ArrowRight className="w-4 h-4 ml-1" />
                         </Button>
                       </Link>

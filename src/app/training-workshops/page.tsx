@@ -23,8 +23,10 @@ export default function TrainingWorkshopsPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[60vh] flex items-center">
-        <Container>
+      <Section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: 'url(/images/training.jpg)'}} />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
+        <Container className="relative z-10">
           <motion.div
             className="max-w-4xl mx-auto text-center"
             initial="initial"

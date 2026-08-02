@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Battery, Power, Zap, Shield, CheckCircle, ArrowRight } from "lucide-react";
-import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
+import { Battery, Power, Zap, Shield, CheckCircle } from "lucide-react";
+import { Button, Section, Container } from "@/components";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -23,8 +23,10 @@ export default function BackupSystemsPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[60vh] flex items-center">
-        <Container>
+      <Section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: 'url(/images/backup.jpg)'}} />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
+        <Container className="relative z-10">
           <motion.div
             className="max-w-4xl mx-auto text-center"
             initial="initial"
@@ -81,58 +83,54 @@ export default function BackupSystemsPage() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="max-w-4xl mx-auto"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={stagger}
           >
-            {[
-              {
-                icon: Power,
-                title: "Hybrid Inverters",
-                description: "Advanced inverters that seamlessly switch between grid, solar, battery, and generator power sources with zero transfer time."
-              },
-              {
-                icon: Battery,
-                title: "Battery Storage",
-                description: "High-capacity lithium-ion and lead-acid battery banks for extended backup duration and cycle life."
-              },
-              {
-                icon: Zap,
-                title: "Automatic Transfer Switch",
-                description: "Intelligent ATS that automatically detects power failures and switches to backup power instantly."
-              },
-              {
-                icon: Shield,
-                title: "System Protection",
-                description: "Surge protection, overcurrent protection, and comprehensive safety features to protect your equipment."
-              },
-              {
-                icon: CheckCircle,
-                title: "Remote Monitoring",
-                description: "Real-time system status monitoring via mobile app or web portal with alerts and notifications."
-              },
-              {
-                icon: Power,
-                title: "Generator Integration",
-                description: "Seamless integration with diesel or petrol generators for extended backup capability."
-              }
-            ].map((feature, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className="text-center h-full">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <feature.icon className="w-6 h-6 text-primary-600" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-primary-900">{feature.title}</h3>
-                  </CardHeader>
-                  <CardContent>
+            <ul className="space-y-4">
+              {[
+                {
+                  icon: Power,
+                  title: "Hybrid Inverters",
+                  description: "Advanced inverters that seamlessly switch between grid, solar, battery, and generator power sources with zero transfer time."
+                },
+                {
+                  icon: Battery,
+                  title: "Battery Storage",
+                  description: "High-capacity lithium-ion and lead-acid battery banks for extended backup duration and cycle life."
+                },
+                {
+                  icon: Zap,
+                  title: "Automatic Transfer Switch",
+                  description: "Intelligent ATS that automatically detects power failures and switches to backup power instantly."
+                },
+                {
+                  icon: Shield,
+                  title: "System Protection",
+                  description: "Surge protection, overcurrent protection, and comprehensive safety features to protect your equipment."
+                },
+                {
+                  icon: CheckCircle,
+                  title: "Remote Monitoring",
+                  description: "Real-time system status monitoring via mobile app or web portal with alerts and notifications."
+                },
+                {
+                  icon: Power,
+                  title: "Generator Integration",
+                  description: "Seamless integration with diesel or petrol generators for extended backup capability."
+                }
+              ].map((feature, index) => (
+                <motion.li key={index} variants={fadeInUp} className="flex items-start space-x-3">
+                  <feature.icon className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-primary-900">{feature.title}</h4>
                     <p className="text-secondary-600 text-sm">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                  </div>
+                </motion.li>
+              ))}
+            </ul>
           </motion.div>
         </Container>
       </Section>
@@ -162,55 +160,47 @@ export default function BackupSystemsPage() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="max-w-4xl mx-auto"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={stagger}
           >
-            {[
-              {
-                name: "Home Backup",
-                capacity: "3-10 kW",
-                battery: "5-20 kWh",
-                description: "Keep essential appliances running during outages - lights, fridge, TV, computers, and more.",
-                icon: "🏠"
-              },
-              {
-                name: "Business Backup",
-                capacity: "10-50 kW",
-                battery: "20-100 kWh",
-                description: "Maintain business continuity with backup power for offices, retail spaces, and small facilities.",
-                icon: "🏢",
-                popular: true
-              },
-              {
-                name: "Industrial Backup",
-                capacity: "50+ kW",
-                battery: "100+ kWh",
-                description: "Large-scale backup solutions for manufacturing, data centers, and critical infrastructure.",
-                icon: "🏭"
-              }
-            ].map((solution, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className={`h-full ${solution.popular ? 'border-2 border-gold' : ''}`}>
-                  <CardHeader>
-                    <div className="text-4xl mb-4">{solution.icon}</div>
-                    <h3 className="text-2xl font-serif font-bold text-primary-900 mb-2">{solution.name}</h3>
-                    <div className="flex gap-4 text-sm text-secondary-600 mb-2">
-                      <span><strong>Capacity:</strong> {solution.capacity}</span>
-                      <span><strong>Battery:</strong> {solution.battery}</span>
+            <ul className="space-y-4">
+              {[
+                {
+                  icon: "🏠",
+                  title: "Home Backup",
+                  description: "Keep essential appliances running during outages - lights, fridge, TV, computers, and more.",
+                  specs: ["3-10 kW", "5-20 kWh"]
+                },
+                {
+                  icon: "🏢",
+                  title: "Business Backup",
+                  description: "Maintain business continuity with backup power for offices, retail spaces, and small facilities.",
+                  specs: ["10-50 kW", "20-100 kWh"],
+                  popular: true
+                },
+                {
+                  icon: "🏭",
+                  title: "Industrial Backup",
+                  description: "Large-scale backup solutions for manufacturing, data centers, and critical infrastructure.",
+                  specs: ["50+ kW", "100+ kWh"]
+                }
+              ].map((solution, index) => (
+                <motion.li key={index} variants={fadeInUp} className="flex items-start space-x-3">
+                  <span className="text-xl mt-0.5 flex-shrink-0">{solution.icon}</span>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-1">
+                      <h4 className="font-semibold text-primary-900">{solution.title}</h4>
+                      {solution.popular && <span className="text-xs font-medium bg-gold text-navy px-2 py-0.5 rounded">Popular</span>}
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-secondary-600 mb-6">{solution.description}</p>
-                    <Button variant={solution.popular ? "gold" : "outline"} className="w-full">
-                      Learn More
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                    <p className="text-secondary-600 text-sm mb-1">{solution.description}</p>
+                    <p className="text-sm text-secondary-500">Capacity: {solution.specs[0]} | Battery: {solution.specs[1]}</p>
+                  </div>
+                </motion.li>
+              ))}
+            </ul>
           </motion.div>
         </Container>
       </Section>

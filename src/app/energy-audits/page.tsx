@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { TrendingUp, BarChart3, Lightbulb, Calculator, CheckCircle, ArrowRight } from "lucide-react";
-import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
+import { Button, Section, Container } from "@/components";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -23,8 +23,10 @@ export default function EnergyAuditsPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[60vh] flex items-center">
-        <Container>
+      <Section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: 'url(/images/energyaudit.jpg)'}} />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
+        <Container className="relative z-10">
           <motion.div
             className="max-w-4xl mx-auto text-center"
             initial="initial"
@@ -81,129 +83,54 @@ export default function EnergyAuditsPage() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="max-w-4xl mx-auto"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={stagger}
           >
-            {[
-              {
-                icon: Calculator,
-                title: "Load Analysis",
-                description: "Detailed assessment of your energy consumption patterns, peak demands, and usage profiles to establish baseline metrics."
-              },
-              {
-                icon: TrendingUp,
-                title: "Solar Potential Study",
-                description: "Site-specific solar resource assessment, shading analysis, and technical feasibility for solar integration."
-              },
-              {
-                icon: BarChart3,
-                title: "ROI Calculations",
-                description: "Financial modeling including payback period, net present value, and lifetime savings projections for recommended measures."
-              },
-              {
-                icon: Lightbulb,
-                title: "Efficiency Recommendations",
-                description: "Actionable improvements for energy conservation, equipment upgrades, and operational optimization strategies."
-              },
-              {
-                icon: CheckCircle,
-                title: "Compliance Verification",
-                description: "Assessment against energy standards, regulations, and best practices to ensure compliance and eligibility for incentives."
-              },
-              {
-                icon: TrendingUp,
-                title: "Performance Tracking",
-                description: "Post-audit monitoring framework to measure savings and verify the impact of implemented recommendations."
-              }
-            ].map((service, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className="text-center h-full">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <service.icon className="w-6 h-6 text-primary-600" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-primary-900">{service.title}</h3>
-                  </CardHeader>
-                  <CardContent>
+            <ul className="space-y-4">
+              {[
+                {
+                  icon: Calculator,
+                  title: "Load Analysis",
+                  description: "Detailed assessment of your energy consumption patterns, peak demands, and usage profiles to establish baseline metrics."
+                },
+                {
+                  icon: TrendingUp,
+                  title: "Solar Potential Study",
+                  description: "Site-specific solar resource assessment, shading analysis, and technical feasibility for solar integration."
+                },
+                {
+                  icon: BarChart3,
+                  title: "ROI Calculations",
+                  description: "Financial modeling including payback period, net present value, and lifetime savings projections for recommended measures."
+                },
+                {
+                  icon: Lightbulb,
+                  title: "Efficiency Recommendations",
+                  description: "Actionable improvements for energy conservation, equipment upgrades, and operational optimization strategies."
+                },
+                {
+                  icon: CheckCircle,
+                  title: "Compliance Verification",
+                  description: "Assessment against energy standards, regulations, and best practices to ensure compliance and eligibility for incentives."
+                },
+                {
+                  icon: TrendingUp,
+                  title: "Performance Tracking",
+                  description: "Post-audit monitoring framework to measure savings and verify the impact of implemented recommendations."
+                }
+              ].map((service, index) => (
+                <motion.li key={index} variants={fadeInUp} className="flex items-start space-x-3">
+                  <service.icon className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-primary-900">{service.title}</h4>
                     <p className="text-secondary-600 text-sm">{service.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Process Section */}
-      <Section className="bg-secondary-50">
-        <Container>
-          <motion.div
-            className="text-center mb-12"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            <motion.h2
-              className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-4"
-              variants={fadeInUp}
-            >
-              Our Audit Process
-            </motion.h2>
-            <motion.p
-              className="text-lg text-secondary-600 max-w-2xl mx-auto"
-              variants={fadeInUp}
-            >
-              A systematic approach ensuring accurate data collection, thorough analysis, and actionable results
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            {[
-              {
-                step: "01",
-                title: "Initial Consultation",
-                description: "Understanding your energy goals, current challenges, and scope of assessment"
-              },
-              {
-                step: "02",
-                title: "Data Collection",
-                description: "On-site survey, equipment inventory, and energy meter data gathering"
-              },
-              {
-                step: "03",
-                title: "Analysis & Modeling",
-                description: "Detailed energy modeling, efficiency analysis, and savings calculations"
-              },
-              {
-                step: "04",
-                title: "Report & Recommendations",
-                description: "Comprehensive report with prioritized actions, costs, and expected returns"
-              }
-            ].map((process, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className="text-center h-full relative">
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                    {process.step}
                   </div>
-                  <CardHeader className="pt-8">
-                    <h3 className="text-lg font-semibold text-primary-900">{process.title}</h3>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-secondary-600 text-sm">{process.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                </motion.li>
+              ))}
+            </ul>
           </motion.div>
         </Container>
       </Section>
