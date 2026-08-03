@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Users, Award, BookOpen, ClipboardList, CheckCircle, ArrowRight } from "lucide-react";
-import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
+import { Users, CheckCircle, ArrowRight } from "lucide-react";
+import { Button, Section, Container } from "@/components";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -18,6 +18,15 @@ const stagger = {
     }
   }
 };
+
+const trainingItems = [
+  "Solar PV Systems Training",
+  "Hydrogeology Drilling",
+  "Energy Auditing",
+  "Safety & Compliance",
+  "Business Development",
+  "Custom Corporate Training"
+];
 
 export default function TrainingWorkshopsPage() {
   return (
@@ -40,7 +49,7 @@ export default function TrainingWorkshopsPage() {
               <Users className="w-10 h-10 text-primary-600" />
             </motion.div>
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6"
               variants={fadeInUp}
             >
               Training & Capacity Building
@@ -83,66 +92,20 @@ export default function TrainingWorkshopsPage() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="max-w-3xl mx-auto"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={stagger}
           >
-            {[
-              {
-                icon: BookOpen,
-                title: "Solar PV Systems Training",
-                description: "Comprehensive training on solar photovoltaic system design, installation, commissioning, and maintenance.",
-                duration: "5 days"
-              },
-              {
-                icon: ClipboardList,
-                title: "Hydrogeology Drilling",
-                description: "Practical training in borehole drilling techniques, pump installation, and water system management.",
-                duration: "7 days"
-              },
-              {
-                icon: Award,
-                title: "Energy Auditing",
-                description: "Learn to conduct thorough energy assessments, load analysis, and efficiency optimization studies.",
-                duration: "3 days"
-              },
-              {
-                icon: Users,
-                title: "Safety & Compliance",
-                description: "Electrical safety, regulatory compliance, and best practices for renewable energy installations.",
-                duration: "2 days"
-              },
-              {
-                icon: CheckCircle,
-                title: "Business Development",
-                description: "For entrepreneurs: starting and growing a successful renewable energy business in Ghana.",
-                duration: "3 days"
-              },
-              {
-                icon: BookOpen,
-                title: "Custom Corporate Training",
-                description: "Tailored training programs for organizations needing specific skill development for their teams.",
-                duration: "Custom"
-              }
-            ].map((training, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className="text-center h-full">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <training.icon className="w-6 h-6 text-primary-600" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-primary-900 mb-2">{training.title}</h3>
-                    <p className="text-xs text-secondary-500">Duration: {training.duration}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-secondary-600 text-sm mb-4">{training.description}</p>
-                    <Button variant="outline" size="sm">Learn More</Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            <ul className="space-y-4">
+              {trainingItems.map((item, index) => (
+                <motion.li key={index} variants={fadeInUp} className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-lg text-primary-900 font-medium">{item}</span>
+                </motion.li>
+              ))}
+            </ul>
           </motion.div>
         </Container>
       </Section>

@@ -107,10 +107,10 @@ export default function SolarSolutionsPage() {
                           {project.title}
                         </h3>
                         <Link href={`/projects/${project.slug}`}>
-                          <Button variant="gold" size="sm">
-                            View Projects
-                            <ArrowRight className="w-4 h-4 ml-1" />
-                          </Button>
+                           <Button variant="gold" size="sm">
+                             View Project
+                             <ArrowRight className="w-4 h-4 ml-1" />
+                           </Button>
                         </Link>
                      </div>
                    </div>

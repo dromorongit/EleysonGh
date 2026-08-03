@@ -6,6 +6,8 @@ export { Footer } from "./Footer";
 export { WhatsAppButton } from "./WhatsAppButton";
 export { Card, CardHeader, CardContent, CardFooter } from "./Card";
 export { MediaGallery } from "./MediaGallery";
+export { MediaLightbox } from "./MediaLightbox";
+export { ProductGallery } from "./ProductGallery";
 export { EngineeringExcellence } from "./EngineeringExcellence";
 export { TrustedEngineeringAuthority } from "./TrustedEngineeringAuthority";
 export { MissionVision } from "./MissionVision";

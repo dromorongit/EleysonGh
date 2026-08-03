@@ -1,9 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Package, Sun, Zap, Battery, Settings, ArrowRight, Shield, Star, Truck, Headphones } from "lucide-react";
+import { Package, Shield, Star, Truck, Headphones, ArrowRight } from "lucide-react";
 import { Button, Section, Container, Card, CardHeader, CardContent } from "@/components";
-import { products } from "@/data/products";
 import Image from "next/image";
 
 const fadeInUp = {
@@ -20,14 +20,42 @@ const stagger = {
   }
 };
 
-export default function ProductsPage() {
-  const featuredProducts = products.filter(p => p.isFeatured);
+const categories = [
+  {
+    slug: "solar-panels",
+    title: "Solar Panels",
+    image: "/images/solarpanel.jpg"
+  },
+  {
+    slug: "inverters",
+    title: "Inverters",
+    image: "/images/inverter.jpg"
+  },
+  {
+    slug: "batteries",
+    title: "Batteries",
+    image: "/images/battery.jpg"
+  },
+  {
+    slug: "backup-systems",
+    title: "Backup Systems",
+    image: "/images/backup.jpg"
+  },
+  {
+    slug: "accessories",
+    title: "Accessories",
+    image: "/images/accessories.jpg"
+  }
+];
 
+export default function ProductsPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-primary-50 to-energy-50 min-h-[50vh] flex items-center">
-        <Container>
+      <Section className="relative min-h-[50vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: 'url(/images/accessories.jpg)'}} />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/40 to-transparent" />
+        <Container className="relative z-10">
           <motion.div
             className="max-w-4xl mx-auto text-center"
             initial="initial"
@@ -41,7 +69,7 @@ export default function ProductsPage() {
               <Package className="w-10 h-10 text-primary-600" />
             </motion.div>
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6"
               variants={fadeInUp}
             >
               Premium Engineering Products
@@ -82,111 +110,23 @@ export default function ProductsPage() {
             viewport={{ once: true }}
             variants={stagger}
           >
-            {[
-              {
-                icon: Sun,
-                title: "Solar Panels",
-                description: "High-efficiency photovoltaic panels for optimal energy production",
-                count: "50+ Models"
-              },
-              {
-                icon: Zap,
-                title: "Inverters",
-                description: "Advanced inverters for solar, hybrid, and backup power systems",
-                count: "30+ Models"
-              },
-              {
-                icon: Battery,
-                title: "Batteries",
-                description: "Lithium-ion and lead-acid battery storage solutions",
-                count: "20+ Models"
-              },
-              {
-                icon: Settings,
-                title: "Backup Systems",
-                description: "Complete backup power solutions and generators",
-                count: "15+ Systems"
-              },
-              {
-                icon: Package,
-                title: "Accessories",
-                description: "Cables, connectors, mounting systems, and components",
-                count: "100+ Items"
-              }
-            ].map((category, index) => (
+            {categories.map((category, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="text-center h-full hover:shadow-lg transition-all duration-200 cursor-pointer group">
-                  <CardHeader>
-                    <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-200 transition-colors">
-                      <category.icon className="w-8 h-8 text-primary-600" />
+                <Link href={`/products/${category.slug}`}>
+                  <Card className="text-center h-full hover:shadow-lg transition-all duration-200 cursor-pointer group overflow-hidden">
+                    <div className="aspect-[4/3] relative overflow-hidden">
+                      <Image
+                        src={category.image}
+                        alt={category.title}
+                        fill
+                        className="object-contain group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
-                    <h3 className="text-xl font-semibold text-primary-900 mb-2">{category.title}</h3>
-                    <p className="text-secondary-600 text-sm mb-4">{category.description}</p>
-                    <span className="text-xs font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
-                      {category.count}
-                    </span>
-                  </CardHeader>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Featured Products */}
-      <Section className="bg-secondary-50">
-        <Container>
-          <motion.div
-            className="text-center mb-12"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            <motion.h2
-              className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-4"
-              variants={fadeInUp}
-            >
-              Featured Products
-            </motion.h2>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            {featuredProducts.map((product, index) => (
-              <motion.div key={product.slug} variants={fadeInUp}>
-                <Card className="h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                  <div className="aspect-video rounded-t-lg relative overflow-hidden">
-                    <Image
-                      src={product.images[0] || '/images/products.jpg'}
-                      alt={product.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-gold bg-gold/10 px-2 py-1 rounded">
-                        {product.category}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-primary-900 mb-2">
-                      {product.name}
-                    </h3>
-                    <p className="text-secondary-600 text-sm mb-4">{product.shortDescription}</p>
-                    <p className="text-gold font-medium">{product.priceOptional || "Contact for pricing"}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <Button variant="gold" className="w-full group-hover:scale-105 transition-transform">
-                      Make Inquiry
-                    </Button>
-                  </CardContent>
-                </Card>
+                    <CardHeader>
+                      <h3 className="text-xl font-semibold text-primary-900">{category.title}</h3>
+                    </CardHeader>
+                  </Card>
+                </Link>
               </motion.div>
             ))}
           </motion.div>

@@ -40,7 +40,7 @@ export default function MaintenanceSupportPage() {
               <Shield className="w-10 h-10 text-primary-600" />
             </motion.div>
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-900 mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6"
               variants={fadeInUp}
             >
               Maintenance & Technical Support
