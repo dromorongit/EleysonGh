@@ -65,14 +65,14 @@ export function Header() {
       {/* Desktop Two-Column Layout */}
       <div className="hidden lg:flex">
         {/* Left: Logo Column */}
-        <div className="w-64 xl:w-80 flex-shrink-0 bg-white flex items-center justify-center">
-          <Link href="/" className="flex items-center justify-center p-6 lg:p-8" aria-label="Eleyson Ghana Limited - Home">
+        <div className="w-52 xl:w-64 flex-shrink-0 bg-white flex items-center justify-center">
+          <Link href="/" className="flex items-center justify-center p-3 lg:p-4" aria-label="Eleyson Ghana Limited - Home">
             <Image
               src="/images/eleysonlogo.jpg"
               alt="Eleyson Ghana Limited logo"
               width={180}
               height={180}
-              className="max-h-[130px] lg:max-h-[180px] xl:max-h-[200px] w-auto object-contain"
+              className="max-h-[80px] lg:max-h-[110px] xl:max-h-[130px] w-auto object-contain"
               priority
             />
           </Link>
@@ -140,7 +140,7 @@ export function Header() {
           </div>
 
           {/* Main Navigation Row */}
-          <div className="flex items-center h-24 px-6 xl:px-8">
+          <div className="flex items-center h-14 px-6 xl:px-8">
             {/* Desktop Navigation */}
             <nav className="flex items-center space-x-1 xl:space-x-2" role="navigation" aria-label="Main navigation">
               {navigation.map((item) => (

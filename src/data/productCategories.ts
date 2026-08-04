@@ -19,25 +19,25 @@ export const productCategories: ProductCategory[] = [
     title: "Solar Panels",
     products: [
       { name: "Solar Panel", image: "/images/solarpanel.jpg" },
-      { name: "Solar Panel", image: "/images/solarpanel1.jpg" },
-      { name: "Solar Panel", image: "/images/solarpanel2.jpg" },
+      { name: "Poly Crystalline Solar Panel", image: "/images/solarpanel1.jpg" },
+      { name: "Mono Crystalline Solar Panel", image: "/images/solarpanel2.jpg" },
     ],
   },
   {
     slug: "inverters",
     title: "Inverters",
     products: [
-      { name: "Inverter", image: "/images/inverter.jpg" },
-      { name: "Inverter", image: "/images/inverter1.jpg" },
+      { name: "Hybrid Inverter", image: "/images/inverter.jpg" },
+      { name: "Off Grid Inverter", image: "/images/inverter1.jpg" },
     ],
   },
   {
     slug: "batteries",
     title: "Batteries",
     products: [
-      { name: "Battery", image: "/images/battery.jpg" },
-      { name: "Battery", image: "/images/battery1.jpg" },
-      { name: "Battery", image: "/images/battery2.jpg" },
+      { name: "Wall Mounted Lithium Ion Battery", image: "/images/battery.jpg" },
+      { name: "Lithium Ion Battery", image: "/images/battery1.jpg" },
+      { name: "Gel Battery", image: "/images/battery2.jpg" },
     ],
   },
   {
