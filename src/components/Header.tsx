@@ -51,6 +51,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const showMobileActionButtons = false;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -264,25 +265,27 @@ export function Header() {
                   )}
                 </div>
               ))}
-              <div className="pt-4 border-t border-gold/20 space-y-3">
-                <a href="tel:+233244973788" aria-label="Call us">
-                  <Button variant="outline" className="w-full justify-center">
-                    <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
-                    Call Now
-                  </Button>
-                </a>
-                <a href="https://wa.me/233244973788" target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full justify-center">
-                    <FaWhatsapp className="w-4 h-4 mr-2" aria-hidden="true" />
-                    WhatsApp
-                  </Button>
-                </a>
-                <Link href="/request-a-quote">
-                  <Button variant="gold" className="w-full justify-center">
-                    Request Quote
-                  </Button>
-                </Link>
-              </div>
+              {showMobileActionButtons && (
+                <div className="pt-4 border-t border-gold/20 space-y-3">
+                  <a href="tel:+233244973788" aria-label="Call us">
+                    <Button variant="outline" className="w-full justify-center">
+                      <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
+                      Call Now
+                    </Button>
+                  </a>
+                  <a href="https://wa.me/233244973788" target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full justify-center">
+                      <FaWhatsapp className="w-4 h-4 mr-2" aria-hidden="true" />
+                      WhatsApp
+                    </Button>
+                  </a>
+                  <Link href="/request-a-quote">
+                    <Button variant="gold" className="w-full justify-center">
+                      Request Quote
+                    </Button>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         )}
