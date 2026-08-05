@@ -191,7 +191,7 @@ export default function AboutPage() {
                 credentials: "B(Tech) Renewable Energy Systems Engineering, MSc. Energy & Sustainable Management, Licensed Professional Engineer. 15+ years experience"
               },
               {
-                name: "Felix Tetteh",
+                 name: "Engr. Felix Tetteh",
                 role: "Head of Operations",
                 credentials: "B(Tech) Renewable Energy Systems Engineering, HND Electrical Electronics Engineering, Certified Electrical Wiring Professional. 7+ years experience."
               }
