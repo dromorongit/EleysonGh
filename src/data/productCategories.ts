@@ -45,7 +45,7 @@ export const productCategories: ProductCategory[] = [
     title: "Accessories",
     products: [
       { name: "PV Combiner", image: "/images/pvcombiner.jpg" },
-      { name: "MC4 Connector", image: "/images/MC4connector.jpg" },
+      { name: "MC4 Connector", image: "/images/mc4connector.jpg" },
       { name: "PV Cables", image: "/images/pvcable1.jpg" },
       { name: "2P AC Breaker", image: "/images/2pacbreaker.jpg" },
       { name: "4 Pole AC Breaker", image: "/images/4pacbreaker.jpg" },
