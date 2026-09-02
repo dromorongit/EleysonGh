@@ -5,6 +5,7 @@ import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTiktok } from "react-icons/fa
 import { FaXTwitter } from "react-icons/fa6";
 import { Button } from "./Button";
 import { Container } from "./Container";
+import { DeveloperCredits } from "./DeveloperCredits";
 
 export function Footer() {
   return (
@@ -169,6 +170,7 @@ export function Footer() {
             <p className="text-white/70 text-sm">
               © 2026 Eleyson Ghana Limited. All rights reserved.
             </p>
+            <DeveloperCredits />
             <div className="flex space-x-6 text-sm">
               <Link href="/privacy" className="text-white/70 hover:text-gold transition-colors">
                 Privacy Policy
