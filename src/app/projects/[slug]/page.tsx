@@ -1,21 +1,11 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button, Section, Container, MediaGallery } from "@/components";
-import { getProjectBySlug } from "@/data/projects";
+import { projects, getProjectBySlug } from "@/data/projects";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  const projectSlugs = [
-    'solar-residential-installation-at-sunyani',
-    'solar-residential-installation-at-kpong',
-    'geophysics-survey-borehole-drilling-pump-installation',
-    'geophysics-survey-borehole-drilling-pump-installation-obourtumpah',
-    'geophysics-survey-borehole-drilling-pump-installation-koforidua',
-    'solar-residential-installation-at-dansoman',
-    'solar-residential-installation-at-pantang-backup-solution',
-    'solar-residential-installation-at-dome',
-  ];
-  return projectSlugs.map((slug) => ({ slug }));
+  return projects.map((project) => ({ slug: project.slug }));
 }
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -60,6 +50,56 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </Container>
         </div>
       </Section>
+
+      {/* Project Narrative */}
+      {(project.fullDescription || project.challenge || project.solution || project.impact) && (
+        <Section className="bg-gray-50">
+          <Container>
+            <div className="max-w-4xl mx-auto space-y-12">
+              {project.fullDescription && (
+                <div>
+                  <h2 className="text-3xl font-serif font-bold text-primary-900 mb-4">
+                    About this project
+                  </h2>
+                  <p className="text-secondary-700 leading-relaxed text-lg">
+                    {project.fullDescription}
+                  </p>
+                </div>
+              )}
+              {project.challenge && (
+                <div>
+                  <h3 className="text-2xl font-serif font-bold text-primary-900 mb-4">
+                    The Challenge
+                  </h3>
+                  <p className="text-secondary-700 leading-relaxed">
+                    {project.challenge}
+                  </p>
+                </div>
+              )}
+              {project.solution && (
+                <div>
+                  <h3 className="text-2xl font-serif font-bold text-primary-900 mb-4">
+                    Our Solution
+                  </h3>
+                  <p className="text-secondary-700 leading-relaxed">
+                    {project.solution}
+                  </p>
+                </div>
+              )}
+              {project.impact && (
+                <div>
+                  <h3 className="text-2xl font-serif font-bold text-primary-900 mb-4">
+                    The Impact
+                  </h3>
+                  <p className="text-secondary-700 leading-relaxed">
+                    {project.impact}
+                  </p>
+                </div>
+              )}
+            </div>
+          </Container>
+        </Section>
+      )}
 
       {/* Gallery & Specs */}
       <Section>
