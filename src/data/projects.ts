@@ -268,7 +268,7 @@ export const projects: Project[] = [
     fullDescription: 'This substantial residential solar installation in Dome delivers a powerful and reliable energy solution for a large household. The 10kWp solar array, paired with a 10kVA hybrid inverter and a 19.2kWh lithium battery, provides comprehensive coverage of the home\'s energy needs — from essential lighting and appliances to high-demand comfort loads such as air conditioning. The system intelligently manages power flow between solar, battery, and grid, automatically switching to battery backup within milliseconds of a grid failure. During sunny periods, excess solar energy charges the battery and feeds back into the home\'s loads, significantly reducing grid dependence and electricity costs. This project highlights our ability to scale residential solar solutions to meet the demands of larger homes seeking both cost savings and energy resilience.',
   },
   {
-    title: 'Hydrogeological Survey, Borehole Drilling and Construction, Pump Installation and Pre-Commissioning Test',
+    title: 'Abokobi Borehole Project: Hydrogeological Survey, Drilling, Pump Installation and Pre-Commissioning Test',
     slug: 'hydrogeological-survey-borehole-drilling-pump-installation-abokobi',
     category: 'Borehole',
     location: 'Abokobi, Greater Accra',
@@ -287,7 +287,7 @@ export const projects: Project[] = [
     isFeatured: false,
   },
   {
-    title: 'Hydrogeological Survey, Borehole Drilling and Construction, Pump Installation and Pre-Commissioning Test',
+    title: 'Ashongman Estate Borehole Project: Hydrogeological Survey, Drilling, Pump Installation and Pre-Commissioning Test',
     slug: 'hydrogeological-survey-borehole-drilling-pump-installation-ashongman-estate',
     category: 'Borehole',
     location: 'Ashongman Estate, Greater Accra',
@@ -309,7 +309,7 @@ export const projects: Project[] = [
     isFeatured: false,
   },
   {
-    title: 'Hydrogeological Survey, Borehole Drilling and Construction, Pump Installation and Pre-Commissioning Test',
+    title: 'Oyarifa Gravel Pit Borehole Project: Hydrogeological Survey, Drilling, Pump Installation and Pre-Commissioning Test',
     slug: 'hydrogeological-survey-borehole-drilling-pump-installation-oyarifa-gravel-pit',
     category: 'Borehole',
     location: 'Oyarifa Gravel Pit, Greater Accra',
@@ -328,7 +328,7 @@ export const projects: Project[] = [
     isFeatured: false,
   },
   {
-    title: 'Hydrogeological Survey, Borehole Drilling and Construction, Solar Pump Installation and Pre-Commissioning Test',
+    title: 'Ashaleey Annan Solar Borehole Project: Hydrogeological Survey, Drilling, Solar Pump Installation and Pre-Commissioning Test',
     slug: 'hydrogeological-survey-borehole-drilling-solar-pump-installation-ashaleey-annan',
     category: 'Borehole',
     location: 'Ashaleey Annan, Greater Accra',
