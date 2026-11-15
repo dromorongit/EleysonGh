@@ -193,7 +193,7 @@ export default function AboutPage() {
               {
                  name: "Engr. Felix Tetteh",
                 role: "Head of Operations",
-                credentials: "B(Tech) Renewable Energy Systems Engineering, HND Electrical Electronics Engineering, Certified Electrical Wiring Professional. 7+ years experience."
+                credentials: "B(Tech) Renewable Energy Systems Engineering, HND Electrical Electronics Engineering, Licensed Professional Engineer, Certified Electrical Wiring Professional. 7+ years experience."
               }
             ].map((leader, index) => (
               <motion.div key={index} variants={fadeInUp}>
